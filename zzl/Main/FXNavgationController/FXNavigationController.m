@@ -8,11 +8,11 @@
 
 #import "FXNavigationController.h"
 #import "UIImage+DYGAdd.h"
-#import "FXHomeViewController.h"
+#import "LSJHomeViewController.h"
 #import "FXSelfViewController.h"
 #import "FXGameWaitController.h"
-#import "FXLoginHomeController.h"
-#import "FXLoginController.h"
+#import "LSJLoginController.h"
+#import "LSJPhoneLoginViewController.h"
 @interface FXNavigationController ()<UIGestureRecognizerDelegate,UINavigationControllerDelegate>
 
 @end
@@ -23,8 +23,8 @@
     [super viewDidLoad];
     self.delegate = self;
     [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:19],NSForegroundColorAttributeName : DYGColorFromHex(0xeabe29)}];
-    [self.navigationBar setBackgroundImage:[UIColor whiteColor].colorImage forBarMetrics:UIBarMetricsDefault];
-    self.navigationBar.backgroundColor = [UIColor whiteColor];
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"home_nav"] forBarMetrics:UIBarMetricsDefault];
+//    self.navigationBar.backgroundColor = [UIColor whiteColor];
     self.navigationBar.tintColor = DYGColorFromHex(0xeabe29);
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     //开启右滑返回功能
@@ -60,7 +60,7 @@
 }
 
 -(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    if ([viewController isKindOfClass:[FXHomeViewController class]] || [viewController isKindOfClass:[FXSelfViewController class]] || [viewController isKindOfClass:[FXGameWaitController class]] || [viewController isKindOfClass:[FXLoginHomeController class]] || [viewController isKindOfClass:[FXLoginController class]]) {
+    if ([viewController isKindOfClass:[LSJHomeViewController class]] || [viewController isKindOfClass:[FXSelfViewController class]] || [viewController isKindOfClass:[FXGameWaitController class]] || [viewController isKindOfClass:[LSJLoginController class]] || [viewController isKindOfClass:[LSJPhoneLoginViewController class]]) {
         [self setNavigationBarHidden:YES animated:YES];
     }else{
         [self setNavigationBarHidden:NO animated:YES];

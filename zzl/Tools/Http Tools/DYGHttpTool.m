@@ -16,7 +16,7 @@ static AFHTTPSessionManager * mgr;
 
 +(void)getWithURL:(NSString *)url params:(NSDictionary *)params sucess:(void (^)(id))sucess failure:(void (^)(NSError *))failure{
     
-    NSString * baseUrl =@"http://openapi.wawa.zhuazhuale.xin/";
+    NSString * baseUrl =@"http://api.wawa.lkmai.com/";
     url = [baseUrl stringByAppendingString:url];
 //    NSString * endUrl = [DYGGetUrl connectUrl:[self encryptSign:params].mutableCopy url:url];
     
@@ -39,7 +39,7 @@ static AFHTTPSessionManager * mgr;
 
 +(void)postWithURL:(NSString *)url params:(NSDictionary *)params sucess:(void (^)(id))sucess failure:(void (^)(NSError *))failure{
     
-    NSString * baseUrl =@"http://openapi.wawa.zhuazhuale.xin/";
+    NSString * baseUrl =@"http://api.wawa.lkmai.com/";
     url = [baseUrl stringByAppendingString:url];
     mgr = [AFHTTPSessionManager manager];
 //    [mgr.requestSerializer

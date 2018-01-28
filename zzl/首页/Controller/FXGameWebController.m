@@ -40,16 +40,16 @@
     self.title = self.item.title;
     if (self.item) {
         if ([self.item.banner_type isEqualToString:@"2"]) {//分享
-            self.item.href = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/share",KUID];
+            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/share",KUID];
         }
         if ([self.item.banner_type isEqualToString:@"5"]) {//大转盘
             _isChristmasList = YES;
-            self.item.href = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/turntable",KUID];
+            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/turntable",KUID];
         }
         if ([self.item.banner_type isEqualToString:@"6"]) {//冲榜
-            self.item.href = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/christmasList",KUID];
+            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/christmasList",KUID];
         }
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.item.href]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.item.openUrl]];
         [self.webView loadRequest:request];
         [self.view addSubview:self.webView];
     }else{
@@ -160,8 +160,8 @@
         [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
             NSDictionary *dic = (NSDictionary *)json;
             if ([dic[@"code"] integerValue] == 200) {
-                self.item.href = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/turntable",KUID];
-                NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.item.href]];
+                self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/turntable",KUID];
+                NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.item.openUrl]];
                 [self.webView loadRequest:request];
             }
         } failure:^(NSError *error) {

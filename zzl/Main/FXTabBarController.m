@@ -8,7 +8,7 @@
 
 #import "FXTabBarController.h"
 #import "FXNavigationController.h"
-#import "FXHomeViewController.h"
+#import "LSJHomeViewController.h"
 #import "FXSelfViewController.h"
 #import "DYGCustomTabbar.h"
 #import "FXGameWaitController.h"
@@ -70,7 +70,7 @@
 
 -(void)choiseTabbar{
     self.childControllers =@[
-                         @{@"ChildController":@"FXHomeViewController",@"title":@"",@"imageName":@"home"},
+                         @{@"ChildController":@"LSJHomeViewController",@"title":@"",@"imageName":@"home"},
                          @{@"ChildController":@"FXSelfViewController",@"title":@"",@"imageName":@"me"},
                              ];
 }

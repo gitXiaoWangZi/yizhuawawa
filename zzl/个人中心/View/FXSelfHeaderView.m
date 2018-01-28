@@ -115,11 +115,11 @@
 
 - (void)setItem:(AccountItem *)item {
     _item = item;
-    [_iconImg sd_setImageWithURL:[NSURL URLWithString:item.img_path] placeholderImage:nil];
-    _name.text = item.username;
-    _ID.text = [NSString stringWithFormat:@"我的ID:%@",item.ID];
+    [_iconImg sd_setImageWithURL:[NSURL URLWithString:item.portrait] placeholderImage:nil];
+    _name.text = item.nickname;
+    _ID.text = [NSString stringWithFormat:@"我的ID:%@",item.uid];
     FXTouchView *touchV = [self viewWithTag:2];
-    touchV.num.text = item.money;
+    touchV.num.text = item.rich.coin;
 }
 
 @end

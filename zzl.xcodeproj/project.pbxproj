@@ -15,8 +15,6 @@
 		9217B54E1FC423B700B506EB /* DYGHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9217B54B1FC423B700B506EB /* DYGHttpTool.m */; };
 		9217B5511FC42AB900B506EB /* DYGEnCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9217B54F1FC42AB900B506EB /* DYGEnCode.m */; };
 		9217B5541FC4542E00B506EB /* AccountItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9217B5531FC4542E00B506EB /* AccountItem.m */; };
-		923820B11FD1364300D58B07 /* FXLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 923820B01FD1364300D58B07 /* FXLoginController.m */; };
-		923820B51FD1489600D58B07 /* importdribbble.gif in Resources */ = {isa = PBXBuildFile; fileRef = 923820B21FD1471700D58B07 /* importdribbble.gif */; };
 		923820BA1FD172B300D58B07 /* LSJHasNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 923820B91FD172B300D58B07 /* LSJHasNetwork.m */; };
 		924855011FE3D69500CC8B00 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924855001FE3D69500CC8B00 /* QuartzCore.framework */; };
 		924855031FE3D6AA00CC8B00 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924855021FE3D6AA00CC8B00 /* CoreText.framework */; };
@@ -46,7 +44,6 @@
 		9248B6F11FB42E0100633CDA /* 投币.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9248B6EA1FB42E0100633CDA /* 投币.wav */; };
 		9248B6F21FB42E0100633CDA /* 机械1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9248B6EB1FB42E0100633CDA /* 机械1.wav */; };
 		9248B6F31FB42E0100633CDA /* 胜利1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9248B6EC1FB42E0100633CDA /* 胜利1.mp3 */; };
-		9248B6F81FB576C900633CDA /* FXLoginHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248B6F71FB576C900633CDA /* FXLoginHomeController.m */; };
 		9248B6FE1FB5A46700633CDA /* FXLoginPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248B6FD1FB5A46700633CDA /* FXLoginPopView.m */; };
 		9248B7011FBA855A00633CDA /* FXTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248B7001FBA855A00633CDA /* FXTaskViewController.m */; };
 		9248B7041FBA8B0C00633CDA /* FXTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248B7031FBA8B0B00633CDA /* FXTaskCell.m */; };
@@ -77,7 +74,6 @@
 		9260ABD41FA73AE200EA1881 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9260ABD31FA73AE200EA1881 /* main.m */; };
 		92679FC41FA743CB0058AA70 /* FXTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92679FC31FA743CB0058AA70 /* FXTabBarController.m */; };
 		92679FC91FA744570058AA70 /* FXNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92679FC81FA744570058AA70 /* FXNavigationController.m */; };
-		92679FCC1FA745A40058AA70 /* FXHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92679FCB1FA745A40058AA70 /* FXHomeViewController.m */; };
 		92679FCF1FA745D70058AA70 /* FXSelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92679FCE1FA745D70058AA70 /* FXSelfViewController.m */; };
 		92679FD21FA748360058AA70 /* DYGCustomTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 92679FD11FA748360058AA70 /* DYGCustomTabbar.m */; };
 		92679FDD1FA7530D0058AA70 /* UIView+DYGAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 92679FDC1FA7530D0058AA70 /* UIView+DYGAdd.m */; };
@@ -145,6 +141,14 @@
 		928EC8391FB1BF570072C68B /* ZXContactInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 928EC8371FB1BF570072C68B /* ZXContactInfo.m */; };
 		929EC8321FD27E2B0008FE14 /* FXMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 929EC8311FD27E2B0008FE14 /* FXMineHeaderView.m */; };
 		92A3138F1FC51B0700296171 /* FXHomeBannerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A3138E1FC51B0700296171 /* FXHomeBannerItem.m */; };
+		92ACF6F0201D69640049F22A /* QMXingXiuHeaderReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF6EF201D69640049F22A /* QMXingXiuHeaderReusableView.m */; };
+		92ACF6F4201D6AA10049F22A /* ZXLatestLiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF6F2201D6AA10049F22A /* ZXLatestLiveCell.m */; };
+		92ACF6F5201D6AA10049F22A /* ZXLatestLiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92ACF6F3201D6AA10049F22A /* ZXLatestLiveCell.xib */; };
+		92ACF6F8201D6B290049F22A /* LSJHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF6F7201D6B290049F22A /* LSJHomeViewController.m */; };
+		92ACF6FC201D98900049F22A /* LSJLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF6FA201D98900049F22A /* LSJLoginController.m */; };
+		92ACF6FD201D98900049F22A /* LSJLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92ACF6FB201D98900049F22A /* LSJLoginController.xib */; };
+		92ACF701201D98AA0049F22A /* LSJPhoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF6FF201D98AA0049F22A /* LSJPhoneLoginViewController.m */; };
+		92ACF702201D98AA0049F22A /* LSJPhoneLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92ACF700201D98AA0049F22A /* LSJPhoneLoginViewController.xib */; };
 		92B573FD1FD9370100B32C02 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B573FC1FD9370000B32C02 /* UMMobClick.framework */; };
 		92B573FE1FD9377E00B32C02 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D99A921FD925DD00CDEDC4 /* CoreTelephony.framework */; };
 		92B574011FD937CD00B32C02 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B574001FD937CD00B32C02 /* UMMobClick.framework */; };
@@ -235,9 +239,6 @@
 		9217B5501FC42AB900B506EB /* DYGEnCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYGEnCode.h; sourceTree = "<group>"; };
 		9217B5521FC4542E00B506EB /* AccountItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountItem.h; sourceTree = "<group>"; };
 		9217B5531FC4542E00B506EB /* AccountItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountItem.m; sourceTree = "<group>"; };
-		923820AF1FD1364300D58B07 /* FXLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXLoginController.h; sourceTree = "<group>"; };
-		923820B01FD1364300D58B07 /* FXLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXLoginController.m; sourceTree = "<group>"; };
-		923820B21FD1471700D58B07 /* importdribbble.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = importdribbble.gif; sourceTree = "<group>"; };
 		923820B81FD172B300D58B07 /* LSJHasNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSJHasNetwork.h; sourceTree = "<group>"; };
 		923820B91FD172B300D58B07 /* LSJHasNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSJHasNetwork.m; sourceTree = "<group>"; };
 		924855001FE3D69500CC8B00 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -285,8 +286,6 @@
 		9248B6EA1FB42E0100633CDA /* 投币.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "投币.wav"; sourceTree = "<group>"; };
 		9248B6EB1FB42E0100633CDA /* 机械1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "机械1.wav"; sourceTree = "<group>"; };
 		9248B6EC1FB42E0100633CDA /* 胜利1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "胜利1.mp3"; sourceTree = "<group>"; };
-		9248B6F61FB576C900633CDA /* FXLoginHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXLoginHomeController.h; sourceTree = "<group>"; };
-		9248B6F71FB576C900633CDA /* FXLoginHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXLoginHomeController.m; sourceTree = "<group>"; };
 		9248B6FC1FB5A46700633CDA /* FXLoginPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXLoginPopView.h; sourceTree = "<group>"; };
 		9248B6FD1FB5A46700633CDA /* FXLoginPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXLoginPopView.m; sourceTree = "<group>"; };
 		9248B6FF1FBA855900633CDA /* FXTaskViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXTaskViewController.h; sourceTree = "<group>"; };
@@ -350,8 +349,6 @@
 		92679FC31FA743CB0058AA70 /* FXTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FXTabBarController.m; path = zzl/Main/FXTabBarController.m; sourceTree = SOURCE_ROOT; };
 		92679FC71FA744570058AA70 /* FXNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXNavigationController.h; sourceTree = "<group>"; };
 		92679FC81FA744570058AA70 /* FXNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXNavigationController.m; sourceTree = "<group>"; };
-		92679FCA1FA745A40058AA70 /* FXHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXHomeViewController.h; sourceTree = "<group>"; };
-		92679FCB1FA745A40058AA70 /* FXHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXHomeViewController.m; sourceTree = "<group>"; };
 		92679FCD1FA745D70058AA70 /* FXSelfViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXSelfViewController.h; sourceTree = "<group>"; };
 		92679FCE1FA745D70058AA70 /* FXSelfViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXSelfViewController.m; sourceTree = "<group>"; };
 		92679FD01FA748360058AA70 /* DYGCustomTabbar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYGCustomTabbar.h; sourceTree = "<group>"; };
@@ -474,6 +471,19 @@
 		929EC8311FD27E2B0008FE14 /* FXMineHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXMineHeaderView.m; sourceTree = "<group>"; };
 		92A3138D1FC51B0700296171 /* FXHomeBannerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXHomeBannerItem.h; sourceTree = "<group>"; };
 		92A3138E1FC51B0700296171 /* FXHomeBannerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXHomeBannerItem.m; sourceTree = "<group>"; };
+		92ACF6EE201D69640049F22A /* QMXingXiuHeaderReusableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMXingXiuHeaderReusableView.h; sourceTree = "<group>"; };
+		92ACF6EF201D69640049F22A /* QMXingXiuHeaderReusableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMXingXiuHeaderReusableView.m; sourceTree = "<group>"; };
+		92ACF6F1201D6AA10049F22A /* ZXLatestLiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXLatestLiveCell.h; sourceTree = "<group>"; };
+		92ACF6F2201D6AA10049F22A /* ZXLatestLiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXLatestLiveCell.m; sourceTree = "<group>"; };
+		92ACF6F3201D6AA10049F22A /* ZXLatestLiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXLatestLiveCell.xib; sourceTree = "<group>"; };
+		92ACF6F6201D6B290049F22A /* LSJHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSJHomeViewController.h; sourceTree = "<group>"; };
+		92ACF6F7201D6B290049F22A /* LSJHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSJHomeViewController.m; sourceTree = "<group>"; };
+		92ACF6F9201D98900049F22A /* LSJLoginController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSJLoginController.h; sourceTree = "<group>"; };
+		92ACF6FA201D98900049F22A /* LSJLoginController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSJLoginController.m; sourceTree = "<group>"; };
+		92ACF6FB201D98900049F22A /* LSJLoginController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSJLoginController.xib; sourceTree = "<group>"; };
+		92ACF6FE201D98AA0049F22A /* LSJPhoneLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSJPhoneLoginViewController.h; sourceTree = "<group>"; };
+		92ACF6FF201D98AA0049F22A /* LSJPhoneLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSJPhoneLoginViewController.m; sourceTree = "<group>"; };
+		92ACF700201D98AA0049F22A /* LSJPhoneLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSJPhoneLoginViewController.xib; sourceTree = "<group>"; };
 		92B573FC1FD9370000B32C02 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = "zzl/Supporting Files/UMeng/UMMobClick.framework"; sourceTree = "<group>"; };
 		92B574001FD937CD00B32C02 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
 		92B574021FD955F400B32C02 /* zzl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zzl.entitlements; sourceTree = "<group>"; };
@@ -689,11 +699,12 @@
 		9248B6F91FB5A3E000633CDA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				923820B21FD1471700D58B07 /* importdribbble.gif */,
-				9248B6F61FB576C900633CDA /* FXLoginHomeController.h */,
-				9248B6F71FB576C900633CDA /* FXLoginHomeController.m */,
-				923820AF1FD1364300D58B07 /* FXLoginController.h */,
-				923820B01FD1364300D58B07 /* FXLoginController.m */,
+				92ACF6F9201D98900049F22A /* LSJLoginController.h */,
+				92ACF6FA201D98900049F22A /* LSJLoginController.m */,
+				92ACF6FB201D98900049F22A /* LSJLoginController.xib */,
+				92ACF6FE201D98AA0049F22A /* LSJPhoneLoginViewController.h */,
+				92ACF6FF201D98AA0049F22A /* LSJPhoneLoginViewController.m */,
+				92ACF700201D98AA0049F22A /* LSJPhoneLoginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -755,8 +766,8 @@
 		9260ABDB1FA73B2B00EA1881 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92679FCA1FA745A40058AA70 /* FXHomeViewController.h */,
-				92679FCB1FA745A40058AA70 /* FXHomeViewController.m */,
+				92ACF6F6201D6B290049F22A /* LSJHomeViewController.h */,
+				92ACF6F7201D6B290049F22A /* LSJHomeViewController.m */,
 				9267A0371FA9976B0058AA70 /* FXZZLViewController.h */,
 				9267A0381FA9976B0058AA70 /* FXZZLViewController.m */,
 				9267A04D1FAAB53D0058AA70 /* FXGameWaitController.h */,
@@ -829,6 +840,11 @@
 				92EF427F1FAC688400889B20 /* FXRechargeCell.m */,
 				92EF42811FAC79B900889B20 /* FXPriceCell.h */,
 				92EF42821FAC79B900889B20 /* FXPriceCell.m */,
+				92ACF6EE201D69640049F22A /* QMXingXiuHeaderReusableView.h */,
+				92ACF6EF201D69640049F22A /* QMXingXiuHeaderReusableView.m */,
+				92ACF6F1201D6AA10049F22A /* ZXLatestLiveCell.h */,
+				92ACF6F2201D6AA10049F22A /* ZXLatestLiveCell.m */,
+				92ACF6F3201D6AA10049F22A /* ZXLatestLiveCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1420,15 +1436,17 @@
 				92D99ABC1FD92D6D00CDEDC4 /* ShareSDKUI.bundle in Resources */,
 				928282691FC2FEE8001B3092 /* DYGPersonInfoTbCell.xib in Resources */,
 				9248B6ED1FB42E0100633CDA /* gameWait.mp3 in Resources */,
-				923820B51FD1489600D58B07 /* importdribbble.gif in Resources */,
+				92ACF6F5201D6AA10049F22A /* ZXLatestLiveCell.xib in Resources */,
 				928A8FA61FC7C9AB000B621E /* FXHomeLoginSuccessPopView.xib in Resources */,
 				9283496E1FC6F69D0012A2D1 /* FXHomeSignPopView.xib in Resources */,
 				92D99AB91FD92D6D00CDEDC4 /* ShareSDKConfigFile.bundle in Resources */,
 				928349621FC660C50012A2D1 /* FXOnlineIconCell.xib in Resources */,
+				92ACF702201D98AA0049F22A /* LSJPhoneLoginViewController.xib in Resources */,
 				92D99AC61FD92D6D00CDEDC4 /* ShareSDK.bundle in Resources */,
 				92D99AC51FD92D6D00CDEDC4 /* README.txt in Resources */,
 				9248B6F21FB42E0100633CDA /* 机械1.wav in Resources */,
 				928EC8231FB1818A0072C68B /* province_data.xml in Resources */,
+				92ACF6FD201D98900049F22A /* LSJLoginController.xib in Resources */,
 				92D723211FED0EB50031F7EB /* FXGameDetailContentView.xib in Resources */,
 				92D7231C1FED0E130031F7EB /* FXGameDetailViewController.xib in Resources */,
 			);
@@ -1499,7 +1517,6 @@
 				92D723241FEDE92F0031F7EB /* FXComplainReasonListViewController.m in Sources */,
 				92679FCF1FA745D70058AA70 /* FXSelfViewController.m in Sources */,
 				9267A0391FA9976B0058AA70 /* FXZZLViewController.m in Sources */,
-				9248B6F81FB576C900633CDA /* FXLoginHomeController.m in Sources */,
 				9267A01F1FA804160058AA70 /* NSArray+Log.m in Sources */,
 				9267A0361FA963B90058AA70 /* DYGStarRateView.m in Sources */,
 				9267A04F1FAAB53D0058AA70 /* FXGameWaitController.m in Sources */,
@@ -1532,11 +1549,12 @@
 				92EF42801FAC688400889B20 /* FXRechargeCell.m in Sources */,
 				9217B53B1FC40D3300B506EB /* NSData+Encryption.m in Sources */,
 				929EC8321FD27E2B0008FE14 /* FXMineHeaderView.m in Sources */,
-				923820B11FD1364300D58B07 /* FXLoginController.m in Sources */,
 				92D723161FECFC320031F7EB /* FXMinePageCell.m in Sources */,
+				92ACF6F0201D69640049F22A /* QMXingXiuHeaderReusableView.m in Sources */,
 				9248B6C51FB2F09400633CDA /* FXSettingViewController.m in Sources */,
 				924AEBE81FB063DD00E0DD8C /* FXBgView.m in Sources */,
 				9248B6B31FB2B74F00633CDA /* FXHistoryCell.m in Sources */,
+				92ACF6F8201D6B290049F22A /* LSJHomeViewController.m in Sources */,
 				9250B6011FEBA34F002C8CAA /* VisiteTools.m in Sources */,
 				928EC8331FB1B94C0072C68B /* DYGTextView.m in Sources */,
 				9217B54D1FC423B700B506EB /* DYGGetUrl.m in Sources */,
@@ -1554,12 +1572,14 @@
 				92570DBA1FAB4E9D00232AE0 /* FXCommentView.m in Sources */,
 				92570DE01FAB54AC00232AE0 /* NSString+DYGAdd.m in Sources */,
 				9267A06F1FAB20BF0058AA70 /* DYGPopDetailView.m in Sources */,
+				92ACF6FC201D98900049F22A /* LSJLoginController.m in Sources */,
 				9248B6D11FB32BE900633CDA /* FXHelpController.m in Sources */,
 				9267A0301FA805460058AA70 /* DYGTapGestureRecognizer.m in Sources */,
 				92744F421FC01B2800F8D42C /* FXLatesRecordModel.m in Sources */,
 				9248B6CB1FB309AA00633CDA /* FXNotificationController.m in Sources */,
 				928EC81F1FB1818A0072C68B /* MOFSDatePicker.m in Sources */,
 				9248B6D71FB32F2300633CDA /* DYGCollectionViewCell.m in Sources */,
+				92ACF6F4201D6AA10049F22A /* ZXLatestLiveCell.m in Sources */,
 				9267A0331FA8054E0058AA70 /* HRAdView.m in Sources */,
 				92EF42831FAC79B900889B20 /* FXPriceCell.m in Sources */,
 				924AEBE51FB063BA00E0DD8C /* FXAddressManageController.m in Sources */,
@@ -1583,7 +1603,6 @@
 				928EC8211FB1818A0072C68B /* MOFSPickerView.m in Sources */,
 				9267A0631FAABC090058AA70 /* FXOnlineView.m in Sources */,
 				928A90811FC81528000B621E /* FXGameResultView.m in Sources */,
-				92679FCC1FA745A40058AA70 /* FXHomeViewController.m in Sources */,
 				9260ABC61FA73AE200EA1881 /* AppDelegate.m in Sources */,
 				92679FC41FA743CB0058AA70 /* FXTabBarController.m in Sources */,
 				928EC82D1FB1AA800072C68B /* FXTFCell.m in Sources */,
@@ -1593,6 +1612,7 @@
 				92570DE51FAB54AC00232AE0 /* UIColor+DYGAdd.m in Sources */,
 				92570DD81FAB54AC00232AE0 /* NSBundle+DYGAdd.m in Sources */,
 				92C0479F1FCC0B3100636F15 /* FXRechargeRecordModel.m in Sources */,
+				92ACF701201D98AA0049F22A /* LSJPhoneLoginViewController.m in Sources */,
 				928349651FC6C07C0012A2D1 /* FXTaskModel.m in Sources */,
 				9248B7011FBA855A00633CDA /* FXTaskViewController.m in Sources */,
 				92EF427D1FAC630900889B20 /* FXRechargeHeader.m in Sources */,
@@ -1880,7 +1900,7 @@
 					"\"UIKit\"",
 					"-lxml2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2034,7 +2054,7 @@
 					"\"UIKit\"",
 					"-lxml2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

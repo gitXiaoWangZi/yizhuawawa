@@ -39,7 +39,7 @@
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.tableView];
     self.rHeader = [[FXRechargeHeader alloc]initWithFrame:CGRectMake(0, 0, Px(342), Py(158))];
-    self.rHeader.money.text = self.item.money;
+    self.rHeader.money.text = self.item.rich.coin;
     self.rHeader.backgroundColor = [UIColor whiteColor];
     self.tableView.tableHeaderView = self.rHeader;
     self.tableView.tableFooterView = [UIView new];

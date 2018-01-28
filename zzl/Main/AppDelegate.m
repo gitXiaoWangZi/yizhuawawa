@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "FXTabBarController.h"
-#import "FXLoginHomeController.h"
+#import "LSJHomeViewController.h"
+#import "LSJLoginController.h"
 #import "WelcomeViewController.h"
 #import "FXNavigationController.h"
 #import <JPUSHService.h>
@@ -100,23 +100,23 @@
     /*******向微信注册*********/
     [WXApi registerApp:WXAppID];
     
-    NSString *saveVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kBundleVersionKey];
-    NSString *currentVersion = [[NSBundle mainBundle] infoDictionary][kBundleVersionKey];
-    if ([currentVersion isEqualToString:saveVersion]) {
+//    NSString *saveVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kBundleVersionKey];
+//    NSString *currentVersion = [[NSBundle mainBundle] infoDictionary][kBundleVersionKey];
+//    if ([currentVersion isEqualToString:saveVersion]) {
         if (KisLogin) {
-            self.window.rootViewController = [FXTabBarController new];
+            self.window.rootViewController = [LSJHomeViewController new];
         }else{
-            FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:[FXLoginHomeController new]];
+            FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:[LSJLoginController new]];
             self.window.rootViewController = nav;
         }
-    }else{
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:KLoginStatus];
-        WelcomeViewController *welcome = [[WelcomeViewController alloc]init];
-        self.window.rootViewController = welcome;
-        //保存Version
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:kBundleVersionKey];
-    }
+//    }else{
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:KLoginStatus];
+//        WelcomeViewController *welcome = [[WelcomeViewController alloc]init];
+//        self.window.rootViewController = welcome;
+//        //保存Version
+//        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:kBundleVersionKey];
+//    }
     
     
     [self.window makeKeyAndVisible];

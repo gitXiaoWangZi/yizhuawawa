@@ -10,7 +10,7 @@
 
 #import "FXTabBarController.h"
 #import "FXNavigationController.h"
-#import "FXLoginHomeController.h"
+#import "LSJLoginController.h"
 
 #define kPage 3
 
@@ -70,14 +70,14 @@
 }
 
 - (void)startImgClicked:(UITapGestureRecognizer *)tap{
-    FXLoginHomeController *logInVC = [[FXLoginHomeController alloc]init];
+    LSJLoginController *logInVC = [[LSJLoginController alloc]init];
     FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:logInVC];
     self.view.window.rootViewController = nav;
 }
 
 - (void)startBtnClicked:(UIButton *)sender
 {
-    FXLoginHomeController *logInVC = [[FXLoginHomeController alloc]init];
+    LSJLoginController *logInVC = [[LSJLoginController alloc]init];
     FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:logInVC];
     self.view.window.rootViewController = nav;
 }

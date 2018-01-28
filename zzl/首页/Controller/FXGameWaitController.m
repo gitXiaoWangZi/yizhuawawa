@@ -18,7 +18,7 @@
 #import "FXCommentView.h"
 #import "FXRechargeViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import "FXLoginHomeController.h"
+#import "LSJLoginController.h"
 #import "ZYPlayOperationView.h"
 #import "ZYCountDownView.h"
 #import "FXLatesRecordModel.h"//最近抓中数据模型
@@ -167,7 +167,7 @@
         NSDictionary *dic = (NSDictionary *)json;
         if ([dic[@"code"] intValue] == 200) {
             AccountItem *item = [AccountItem mj_objectWithKeyValues:dic[@"data"][0]];
-            self.onlineView.balance.text = [NSString stringWithFormat:@"我的钻石:%@",item.money];
+            self.onlineView.balance.text = [NSString stringWithFormat:@"我的钻石:%@",item.rich.coin];
         }
     } failure:^(NSError *error) {
         

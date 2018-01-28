@@ -67,7 +67,7 @@
             }];
             imageV.contentMode = UIViewContentModeScaleAspectFill;
             imageV.clipsToBounds = YES;
-            [imageV sd_setImageWithURL:[NSURL URLWithString:_item.img_path] placeholderImage:[UIImage imageNamed:@"invite"]];
+            [imageV sd_setImageWithURL:[NSURL URLWithString:_item.portrait] placeholderImage:[UIImage imageNamed:@"invite"]];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -221,7 +221,7 @@
         if ([dic[@"code"] integerValue] == 200) {
             cell.detailTextLabel.text =alterV.textFields.lastObject.text;
             if ([title isEqualToString:@"昵称"]) {
-                _item.username = alterV.textFields.lastObject.text;
+                _item.nickname = alterV.textFields.lastObject.text;
                 NSMutableDictionary *userIngoDic = [[[NSUserDefaults standardUserDefaults] objectForKey:@"KWAWAUSER"] mutableCopy];
                 [userIngoDic setValue:alterV.textFields.lastObject.text forKey:@"name"];
                 [[NSUserDefaults standardUserDefaults] setObject:userIngoDic forKey:@"KWAWAUSER"];
@@ -357,7 +357,7 @@
         NSDictionary *dic = (NSDictionary *)json;
         if ([dic[@"code"] intValue] == 200) {
             _item = [AccountItem mj_objectWithKeyValues:dic[@"data"][0]];
-            self.dataArr = @[@"",_item.username,_item.ID,_item.sex,_item.age,_item.emotion,_item.profession];
+            self.dataArr = @[@"",_item.nickname,_item.uid,_item.gender,_item.birth,_item.emotion,_item.profession];
             [self.view addSubview:self.tableView];
             [self.tableView reloadData];
         }

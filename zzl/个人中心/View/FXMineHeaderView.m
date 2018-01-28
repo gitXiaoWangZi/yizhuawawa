@@ -170,9 +170,9 @@
 
 - (void)setItem:(AccountItem *)item {
     _item = item;
-    [_iconImg sd_setImageWithURL:[NSURL URLWithString:item.img_path] placeholderImage:nil];
-    _name.text = item.username;
-    [_zsBtn setTitle:item.money forState:UIControlStateNormal];
+    [_iconImg sd_setImageWithURL:[NSURL URLWithString:item.portrait] placeholderImage:nil];
+    _name.text = item.nickname;
+    [_zsBtn setTitle:item.rich.coin forState:UIControlStateNormal];
     [_zsBtn setImage:[UIImage imageNamed:@"price"] forState:UIControlStateNormal];
     [_zsBtn xm_setImagePosition:XMImagePositionLeft titleFont:[UIFont systemFontOfSize:16] spacing:10];
 }

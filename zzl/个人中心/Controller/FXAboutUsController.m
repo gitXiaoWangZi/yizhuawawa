@@ -108,7 +108,7 @@
 - (void)clikWeb:(UITapGestureRecognizer *)tap {
     FXHomeBannerItem *item = [FXHomeBannerItem new];
     item.title = @"用户协议";
-    item.href = @"http://openapi.wawa.zhuazhuale.xin/agreement";
+    item.openUrl = @"http://openapi.wawa.zhuazhuale.xin/agreement";
     FXGameWebController *web = [[FXGameWebController alloc] init];
     web.item = item;
     [self.navigationController pushViewController:web animated:YES];

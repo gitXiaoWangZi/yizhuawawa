@@ -8,7 +8,7 @@
 
 #import "VisiteTools.h"
 #import "FXNavigationController.h"
-#import "FXLoginHomeController.h"
+#import "LSJLoginController.h"
 
 @implementation VisiteTools
 
@@ -41,7 +41,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:KUser_ID];
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"KWAWAUSER"];
         UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-        FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:[[FXLoginHomeController alloc] init]];
+        FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:[[LSJLoginController alloc] init]];
         window.rootViewController = nav;
     }];
     [alterC addAction:cancelAction];

@@ -136,7 +136,7 @@ static NSString *cellId = @"FXMinePageCell";
         {
             if (indexPath.row == 0) {
                 FXHomeBannerItem *item = [FXHomeBannerItem new];
-                item.href = @"http://wawa.api.fanx.xin/share";
+                item.openUrl = @"http://wawa.api.fanx.xin/share";
                 item.title = @"邀请好友";
                 FXGameWebController *vc = [[FXGameWebController alloc] init];
                 vc.item = item;
@@ -183,7 +183,7 @@ static NSString *cellId = @"FXMinePageCell";
 -(void)viewTouchWithTag:(NSInteger)tag{
     if (tag == 1) {
         FXRechargeRecordContoller *vc = [[FXRechargeRecordContoller alloc] init];
-        vc.moneyStr = self.item.money;
+        vc.moneyStr = self.item.rich.coin;
         [self.navigationController pushViewController:vc animated:YES];
     }else{
         [self pushVcWithTag:tag];
@@ -237,7 +237,7 @@ static NSString *cellId = @"FXMinePageCell";
     [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
         if ([dic[@"code"] intValue] == 200) {
-            _item = [AccountItem mj_objectWithKeyValues:dic[@"data"][0]];
+            _item = [AccountItem mj_objectWithKeyValues:dic[@"data"][@"userInfo"]];
             _header1.item = _item;
             _firstpunch = dic[@"firstpunch"];
             _receive = dic[@"receive"];
