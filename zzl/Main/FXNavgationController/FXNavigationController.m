@@ -25,7 +25,7 @@
     [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:19],NSForegroundColorAttributeName : DYGColorFromHex(0xffffff)}];
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"home_nav"] forBarMetrics:UIBarMetricsDefault];
 //    self.navigationBar.backgroundColor = [UIColor whiteColor];
-    self.navigationBar.tintColor = DYGColorFromHex(0xeabe29);
+    self.navigationBar.tintColor = DYGColorFromHex(0xffffff);
     [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     //开启右滑返回功能
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
