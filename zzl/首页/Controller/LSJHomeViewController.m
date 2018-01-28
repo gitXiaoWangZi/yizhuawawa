@@ -213,6 +213,7 @@
     FXSelfViewController *mine = [[FXSelfViewController alloc] init];
     [self.navigationController pushViewController:mine animated:YES];
 }
+
 - (void)wawaAction:(UIButton *)sender{
     
 }

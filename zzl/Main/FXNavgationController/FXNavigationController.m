@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.delegate = self;
-    [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:19],NSForegroundColorAttributeName : DYGColorFromHex(0xeabe29)}];
+    [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName : [UIFont boldSystemFontOfSize:19],NSForegroundColorAttributeName : DYGColorFromHex(0xffffff)}];
     [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"home_nav"] forBarMetrics:UIBarMetricsDefault];
 //    self.navigationBar.backgroundColor = [UIColor whiteColor];
     self.navigationBar.tintColor = DYGColorFromHex(0xeabe29);
@@ -50,7 +50,7 @@
 -(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
     if (self.viewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage rendModeOriginalWithName:@"left"] style:0 target:self action:@selector(back)];
+        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage rendModeOriginalWithName:@"backArrow"] style:0 target:self action:@selector(back)];
     }
     [super pushViewController:viewController animated:animated];
     

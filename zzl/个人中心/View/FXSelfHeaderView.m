@@ -7,20 +7,15 @@
 //
 
 #import "FXSelfHeaderView.h"
-#import "FXTouchView.h"
 #import "DYGTapGestureRecognizer.h"
 #import "AccountItem.h"
 @interface FXSelfHeaderView()
 
 @property(nonatomic,strong)UILabel * name;
 @property (nonatomic,strong) UILabel *ID;
-@property (nonatomic,strong) UIImageView *editBtn;
+@property (nonatomic,strong) UIImageView *bgImgV;
 @property (nonatomic,strong) UIImageView * iconImg;
-@property (nonatomic,strong) FXTouchView * touchView;
-
-@property (nonatomic,strong) NSArray *titleArr;
-
-
+@property (nonatomic,strong) UIButton * backBtn;
 
 @end;
 
@@ -28,15 +23,10 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.titleArr =@[@"战绩",@"战利品",@"钻石"];
-        for (int i = 0; i<3; i++) {
-            self.touchView = [[FXTouchView alloc]initWithFrame:CGRectMake(Px(125)*i, Py(169), Px(125), Py(53))];
-            self.touchView.tag = i;
-            self.touchView.title.text = self.titleArr[i];
-            DYGTapGestureRecognizer * tap = [[DYGTapGestureRecognizer alloc]initWithTarget:self action:@selector(viewDidClick:)];
-            [self.touchView addGestureRecognizer:tap];
-            [self addSubview:self.touchView];
-        }
+        [self addSubview:self.bgImgV];
+        [self.bgImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.right.bottom.equalTo(self);
+        }];
         [self addSubview:self.name];
         [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(Px(39));
@@ -47,8 +37,8 @@
             make.left.equalTo(self.name);
             make.top.equalTo(self.name.mas_bottom).offset(Py(10));
         }];
-        [self addSubview:self.editBtn];
-        [self.editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self addSubview:self.bgImgV];
+        [self.bgImgV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.ID);
             make.top.equalTo(self.ID.mas_bottom).offset(Py(10));
         }];
@@ -95,15 +85,11 @@
     return _ID;
 }
 
--(UIImageView *)editBtn{
-    if (!_editBtn) {
-        _editBtn = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"edit"]];
-        _editBtn.userInteractionEnabled = YES;
-        [_editBtn sizeToFit];
-        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(editBtnClick)];
-        [_editBtn addGestureRecognizer:tap];
+-(UIImageView *)bgImgV{
+    if (!_bgImgV) {
+        _bgImgV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"edit"]];
     }
-    return _editBtn;
+    return _bgImgV;
 }
 -(UIImageView *)iconImg{
     if (!_iconImg) {
@@ -118,8 +104,6 @@
     [_iconImg sd_setImageWithURL:[NSURL URLWithString:item.portrait] placeholderImage:nil];
     _name.text = item.nickname;
     _ID.text = [NSString stringWithFormat:@"我的ID:%@",item.uid];
-    FXTouchView *touchV = [self viewWithTag:2];
-    touchV.num.text = item.rich.coin;
 }
 
 @end

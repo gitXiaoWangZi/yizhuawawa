@@ -104,7 +104,8 @@
 //    NSString *currentVersion = [[NSBundle mainBundle] infoDictionary][kBundleVersionKey];
 //    if ([currentVersion isEqualToString:saveVersion]) {
         if (KisLogin) {
-            self.window.rootViewController = [LSJHomeViewController new];
+            FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:[LSJHomeViewController new]];
+            self.window.rootViewController = nav;
         }else{
             FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:[LSJLoginController new]];
             self.window.rootViewController = nav;

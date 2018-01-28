@@ -149,6 +149,8 @@
 		92ACF6FD201D98900049F22A /* LSJLoginController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92ACF6FB201D98900049F22A /* LSJLoginController.xib */; };
 		92ACF701201D98AA0049F22A /* LSJPhoneLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF6FF201D98AA0049F22A /* LSJPhoneLoginViewController.m */; };
 		92ACF702201D98AA0049F22A /* LSJPhoneLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92ACF700201D98AA0049F22A /* LSJPhoneLoginViewController.xib */; };
+		92ACF709201DA8140049F22A /* SJUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF707201DA8140049F22A /* SJUserInfoView.m */; };
+		92ACF70A201DA8140049F22A /* SJUserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92ACF708201DA8140049F22A /* SJUserInfoView.xib */; };
 		92B573FD1FD9370100B32C02 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B573FC1FD9370000B32C02 /* UMMobClick.framework */; };
 		92B573FE1FD9377E00B32C02 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D99A921FD925DD00CDEDC4 /* CoreTelephony.framework */; };
 		92B574011FD937CD00B32C02 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B574001FD937CD00B32C02 /* UMMobClick.framework */; };
@@ -484,6 +486,9 @@
 		92ACF6FE201D98AA0049F22A /* LSJPhoneLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSJPhoneLoginViewController.h; sourceTree = "<group>"; };
 		92ACF6FF201D98AA0049F22A /* LSJPhoneLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSJPhoneLoginViewController.m; sourceTree = "<group>"; };
 		92ACF700201D98AA0049F22A /* LSJPhoneLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LSJPhoneLoginViewController.xib; sourceTree = "<group>"; };
+		92ACF706201DA8140049F22A /* SJUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJUserInfoView.h; sourceTree = "<group>"; };
+		92ACF707201DA8140049F22A /* SJUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJUserInfoView.m; sourceTree = "<group>"; };
+		92ACF708201DA8140049F22A /* SJUserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SJUserInfoView.xib; sourceTree = "<group>"; };
 		92B573FC1FD9370000B32C02 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = "zzl/Supporting Files/UMeng/UMMobClick.framework"; sourceTree = "<group>"; };
 		92B574001FD937CD00B32C02 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
 		92B574021FD955F400B32C02 /* zzl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zzl.entitlements; sourceTree = "<group>"; };
@@ -948,6 +953,9 @@
 		9260ABE51FA73B2B00EA1881 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				92ACF706201DA8140049F22A /* SJUserInfoView.h */,
+				92ACF707201DA8140049F22A /* SJUserInfoView.m */,
+				92ACF708201DA8140049F22A /* SJUserInfoView.xib */,
 				9248B6D51FB32F2300633CDA /* DYGCollectionViewCell.h */,
 				9248B6D61FB32F2300633CDA /* DYGCollectionViewCell.m */,
 				9248B6D21FB32EFD00633CDA /* DYGAddCell.h */,
@@ -1440,6 +1448,7 @@
 				928A8FA61FC7C9AB000B621E /* FXHomeLoginSuccessPopView.xib in Resources */,
 				9283496E1FC6F69D0012A2D1 /* FXHomeSignPopView.xib in Resources */,
 				92D99AB91FD92D6D00CDEDC4 /* ShareSDKConfigFile.bundle in Resources */,
+				92ACF70A201DA8140049F22A /* SJUserInfoView.xib in Resources */,
 				928349621FC660C50012A2D1 /* FXOnlineIconCell.xib in Resources */,
 				92ACF702201D98AA0049F22A /* LSJPhoneLoginViewController.xib in Resources */,
 				92D99AC61FD92D6D00CDEDC4 /* ShareSDK.bundle in Resources */,
@@ -1593,6 +1602,7 @@
 				9217B5411FC40EC700B506EB /* UIImage+ScaledSize.m in Sources */,
 				9248B6AA1FB2A62000633CDA /* FXRecordCell.m in Sources */,
 				9248B6D41FB32EFE00633CDA /* DYGAddCell.m in Sources */,
+				92ACF709201DA8140049F22A /* SJUserInfoView.m in Sources */,
 				92570DDD1FAB54AC00232AE0 /* NSArray+DYGAdd.m in Sources */,
 				928A8FA41FC7C99F000B621E /* FXHomeLoginSuccessPopView.m in Sources */,
 				92570DDC1FAB54AC00232AE0 /* UIDevice+DYGAdd.m in Sources */,

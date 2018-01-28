@@ -8,7 +8,7 @@
 
 #import "FXSelfViewController.h"
 #import "FXUserInfoController.h"
-#import "FXSelfHeaderView.h"
+#import "SJUserInfoView.h"
 #import "FXRechargeViewController.h"
 #import "FXRecordViewController.h"
 #import "FXRechargeRecordContoller.h"
@@ -25,16 +25,14 @@
 #import "FXHomeBannerItem.h"
 
 static NSString *cellId = @"FXMinePageCell";
-@interface FXSelfViewController ()<UITableViewDelegate,UITableViewDataSource,FXMineHeaderViewDelegate,UIGestureRecognizerDelegate>
+@interface FXSelfViewController ()<UITableViewDelegate,UITableViewDataSource,SJUserInfoViewDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSArray *titleArr;
 @property (nonatomic,strong) NSArray *pushArr;
-@property (nonatomic,strong) NSArray *topPushArr;
 @property (nonatomic,strong) AccountItem *item;
 @property (nonatomic,copy) NSString *receive;
 
-//@property (nonatomic,strong) FXSelfHeaderView *header;
-@property (nonatomic,strong) FXMineHeaderView *header1;
+@property (nonatomic,strong) SJUserInfoView *header1;
 @property (nonatomic,copy) NSString *firstpunch;
 @end
 
@@ -47,11 +45,8 @@ static NSString *cellId = @"FXMinePageCell";
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     self.pushArr =@[@"FXRechargeViewController",@"FXGameWebController",@"FXTaskViewController",@"FXAddressManageController",@"FXNotificationController",@"FXHelpController",@"FXSettingViewController"];
     [self.view addSubview:self.tableView];
-//    FXSelfHeaderView *header = [[FXSelfHeaderView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, Py(232))];
-    FXMineHeaderView *header = [[FXMineHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, Py(232))];
-    header.delegate = self;
-    _header1 = header;
-    self.tableView.tableHeaderView = header;
+    
+    self.tableView.tableHeaderView = self.header1;
     [self.tableView registerNib:[UINib nibWithNibName:@"FXMinePageCell" bundle:nil] forCellReuseIdentifier:cellId];
     
     //请求用户信息
@@ -61,9 +56,6 @@ static NSString *cellId = @"FXMinePageCell";
 
 //个人资料中修改信息通知本页进行刷新数据
 - (void)refreshUserData:(NSNotification *)noti{
-//    if ([noti.object isEqualToString:@"isSlef"] && _item!=nil) {
-//        return;
-//    }
     [self loadUserInfoData];
 }
 
@@ -171,32 +163,18 @@ static NSString *cellId = @"FXMinePageCell";
         }
 }
 
-#pragma mark self Delegate
-
--(void)editBtnDidClick{
-    
-    FXUserInfoController * vc = [FXUserInfoController new];
-    [self.navigationController pushViewController:vc animated:YES];
-    
-}
-
--(void)viewTouchWithTag:(NSInteger)tag{
-    if (tag == 1) {
-        FXRechargeRecordContoller *vc = [[FXRechargeRecordContoller alloc] init];
-        vc.moneyStr = self.item.rich.coin;
-        [self.navigationController pushViewController:vc animated:YES];
+#pragma mark SJUserInfoViewDelegate Delegate
+- (void)userInfoViewDelegateEditUserCenter:(SJUserInfoView *) userInfoView selectBtn:(UIButton *)btn{
+    if (btn.tag == 1) {
+        FXUserInfoController *userVC = [[FXUserInfoController alloc] init];
+        [self.navigationController pushViewController:userVC animated:YES];
+    }else if (btn.tag == 4){
+        [self.navigationController popViewControllerAnimated:YES];
     }else{
-        [self pushVcWithTag:tag];
+        
     }
 }
--(void)pushVcWithTag:(NSInteger)tag{
-        NSString * classStr = self.topPushArr[tag];
-        if (classStr.length>0) {
-            Class pushVc = NSClassFromString(classStr);
-            UIViewController *vc = [pushVc new];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-}
+
 #pragma mark lazy load
 -(NSArray *)titleArr{
     if (!_titleArr) {
@@ -211,16 +189,9 @@ static NSString *cellId = @"FXMinePageCell";
     return _titleArr;
 }
 
--(NSArray *)topPushArr{
-    if (!_topPushArr) {
-        _topPushArr = @[@"FXRecordViewController",@"FXSpoilsController",@"FXSpoilsController"];
-    }
-    return _topPushArr;
-}
-
 -(UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, -20, kScreenWidth, kScreenHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, -20, kScreenWidth, kScreenHeight+20) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorColor = BGColor;
@@ -229,6 +200,14 @@ static NSString *cellId = @"FXMinePageCell";
     return _tableView;
 }
 
+- (SJUserInfoView *)header1{
+    if (!_header1) {
+        _header1 = [SJUserInfoView userInfoView];
+        _header1.frame = CGRectMake(0, 0, kScreenWidth, Py(232));
+        _header1.delegate = self;
+    }
+    return _header1;
+}
 #pragma mark ---请求用户信息数据
 - (void)loadUserInfoData{
     
@@ -238,7 +217,7 @@ static NSString *cellId = @"FXMinePageCell";
         NSDictionary *dic = (NSDictionary *)json;
         if ([dic[@"code"] intValue] == 200) {
             _item = [AccountItem mj_objectWithKeyValues:dic[@"data"][@"userInfo"]];
-            _header1.item = _item;
+            [_header1 updateCenterUser:_item];
             _firstpunch = dic[@"firstpunch"];
             _receive = dic[@"receive"];
             [self.tableView reloadData];

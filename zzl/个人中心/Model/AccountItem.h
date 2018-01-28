@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Rich :NSObject <NSCoding,NSCopying>
+@interface Rich :NSObject
 @property (nonatomic , copy) NSString              * coin;
 
 @end

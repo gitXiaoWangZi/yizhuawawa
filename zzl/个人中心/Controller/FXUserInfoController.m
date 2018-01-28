@@ -63,10 +63,12 @@
         if (indexPath.row == 0) {
             UIImageView *imageV = (UIImageView *)cell.detailView;
             [imageV mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.size.mas_equalTo(CGSizeMake(Px(40), Py(40)));
+                make.size.mas_equalTo(CGSizeMake(Px(40), Px(40)));
             }];
+            imageV.layer.cornerRadius = Px(20);
             imageV.contentMode = UIViewContentModeScaleAspectFill;
             imageV.clipsToBounds = YES;
+            imageV.layer.masksToBounds = YES;
             [imageV sd_setImageWithURL:[NSURL URLWithString:_item.portrait] placeholderImage:[UIImage imageNamed:@"invite"]];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -211,7 +213,7 @@
     NSDictionary *params = [NSDictionary dictionary];
     if ([title isEqualToString:@"昵称"]) {
         path = @"modName";
-        params = @{@"uid":KUID,@"name":alterV.textFields.lastObject.text};
+        params = @{@"uid":KUID,@"nickname":alterV.textFields.lastObject.text};
     }else{
         path = @"modProfession";
         params = @{@"uid":KUID,@"profession":alterV.textFields.lastObject.text};
@@ -219,7 +221,7 @@
     [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
         if ([dic[@"code"] integerValue] == 200) {
-            cell.detailTextLabel.text =alterV.textFields.lastObject.text;
+            cell.detailTextLabel.text = alterV.textFields.lastObject.text;
             if ([title isEqualToString:@"昵称"]) {
                 _item.nickname = alterV.textFields.lastObject.text;
                 NSMutableDictionary *userIngoDic = [[[NSUserDefaults standardUserDefaults] objectForKey:@"KWAWAUSER"] mutableCopy];
@@ -239,7 +241,7 @@
 //修改性别
 - (void)updateUserSex:(NSString *)sex cell:(DYGPersonInfoTbCell *)cell{
     NSString *path = @"modSex";
-    NSDictionary *params = @{@"uid":KUID,@"sex":sex};
+    NSDictionary *params = @{@"uid":KUID,@"gender":sex};
     
     [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
@@ -255,7 +257,7 @@
 //修改年龄
 - (void)updateUserAge:(NSInteger)age cell:(DYGPersonInfoTbCell *)cell{
     NSString *path = @"modAge";
-    NSDictionary *params = @{@"uid":KUID,@"age":@(age)};
+    NSDictionary *params = @{@"uid":KUID,@"birth":@(age)};
     
     [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
@@ -352,12 +354,13 @@
 - (void)loadUserInfoData{
     
     NSString *path = @"getUserInfo";
-    NSDictionary *params = @{@"uid":[[NSUserDefaults standardUserDefaults] objectForKey:KUser_ID]};
+    NSDictionary *params = @{@"uid":KUID};
     [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
         if ([dic[@"code"] intValue] == 200) {
-            _item = [AccountItem mj_objectWithKeyValues:dic[@"data"][0]];
-            self.dataArr = @[@"",_item.nickname,_item.uid,_item.gender,_item.birth,_item.emotion,_item.profession];
+            _item = [AccountItem mj_objectWithKeyValues:dic[@"data"][@"userInfo"]];
+            
+            self.dataArr =@[@"",_item.nickname,_item.uid,_item.gender,_item.birth,_item.emotion,_item.profession];
             [self.view addSubview:self.tableView];
             [self.tableView reloadData];
         }
