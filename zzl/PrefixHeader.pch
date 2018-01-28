@@ -128,12 +128,18 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #endif
 
 //微信信息
-#define WXAppID @"wxbb1e9958d032b2aa"
-#define WXAppSecret @"60cb56e19151b1fb1a6a422655acce29"
+#define WXAppID @"wxb7954ccebd1c90ac"
+#define WXAppSecret @"b12b07a95c5a5014e7896bab9269fd92"
 
 #define KUser_ID @"user_id"
 #define KLoginStatus @"loginStatus"
 #define KisLogin [[NSUserDefaults standardUserDefaults] boolForKey:KLoginStatus]
 #define KUID [[NSUserDefaults standardUserDefaults] objectForKey:KUser_ID]
+#define Kfirstpunch @"firstpunch"
+
+//字体相关
+#define kPingFangSC_Regular(fontSize)   [UIFont fontWithName:@"PingFangSC-Regular" size:(fontSize)]
+#define kPingFangSC_Medium(fontSize)    [UIFont fontWithName:@"PingFangSC-Medium" size:(fontSize)]
+#define kPingFangSC_Semibold(fontSize)  [UIFont fontWithName:@"PingFangSC-Semibold" size:(fontSize)]
 
 #endif /* PrefixHeader_pch */

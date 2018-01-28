@@ -145,7 +145,6 @@
 		928EC8391FB1BF570072C68B /* ZXContactInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 928EC8371FB1BF570072C68B /* ZXContactInfo.m */; };
 		929EC8321FD27E2B0008FE14 /* FXMineHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 929EC8311FD27E2B0008FE14 /* FXMineHeaderView.m */; };
 		92A3138F1FC51B0700296171 /* FXHomeBannerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A3138E1FC51B0700296171 /* FXHomeBannerItem.m */; };
-		92A64BED1FCD10AB009C75A1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A64BEC1FCD10AB009C75A1 /* Images.xcassets */; };
 		92B573FD1FD9370100B32C02 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B573FC1FD9370000B32C02 /* UMMobClick.framework */; };
 		92B573FE1FD9377E00B32C02 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D99A921FD925DD00CDEDC4 /* CoreTelephony.framework */; };
 		92B574011FD937CD00B32C02 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B574001FD937CD00B32C02 /* UMMobClick.framework */; };
@@ -475,7 +474,6 @@
 		929EC8311FD27E2B0008FE14 /* FXMineHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXMineHeaderView.m; sourceTree = "<group>"; };
 		92A3138D1FC51B0700296171 /* FXHomeBannerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXHomeBannerItem.h; sourceTree = "<group>"; };
 		92A3138E1FC51B0700296171 /* FXHomeBannerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXHomeBannerItem.m; sourceTree = "<group>"; };
-		92A64BEC1FCD10AB009C75A1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		92B573FC1FD9370000B32C02 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = "zzl/Supporting Files/UMeng/UMMobClick.framework"; sourceTree = "<group>"; };
 		92B574001FD937CD00B32C02 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
 		92B574021FD955F400B32C02 /* zzl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zzl.entitlements; sourceTree = "<group>"; };
@@ -739,7 +737,6 @@
 				9260ABDE1FA73B2B00EA1881 /* 抓抓乐 */,
 				9260ABE61FA73B3200EA1881 /* Tools */,
 				9260ABEA1FA73B9500EA1881 /* Main */,
-				92A64BEC1FCD10AB009C75A1 /* Images.xcassets */,
 				9260ABED1FA73C1A00EA1881 /* Supporting Files */,
 			);
 			path = zzl;
@@ -1413,7 +1410,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				92744F3F1FC0062000F8D42C /* ZYPlayOperationView.xib in Resources */,
-				92A64BED1FCD10AB009C75A1 /* Images.xcassets in Resources */,
 				9248B6EF1FB42E0100633CDA /* 失败1.wav in Resources */,
 				9248B6F11FB42E0100633CDA /* 投币.wav in Resources */,
 				9260ABCE1FA73AE200EA1881 /* Assets.xcassets in Resources */,
@@ -1751,7 +1747,7 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8285362Q6G;
+				DEVELOPMENT_TEAM = 5T2F9U3C8Y;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.tbd,
@@ -1884,7 +1880,7 @@
 					"\"UIKit\"",
 					"-lxml2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.zhuazhualeww;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1905,7 +1901,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8285362Q6G;
+				DEVELOPMENT_TEAM = 5T2F9U3C8Y;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.tbd,
@@ -2038,7 +2034,7 @@
 					"\"UIKit\"",
 					"-lxml2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.zhuazhualeww;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
