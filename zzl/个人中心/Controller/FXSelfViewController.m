@@ -12,7 +12,7 @@
 #import "FXRechargeViewController.h"
 #import "FXRecordViewController.h"
 #import "FXRechargeRecordContoller.h"
-#import "FXSpoilsController.h"
+#import "LSJSpoilsController.h"
 #import "FXSettingViewController.h"
 #import "FXAddressManageController.h"
 #import "FXNotificationController.h"
@@ -21,16 +21,14 @@
 #import "AccountItem.h"
 #import "FXGameWebController.h"
 #import "FXMineHeaderView.h"
-#import "FXMinePageCell.h"
 #import "FXHomeBannerItem.h"
+#import "LSJUserInfoCell.h"
 
-static NSString *cellId = @"FXMinePageCell";
+static NSString *cellId = @"LSJUserInfoCell";
 @interface FXSelfViewController ()<UITableViewDelegate,UITableViewDataSource,SJUserInfoViewDelegate,UIGestureRecognizerDelegate>
 @property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) NSArray *titleArr;
-@property (nonatomic,strong) NSArray *pushArr;
+@property (nonatomic,strong) NSArray *userInfoArray;
 @property (nonatomic,strong) AccountItem *item;
-@property (nonatomic,copy) NSString *receive;
 
 @property (nonatomic,strong) SJUserInfoView *header1;
 @property (nonatomic,copy) NSString *firstpunch;
@@ -43,11 +41,10 @@ static NSString *cellId = @"FXMinePageCell";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshUserData:) name:@"refreshUserData" object:nil];
     self.view.backgroundColor = randomColor;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    self.pushArr =@[@"FXRechargeViewController",@"FXGameWebController",@"FXTaskViewController",@"FXAddressManageController",@"FXNotificationController",@"FXHelpController",@"FXSettingViewController"];
     [self.view addSubview:self.tableView];
-    
     self.tableView.tableHeaderView = self.header1;
-    [self.tableView registerNib:[UINib nibWithNibName:@"FXMinePageCell" bundle:nil] forCellReuseIdentifier:cellId];
+    [self.tableView registerClass:[LSJUserInfoCell class] forCellReuseIdentifier:cellId];
+    self.tableView.showsVerticalScrollIndicator = NO;
     
     //请求用户信息
     [self loadUserInfoData];
@@ -62,88 +59,61 @@ static NSString *cellId = @"FXMinePageCell";
 // 160 106
 #pragma mark tableView Delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
+    return self.userInfoArray.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    switch (section) {
-        case 0:
-            return 1;
-            break;
-        case 1:
-            return 2;
-            break;
-        case 2:
-            return 2;
-            break;
-        default:
-            return 2;
-            break;
-    }
+    NSArray *tempArr = self.userInfoArray[section];
+    return tempArr.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    FXMinePageCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    switch (indexPath.section) {
-        case 0:
-            cell.icon.image = [UIImage imageNamed:self.titleArr[indexPath.row][@"img"]];
-            cell.title.text = self.titleArr[indexPath.row][@"title"];
-            break;
-        case 1:
-            cell.icon.image = [UIImage imageNamed:self.titleArr[indexPath.row+1][@"img"]];
-            cell.title.text = self.titleArr[indexPath.row+1][@"title"];
-            if (indexPath.row == 1 && [_receive integerValue] == 1) {
-                cell.warn.hidden = NO;
-            }else{
-                cell.warn.hidden = YES;
-            }
-            break;
-        case 2:
-            cell.icon.image = [UIImage imageNamed:self.titleArr[indexPath.row+3][@"img"]];
-            cell.title.text = self.titleArr[indexPath.row+3][@"title"];
-            break;
-        case 3:
-            cell.icon.image = [UIImage imageNamed:self.titleArr[indexPath.row+5][@"img"]];
-            cell.title.text = self.titleArr[indexPath.row+5][@"title"];
-            break;
-    }
+    NSArray *tempArr = self.userInfoArray[indexPath.section];
+    LSJUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    cell.titleL.text = tempArr[indexPath.row][@"title"];
+    cell.icon.image = [UIImage imageNamed:tempArr[indexPath.row][@"icon"]];
+    cell.desImgV.image = [UIImage imageNamed:tempArr[indexPath.row][@"desImg"]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        cell.titleL.text = self.item.rich.coin;
+    }
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return Py(44);
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    switch (indexPath.section) {
-        case 0:
-        {
-            [MobClick event:@"click_pay"];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
             FXRechargeViewController *rechargeVC = [[FXRechargeViewController alloc] init];
             rechargeVC.firstpunch = self.firstpunch;
             rechargeVC.item = self.item;
             [self.navigationController pushViewController:rechargeVC animated:YES];
+        }else if (indexPath.row == 1){
+            LSJSpoilsController *spoilsVC = [[LSJSpoilsController alloc] init];
+            [self.navigationController pushViewController:spoilsVC animated:YES];
+        }else{
+            FXRecordViewController *recordVC = [[FXRecordViewController alloc] init];
+            [self.navigationController pushViewController:recordVC animated:YES];
+        }
+    }else if (indexPath.section == 1){
+        if (indexPath.row == 0) {
             
+        }else{
+            FXHomeBannerItem *item = [FXHomeBannerItem new];
+            item.openUrl = @"http://api.wawa.lkmai.com/share";
+            item.title = @"邀请好友";
+            FXGameWebController *vc = [[FXGameWebController alloc] init];
+            vc.item = item;
+            [self.navigationController pushViewController:vc animated:YES];
         }
-            break;
-        case 1:
-        {
-            if (indexPath.row == 0) {
-                FXHomeBannerItem *item = [FXHomeBannerItem new];
-                item.openUrl = @"http://wawa.api.fanx.xin/share";
-                item.title = @"邀请好友";
-                FXGameWebController *vc = [[FXGameWebController alloc] init];
-                vc.item = item;
-                [self.navigationController pushViewController:vc animated:YES];
-            }else{
-                [self pushVcWithIndexpath:indexPath.row+1];
-            }
+    }else{
+        if (indexPath.row == 0) {
+            FXHelpController *helpVC = [[FXHelpController alloc] init];
+            [self.navigationController pushViewController:helpVC animated:YES];
+        }else{
+            
+            FXSettingViewController *settingVC = [[FXSettingViewController alloc] init];
+            [self.navigationController pushViewController:settingVC animated:YES];
         }
-            break;
-        case 2:
-            [self pushVcWithIndexpath:indexPath.row+3];
-            break;
-        case 3:
-            [self pushVcWithIndexpath:indexPath.row+5];
-            break;
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -151,16 +121,6 @@ static NSString *cellId = @"FXMinePageCell";
 }
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return @" ";
-}
-
--(void)pushVcWithIndexpath:(NSInteger)row{
-        NSString * classStr = self.pushArr[row];
-    DYGLog(@"%@",classStr);
-        if (classStr.length>0) {
-            Class pushVc = NSClassFromString(classStr);
-            UIViewController *vc = [pushVc new];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
 }
 
 #pragma mark SJUserInfoViewDelegate Delegate
@@ -176,17 +136,13 @@ static NSString *cellId = @"FXMinePageCell";
 }
 
 #pragma mark lazy load
--(NSArray *)titleArr{
-    if (!_titleArr) {
-        _titleArr = @[@{@"title":@"充值",@"img":@"recharge_self"},
-                      @{@"title":@"邀请好友",@"img":@"invite"},
-                      @{@"title":@"任务中心",@"img":@"gift"},
-                      @{@"title":@"收货地址",@"img":@"location"},
-                      @{@"title":@"通知中心",@"img":@"notice"},
-                      @{@"title":@"帮助与反馈",@"img":@"help"},
-                      @{@"title":@"设置",@"img":@"set"}];
+-(NSArray *)userInfoArray{
+    if (!_userInfoArray) {
+        _userInfoArray = @[@[@{@"icon":@"mine_coin",@"title":@"6789",@"desImg":@"mine_top_recharge"},@{@"icon":@"mine_wawa",@"title":@"我的娃娃",@"desImg":@"mine_right"},@{@"icon":@"mine_record",@"title":@"游戏记录",@"desImg":@"mine_right"}],
+  @[@{@"icon":@"mine_task",@"title":@"任务中心",@"desImg":@"mine_right"},@{@"icon":@"mine_invite",@"title":@"邀请有礼",@"desImg":@"mine_right"}],
+  @[@{@"icon":@"mine_help",@"title":@"帮助与反馈",@"desImg":@"mine_right"},@{@"icon":@"mine_setting",@"title":@"设置",@"desImg":@"mine_right"}]];
     }
-    return _titleArr;
+    return _userInfoArray;
 }
 
 -(UITableView *)tableView{
@@ -203,7 +159,7 @@ static NSString *cellId = @"FXMinePageCell";
 - (SJUserInfoView *)header1{
     if (!_header1) {
         _header1 = [SJUserInfoView userInfoView];
-        _header1.frame = CGRectMake(0, 0, kScreenWidth, Py(232));
+        _header1.frame = CGRectMake(0, 0, kScreenWidth, Py(197));
         _header1.delegate = self;
     }
     return _header1;
@@ -219,7 +175,6 @@ static NSString *cellId = @"FXMinePageCell";
             _item = [AccountItem mj_objectWithKeyValues:dic[@"data"][@"userInfo"]];
             [_header1 updateCenterUser:_item];
             _firstpunch = dic[@"firstpunch"];
-            _receive = dic[@"receive"];
             [self.tableView reloadData];
         }
     } failure:^(NSError *error) {

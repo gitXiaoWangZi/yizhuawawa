@@ -25,7 +25,7 @@
 #import "FXGameWebController.h"//加载视频页面
 #import "AccountItem.h"
 #import "FXGameResultView.h"
-#import "FXSpoilsController.h"
+#import "LSJSpoilsController.h"
 #import "UIButton+Position.h"
 #import "FXNavigationController.h"
 
@@ -604,7 +604,7 @@
     NSLog(@"领取操作");
     dispatch_source_cancel(_timer0);
     _timer0 = nil;
-    FXSpoilsController *spoilsVC = [[FXSpoilsController alloc] init];
+    LSJSpoilsController *spoilsVC = [[LSJSpoilsController alloc] init];
     [self.navigationController pushViewController:spoilsVC animated:YES];
 }
 

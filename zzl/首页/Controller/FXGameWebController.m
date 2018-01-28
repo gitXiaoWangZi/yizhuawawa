@@ -40,14 +40,14 @@
     self.title = self.item.title;
     if (self.item) {
         if ([self.item.banner_type isEqualToString:@"2"]) {//分享
-            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/share",KUID];
+            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://api.wawa.lkmai.com/share",KUID];
         }
         if ([self.item.banner_type isEqualToString:@"5"]) {//大转盘
             _isChristmasList = YES;
-            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/turntable",KUID];
+            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://api.wawa.lkmai.com/turntable",KUID];
         }
         if ([self.item.banner_type isEqualToString:@"6"]) {//冲榜
-            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/christmasList",KUID];
+            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://api.wawa.lkmai.com/christmasList",KUID];
         }
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.item.openUrl]];
         [self.webView loadRequest:request];
@@ -160,7 +160,7 @@
         [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
             NSDictionary *dic = (NSDictionary *)json;
             if ([dic[@"code"] integerValue] == 200) {
-                self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://wawa.api.fanx.xin/turntable",KUID];
+                self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://api.wawa.lkmai.com/turntable",KUID];
                 NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.item.openUrl]];
                 [self.webView loadRequest:request];
             }

@@ -126,6 +126,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #define systemColor DYGColorFromHex(0xeabe29)
 #define BGColor DYGColorFromHex(0xf2f2f2)
 #endif
+#define DYGAColor(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
 
 //微信信息
 #define WXAppID @"wxb7954ccebd1c90ac"

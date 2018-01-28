@@ -28,7 +28,6 @@
 		9248B6B01FB2B6CF00633CDA /* FXRechargeRecordContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248B6AF1FB2B6CF00633CDA /* FXRechargeRecordContoller.m */; };
 		9248B6B31FB2B74F00633CDA /* FXHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248B6B21FB2B74F00633CDA /* FXHistoryCell.m */; };
 		9248B6B61FB2CBF400633CDA /* FXHistoryHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248B6B51FB2CBF400633CDA /* FXHistoryHeader.m */; };
-		9248B6B91FB2CF3200633CDA /* FXSpoilsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248B6B81FB2CF3200633CDA /* FXSpoilsController.m */; };
 		9248B6BF1FB2DA6C00633CDA /* FXCollecTBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248B6BE1FB2DA6C00633CDA /* FXCollecTBCell.m */; };
 		9248B6C21FB2DC3A00633CDA /* FXSpoilsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248B6C11FB2DC3A00633CDA /* FXSpoilsCell.m */; };
 		9248B6C51FB2F09400633CDA /* FXSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9248B6C41FB2F09400633CDA /* FXSettingViewController.m */; };
@@ -103,8 +102,6 @@
 		92744F451FC01EFB00F8D42C /* FXGameWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92744F441FC01EFB00F8D42C /* FXGameWebController.m */; };
 		92744F461FC039A200F8D42C /* OBShapedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 92744F341FBFFE6900F8D42C /* OBShapedButton.m */; };
 		92744F491FC03BC400F8D42C /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 92744F361FBFFE6900F8D42C /* UIImage+ColorAtPixel.m */; };
-		927478C91FBEAF07005C5772 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 927478C41FBEAEE0005C5772 /* libcrypto.a */; };
-		927478CA1FBEAF0A005C5772 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 927478C51FBEAEE0005C5772 /* libssl.a */; };
 		928282691FC2FEE8001B3092 /* DYGPersonInfoTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928282681FC2FEE8001B3092 /* DYGPersonInfoTbCell.xib */; };
 		928349611FC660C50012A2D1 /* FXOnlineIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283495F1FC660C50012A2D1 /* FXOnlineIconCell.m */; };
 		928349621FC660C50012A2D1 /* FXOnlineIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928349601FC660C50012A2D1 /* FXOnlineIconCell.xib */; };
@@ -115,7 +112,6 @@
 		9287C16A1FA76CA00042E4CF /* PGIndexBannerSubiew.m in Sources */ = {isa = PBXBuildFile; fileRef = 9287C1691FA76CA00042E4CF /* PGIndexBannerSubiew.m */; };
 		9287C16D1FA76CAA0042E4CF /* NewPagedFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9287C16B1FA76CAA0042E4CF /* NewPagedFlowView.m */; };
 		9287E6A61FCE485200BB1529 /* FXHomeHouseItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9287E6A51FCE485200BB1529 /* FXHomeHouseItem.m */; };
-		9287E6A91FCE986E00BB1529 /* FXOrdingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9287E6A81FCE986E00BB1529 /* FXOrdingListViewController.m */; };
 		928A8FA41FC7C99F000B621E /* FXHomeLoginSuccessPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 928A8FA31FC7C99F000B621E /* FXHomeLoginSuccessPopView.m */; };
 		928A8FA61FC7C9AB000B621E /* FXHomeLoginSuccessPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928A8FA51FC7C9AB000B621E /* FXHomeLoginSuccessPopView.xib */; };
 		928A90721FC7FF5D000B621E /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 928A90711FC7FF5D000B621E /* libicucore.tbd */; };
@@ -151,17 +147,25 @@
 		92ACF702201D98AA0049F22A /* LSJPhoneLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92ACF700201D98AA0049F22A /* LSJPhoneLoginViewController.xib */; };
 		92ACF709201DA8140049F22A /* SJUserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF707201DA8140049F22A /* SJUserInfoView.m */; };
 		92ACF70A201DA8140049F22A /* SJUserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92ACF708201DA8140049F22A /* SJUserInfoView.xib */; };
+		92ACF70D201DBBC20049F22A /* LSJUserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF70C201DBBC10049F22A /* LSJUserInfoCell.m */; };
+		92ACF71A201DCAC10049F22A /* LSJWaWaExchangeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF710201DCAC00049F22A /* LSJWaWaExchangeController.m */; };
+		92ACF71B201DCAC10049F22A /* LSJWaWaDepositController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF711201DCAC00049F22A /* LSJWaWaDepositController.m */; };
+		92ACF71C201DCAC10049F22A /* FXOrdingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF714201DCAC00049F22A /* FXOrdingListViewController.m */; };
+		92ACF71D201DCAC10049F22A /* LSJWaWaDeliverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF715201DCAC00049F22A /* LSJWaWaDeliverController.m */; };
+		92ACF71E201DCAC10049F22A /* LSJSpoilsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF717201DCAC10049F22A /* LSJSpoilsController.m */; };
+		92ACF721201DCBA60049F22A /* LSJLogisticsPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF71F201DCBA60049F22A /* LSJLogisticsPopView.m */; };
+		92ACF724201DCBD00049F22A /* LSJLogisticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92ACF722201DCBD00049F22A /* LSJLogisticsCell.m */; };
+		92ACF729201DCE040049F22A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACF726201DCE040049F22A /* libcrypto.a */; };
+		92ACF72A201DCE040049F22A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACF727201DCE040049F22A /* libssl.a */; };
+		92ACF72B201DCE040049F22A /* WawaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACF728201DCE040049F22A /* WawaSDK.framework */; };
+		92ACF72C201DCE160049F22A /* WawaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACF728201DCE040049F22A /* WawaSDK.framework */; };
+		92ACF72D201DCE160049F22A /* WawaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92ACF728201DCE040049F22A /* WawaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92B573FD1FD9370100B32C02 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B573FC1FD9370000B32C02 /* UMMobClick.framework */; };
 		92B573FE1FD9377E00B32C02 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D99A921FD925DD00CDEDC4 /* CoreTelephony.framework */; };
 		92B574011FD937CD00B32C02 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B574001FD937CD00B32C02 /* UMMobClick.framework */; };
 		92B918E31FCFB67E009B0CE9 /* UIButton+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B918E21FCFB67E009B0CE9 /* UIButton+Position.m */; };
 		92C0479F1FCC0B3100636F15 /* FXRechargeRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0479E1FCC0B3100636F15 /* FXRechargeRecordModel.m */; };
 		92C047A21FCC1AF500636F15 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C047A11FCC187E00636F15 /* WelcomeViewController.m */; };
-		92D723101FECDEBC0031F7EB /* WawaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D7230F1FECDEAE0031F7EB /* WawaSDK.framework */; };
-		92D723111FECDEC10031F7EB /* WawaSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D7230F1FECDEAE0031F7EB /* WawaSDK.framework */; };
-		92D723121FECDEC10031F7EB /* WawaSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92D7230F1FECDEAE0031F7EB /* WawaSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		92D723161FECFC320031F7EB /* FXMinePageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D723141FECFC320031F7EB /* FXMinePageCell.m */; };
-		92D723171FECFC320031F7EB /* FXMinePageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D723151FECFC320031F7EB /* FXMinePageCell.xib */; };
 		92D7231B1FED0E130031F7EB /* FXGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D723191FED0E130031F7EB /* FXGameDetailViewController.m */; };
 		92D7231C1FED0E130031F7EB /* FXGameDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D7231A1FED0E130031F7EB /* FXGameDetailViewController.xib */; };
 		92D7231F1FED0E910031F7EB /* FXGameDetailContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D7231E1FED0E910031F7EB /* FXGameDetailContentView.m */; };
@@ -214,7 +218,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				92D723121FECDEC10031F7EB /* WawaSDK.framework in Embed Frameworks */,
+				92ACF72D201DCE160049F22A /* WawaSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,8 +265,6 @@
 		9248B6B21FB2B74F00633CDA /* FXHistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXHistoryCell.m; sourceTree = "<group>"; };
 		9248B6B41FB2CBF400633CDA /* FXHistoryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXHistoryHeader.h; sourceTree = "<group>"; };
 		9248B6B51FB2CBF400633CDA /* FXHistoryHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXHistoryHeader.m; sourceTree = "<group>"; };
-		9248B6B71FB2CF3200633CDA /* FXSpoilsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXSpoilsController.h; sourceTree = "<group>"; };
-		9248B6B81FB2CF3200633CDA /* FXSpoilsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXSpoilsController.m; sourceTree = "<group>"; };
 		9248B6BD1FB2DA6C00633CDA /* FXCollecTBCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXCollecTBCell.h; sourceTree = "<group>"; };
 		9248B6BE1FB2DA6C00633CDA /* FXCollecTBCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXCollecTBCell.m; sourceTree = "<group>"; };
 		9248B6C01FB2DC3A00633CDA /* FXSpoilsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXSpoilsCell.h; sourceTree = "<group>"; };
@@ -409,8 +411,6 @@
 		92744F431FC01EFA00F8D42C /* FXGameWebController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXGameWebController.h; sourceTree = "<group>"; };
 		92744F441FC01EFB00F8D42C /* FXGameWebController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXGameWebController.m; sourceTree = "<group>"; };
 		92744F471FC03A8600F8D42C /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
-		927478C41FBEAEE0005C5772 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
-		927478C51FBEAEE0005C5772 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		928282681FC2FEE8001B3092 /* DYGPersonInfoTbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DYGPersonInfoTbCell.xib; sourceTree = "<group>"; };
 		9283495E1FC660C50012A2D1 /* FXOnlineIconCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXOnlineIconCell.h; sourceTree = "<group>"; };
 		9283495F1FC660C50012A2D1 /* FXOnlineIconCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXOnlineIconCell.m; sourceTree = "<group>"; };
@@ -428,8 +428,6 @@
 		9287C16C1FA76CAA0042E4CF /* NewPagedFlowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewPagedFlowView.h; sourceTree = "<group>"; };
 		9287E6A41FCE485200BB1529 /* FXHomeHouseItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXHomeHouseItem.h; sourceTree = "<group>"; };
 		9287E6A51FCE485200BB1529 /* FXHomeHouseItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXHomeHouseItem.m; sourceTree = "<group>"; };
-		9287E6A71FCE986E00BB1529 /* FXOrdingListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXOrdingListViewController.h; sourceTree = "<group>"; };
-		9287E6A81FCE986E00BB1529 /* FXOrdingListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXOrdingListViewController.m; sourceTree = "<group>"; };
 		928A8FA21FC7C99F000B621E /* FXHomeLoginSuccessPopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXHomeLoginSuccessPopView.h; sourceTree = "<group>"; };
 		928A8FA31FC7C99F000B621E /* FXHomeLoginSuccessPopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXHomeLoginSuccessPopView.m; sourceTree = "<group>"; };
 		928A8FA51FC7C9AB000B621E /* FXHomeLoginSuccessPopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FXHomeLoginSuccessPopView.xib; sourceTree = "<group>"; };
@@ -489,6 +487,25 @@
 		92ACF706201DA8140049F22A /* SJUserInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SJUserInfoView.h; sourceTree = "<group>"; };
 		92ACF707201DA8140049F22A /* SJUserInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SJUserInfoView.m; sourceTree = "<group>"; };
 		92ACF708201DA8140049F22A /* SJUserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SJUserInfoView.xib; sourceTree = "<group>"; };
+		92ACF70B201DBBC10049F22A /* LSJUserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSJUserInfoCell.h; sourceTree = "<group>"; };
+		92ACF70C201DBBC10049F22A /* LSJUserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSJUserInfoCell.m; sourceTree = "<group>"; };
+		92ACF710201DCAC00049F22A /* LSJWaWaExchangeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSJWaWaExchangeController.m; sourceTree = "<group>"; };
+		92ACF711201DCAC00049F22A /* LSJWaWaDepositController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSJWaWaDepositController.m; sourceTree = "<group>"; };
+		92ACF712201DCAC00049F22A /* LSJWaWaExchangeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSJWaWaExchangeController.h; sourceTree = "<group>"; };
+		92ACF713201DCAC00049F22A /* LSJSpoilsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSJSpoilsController.h; sourceTree = "<group>"; };
+		92ACF714201DCAC00049F22A /* FXOrdingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXOrdingListViewController.m; sourceTree = "<group>"; };
+		92ACF715201DCAC00049F22A /* LSJWaWaDeliverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSJWaWaDeliverController.m; sourceTree = "<group>"; };
+		92ACF716201DCAC10049F22A /* LSJWaWaDepositController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSJWaWaDepositController.h; sourceTree = "<group>"; };
+		92ACF717201DCAC10049F22A /* LSJSpoilsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSJSpoilsController.m; sourceTree = "<group>"; };
+		92ACF718201DCAC10049F22A /* LSJWaWaDeliverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSJWaWaDeliverController.h; sourceTree = "<group>"; };
+		92ACF719201DCAC10049F22A /* FXOrdingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXOrdingListViewController.h; sourceTree = "<group>"; };
+		92ACF71F201DCBA60049F22A /* LSJLogisticsPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSJLogisticsPopView.m; sourceTree = "<group>"; };
+		92ACF720201DCBA60049F22A /* LSJLogisticsPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSJLogisticsPopView.h; sourceTree = "<group>"; };
+		92ACF722201DCBD00049F22A /* LSJLogisticsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSJLogisticsCell.m; sourceTree = "<group>"; };
+		92ACF723201DCBD00049F22A /* LSJLogisticsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSJLogisticsCell.h; sourceTree = "<group>"; };
+		92ACF726201DCE040049F22A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		92ACF727201DCE040049F22A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		92ACF728201DCE040049F22A /* WawaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WawaSDK.framework; sourceTree = "<group>"; };
 		92B573FC1FD9370000B32C02 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = "zzl/Supporting Files/UMeng/UMMobClick.framework"; sourceTree = "<group>"; };
 		92B574001FD937CD00B32C02 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
 		92B574021FD955F400B32C02 /* zzl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = zzl.entitlements; sourceTree = "<group>"; };
@@ -498,10 +515,6 @@
 		92C0479E1FCC0B3100636F15 /* FXRechargeRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXRechargeRecordModel.m; sourceTree = "<group>"; };
 		92C047A01FCC187E00636F15 /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		92C047A11FCC187E00636F15 /* WelcomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
-		92D7230F1FECDEAE0031F7EB /* WawaSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WawaSDK.framework; sourceTree = "<group>"; };
-		92D723131FECFC320031F7EB /* FXMinePageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXMinePageCell.h; sourceTree = "<group>"; };
-		92D723141FECFC320031F7EB /* FXMinePageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXMinePageCell.m; sourceTree = "<group>"; };
-		92D723151FECFC320031F7EB /* FXMinePageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FXMinePageCell.xib; sourceTree = "<group>"; };
 		92D723181FED0E130031F7EB /* FXGameDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXGameDetailViewController.h; sourceTree = "<group>"; };
 		92D723191FED0E130031F7EB /* FXGameDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXGameDetailViewController.m; sourceTree = "<group>"; };
 		92D7231A1FED0E130031F7EB /* FXGameDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FXGameDetailViewController.xib; sourceTree = "<group>"; };
@@ -567,13 +580,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92D723101FECDEBC0031F7EB /* WawaSDK.framework in Frameworks */,
+				92ACF72B201DCE040049F22A /* WawaSDK.framework in Frameworks */,
 				9248550F1FE3D9F700CC8B00 /* AlipaySDK.framework in Frameworks */,
 				9248550B1FE3D71D00CC8B00 /* CoreMotion.framework in Frameworks */,
 				92FCBEB11FBD5EC100BE88A7 /* CFNetwork.framework in Frameworks */,
 				924855091FE3D70800CC8B00 /* Foundation.framework in Frameworks */,
 				924855071FE3D6EF00CC8B00 /* UIKit.framework in Frameworks */,
 				924855051FE3D6D500CC8B00 /* CoreGraphics.framework in Frameworks */,
+				92ACF729201DCE040049F22A /* libcrypto.a in Frameworks */,
 				924855031FE3D6AA00CC8B00 /* CoreText.framework in Frameworks */,
 				924855011FE3D69500CC8B00 /* QuartzCore.framework in Frameworks */,
 				92B573FE1FD9377E00B32C02 /* CoreTelephony.framework in Frameworks */,
@@ -587,10 +601,9 @@
 				928A90741FC7FF72000B621E /* libz.tbd in Frameworks */,
 				92D99AC11FD92D6D00CDEDC4 /* TencentOpenAPI.framework in Frameworks */,
 				928A90721FC7FF5D000B621E /* libicucore.tbd in Frameworks */,
-				927478CA1FBEAF0A005C5772 /* libssl.a in Frameworks */,
+				92ACF72A201DCE040049F22A /* libssl.a in Frameworks */,
 				92D99AC21FD92D6D00CDEDC4 /* libWeiboSDK.a in Frameworks */,
 				92D99AC71FD92D6D00CDEDC4 /* ShareSDKConnector.framework in Frameworks */,
-				927478C91FBEAF07005C5772 /* libcrypto.a in Frameworks */,
 				92D99ABE1FD92D6D00CDEDC4 /* QQConnector.framework in Frameworks */,
 				92FCBEAF1FBD5EAE00BE88A7 /* libbz2.tbd in Frameworks */,
 				92D99ABA1FD92D6D00CDEDC4 /* ShareSDKConfigFile.framework in Frameworks */,
@@ -598,7 +611,7 @@
 				92B574011FD937CD00B32C02 /* UMMobClick.framework in Frameworks */,
 				92FCBEAB1FBD5E9000BE88A7 /* libstdc++.6.0.9.tbd in Frameworks */,
 				92D99AB71FD92D6D00CDEDC4 /* MOBFoundation.framework in Frameworks */,
-				92D723111FECDEC10031F7EB /* WawaSDK.framework in Frameworks */,
+				92ACF72C201DCE160049F22A /* WawaSDK.framework in Frameworks */,
 				92D99AB81FD92D6D00CDEDC4 /* ShareSDK.framework in Frameworks */,
 				92FCBEA91FBD5E7600BE88A7 /* libc++.tbd in Frameworks */,
 				92FCBEA71FBD5E6500BE88A7 /* OpenAL.framework in Frameworks */,
@@ -888,6 +901,7 @@
 		9260ABE21FA73B2B00EA1881 /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+				92ACF70F201DCA230049F22A /* mywawa */,
 				9260ABE31FA73B2B00EA1881 /* Controller */,
 				9260ABE41FA73B2B00EA1881 /* Model */,
 				9260ABE51FA73B2B00EA1881 /* View */,
@@ -912,10 +926,6 @@
 				9248B6A61FB2A43200633CDA /* FXRecordViewController.m */,
 				9248B6AE1FB2B6CF00633CDA /* FXRechargeRecordContoller.h */,
 				9248B6AF1FB2B6CF00633CDA /* FXRechargeRecordContoller.m */,
-				9248B6B71FB2CF3200633CDA /* FXSpoilsController.h */,
-				9248B6B81FB2CF3200633CDA /* FXSpoilsController.m */,
-				9287E6A71FCE986E00BB1529 /* FXOrdingListViewController.h */,
-				9287E6A81FCE986E00BB1529 /* FXOrdingListViewController.m */,
 				9248B6C31FB2F09400633CDA /* FXSettingViewController.h */,
 				9248B6C41FB2F09400633CDA /* FXSettingViewController.m */,
 				9248B6C91FB309AA00633CDA /* FXNotificationController.h */,
@@ -953,6 +963,8 @@
 		9260ABE51FA73B2B00EA1881 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				92ACF70B201DBBC10049F22A /* LSJUserInfoCell.h */,
+				92ACF70C201DBBC10049F22A /* LSJUserInfoCell.m */,
 				92ACF706201DA8140049F22A /* SJUserInfoView.h */,
 				92ACF707201DA8140049F22A /* SJUserInfoView.m */,
 				92ACF708201DA8140049F22A /* SJUserInfoView.xib */,
@@ -994,9 +1006,6 @@
 				9248B6CD1FB30C8100633CDA /* FXNotificationCell.m */,
 				9248B7021FBA8B0B00633CDA /* FXTaskCell.h */,
 				9248B7031FBA8B0B00633CDA /* FXTaskCell.m */,
-				92D723131FECFC320031F7EB /* FXMinePageCell.h */,
-				92D723141FECFC320031F7EB /* FXMinePageCell.m */,
-				92D723151FECFC320031F7EB /* FXMinePageCell.xib */,
 				92D7231D1FED0E910031F7EB /* FXGameDetailContentView.h */,
 				92D7231E1FED0E910031F7EB /* FXGameDetailContentView.m */,
 				92D723201FED0EB40031F7EB /* FXGameDetailContentView.xib */,
@@ -1074,8 +1083,8 @@
 			children = (
 				924854FD1FE3D63800CC8B00 /* alipay */,
 				92B573FF1FD937CD00B32C02 /* UMeng */,
+				92ACF725201DCE040049F22A /* wawaSDK */,
 				92D99A981FD92D6C00CDEDC4 /* SDK */,
-				92FCBECA1FBD65B500BE88A7 /* wawaSDK */,
 				9248B6E51FB42E0100633CDA /* BGM */,
 				92FA4CA21FB17BAC007D8A0D /* libxml2.2.tbd */,
 				9260ABCA1FA73AE200EA1881 /* Main.storyboard */,
@@ -1231,6 +1240,38 @@
 			path = GDataXMLNode;
 			sourceTree = "<group>";
 		};
+		92ACF70F201DCA230049F22A /* mywawa */ = {
+			isa = PBXGroup;
+			children = (
+				92ACF719201DCAC10049F22A /* FXOrdingListViewController.h */,
+				92ACF714201DCAC00049F22A /* FXOrdingListViewController.m */,
+				92ACF713201DCAC00049F22A /* LSJSpoilsController.h */,
+				92ACF717201DCAC10049F22A /* LSJSpoilsController.m */,
+				92ACF718201DCAC10049F22A /* LSJWaWaDeliverController.h */,
+				92ACF715201DCAC00049F22A /* LSJWaWaDeliverController.m */,
+				92ACF716201DCAC10049F22A /* LSJWaWaDepositController.h */,
+				92ACF711201DCAC00049F22A /* LSJWaWaDepositController.m */,
+				92ACF712201DCAC00049F22A /* LSJWaWaExchangeController.h */,
+				92ACF710201DCAC00049F22A /* LSJWaWaExchangeController.m */,
+				92ACF720201DCBA60049F22A /* LSJLogisticsPopView.h */,
+				92ACF71F201DCBA60049F22A /* LSJLogisticsPopView.m */,
+				92ACF723201DCBD00049F22A /* LSJLogisticsCell.h */,
+				92ACF722201DCBD00049F22A /* LSJLogisticsCell.m */,
+			);
+			path = mywawa;
+			sourceTree = "<group>";
+		};
+		92ACF725201DCE040049F22A /* wawaSDK */ = {
+			isa = PBXGroup;
+			children = (
+				92ACF726201DCE040049F22A /* libcrypto.a */,
+				92ACF727201DCE040049F22A /* libssl.a */,
+				92ACF728201DCE040049F22A /* WawaSDK.framework */,
+			);
+			name = wawaSDK;
+			path = zzl/wawaSDK;
+			sourceTree = SOURCE_ROOT;
+		};
 		92B573FF1FD937CD00B32C02 /* UMeng */ = {
 			isa = PBXGroup;
 			children = (
@@ -1346,17 +1387,6 @@
 			path = Required;
 			sourceTree = "<group>";
 		};
-		92FCBECA1FBD65B500BE88A7 /* wawaSDK */ = {
-			isa = PBXGroup;
-			children = (
-				92D7230F1FECDEAE0031F7EB /* WawaSDK.framework */,
-				927478C41FBEAEE0005C5772 /* libcrypto.a */,
-				927478C51FBEAEE0005C5772 /* libssl.a */,
-			);
-			name = wawaSDK;
-			path = zzl/wawaSDK;
-			sourceTree = SOURCE_ROOT;
-		};
 		97349DD4B9289877FF17FEB4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1440,7 +1470,6 @@
 				92D99AC31FD92D6D00CDEDC4 /* WeiboSDK.bundle in Resources */,
 				9260ABCC1FA73AE200EA1881 /* Main.storyboard in Resources */,
 				9248B6F31FB42E0100633CDA /* 胜利1.mp3 in Resources */,
-				92D723171FECFC320031F7EB /* FXMinePageCell.xib in Resources */,
 				92D99ABC1FD92D6D00CDEDC4 /* ShareSDKUI.bundle in Resources */,
 				928282691FC2FEE8001B3092 /* DYGPersonInfoTbCell.xib in Resources */,
 				9248B6ED1FB42E0100633CDA /* gameWait.mp3 in Resources */,
@@ -1517,7 +1546,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9283496C1FC6F6940012A2D1 /* FXHomeSignPopView.m in Sources */,
+				92ACF71B201DCAC10049F22A /* LSJWaWaDepositController.m in Sources */,
 				92744F3D1FC001FD00F8D42C /* ZYCountDownView.m in Sources */,
+				92ACF724201DCBD00049F22A /* LSJLogisticsCell.m in Sources */,
 				92B918E31FCFB67E009B0CE9 /* UIButton+Position.m in Sources */,
 				92744F461FC039A200F8D42C /* OBShapedButton.m in Sources */,
 				92D7231F1FED0E910031F7EB /* FXGameDetailContentView.m in Sources */,
@@ -1532,13 +1563,16 @@
 				9287E6A61FCE485200BB1529 /* FXHomeHouseItem.m in Sources */,
 				9248B6BF1FB2DA6C00633CDA /* FXCollecTBCell.m in Sources */,
 				9248B7041FBA8B0C00633CDA /* FXTaskCell.m in Sources */,
+				92ACF71A201DCAC10049F22A /* LSJWaWaExchangeController.m in Sources */,
 				92570DD91FAB54AC00232AE0 /* UIButton+DYGAdd.m in Sources */,
+				92ACF71C201DCAC10049F22A /* FXOrdingListViewController.m in Sources */,
 				9267A05E1FAAB9D80058AA70 /* BulletBackgroudView.m in Sources */,
 				9260ABD41FA73AE200EA1881 /* main.m in Sources */,
 				9287C16A1FA76CA00042E4CF /* PGIndexBannerSubiew.m in Sources */,
 				9217B54E1FC423B700B506EB /* DYGHttpTool.m in Sources */,
 				92570DE11FAB54AC00232AE0 /* DYGAlertMessageController.m in Sources */,
 				9267A03C1FA9B5FC0058AA70 /* FXRoomCell.m in Sources */,
+				92ACF721201DCBA60049F22A /* LSJLogisticsPopView.m in Sources */,
 				9248B6DA1FB3F51700633CDA /* FXAboutUsController.m in Sources */,
 				9248B6B01FB2B6CF00633CDA /* FXRechargeRecordContoller.m in Sources */,
 				928EC8201FB1818A0072C68B /* MOFSPickerManager.m in Sources */,
@@ -1558,7 +1592,6 @@
 				92EF42801FAC688400889B20 /* FXRechargeCell.m in Sources */,
 				9217B53B1FC40D3300B506EB /* NSData+Encryption.m in Sources */,
 				929EC8321FD27E2B0008FE14 /* FXMineHeaderView.m in Sources */,
-				92D723161FECFC320031F7EB /* FXMinePageCell.m in Sources */,
 				92ACF6F0201D69640049F22A /* QMXingXiuHeaderReusableView.m in Sources */,
 				9248B6C51FB2F09400633CDA /* FXSettingViewController.m in Sources */,
 				924AEBE81FB063DD00E0DD8C /* FXBgView.m in Sources */,
@@ -1595,7 +1628,6 @@
 				9217B53C1FC40D3300B506EB /* NSString+Hash.m in Sources */,
 				92679FDD1FA7530D0058AA70 /* UIView+DYGAdd.m in Sources */,
 				92EF42861FADB61900889B20 /* FXUserInfoController.m in Sources */,
-				9248B6B91FB2CF3200633CDA /* FXSpoilsController.m in Sources */,
 				9267A05F1FAAB9D80058AA70 /* BulletManager.m in Sources */,
 				9248B6CE1FB30C8100633CDA /* FXNotificationCell.m in Sources */,
 				9248B6C81FB2F51C00633CDA /* FXExitCell.m in Sources */,
@@ -1604,13 +1636,16 @@
 				9248B6D41FB32EFE00633CDA /* DYGAddCell.m in Sources */,
 				92ACF709201DA8140049F22A /* SJUserInfoView.m in Sources */,
 				92570DDD1FAB54AC00232AE0 /* NSArray+DYGAdd.m in Sources */,
+				92ACF71D201DCAC10049F22A /* LSJWaWaDeliverController.m in Sources */,
 				928A8FA41FC7C99F000B621E /* FXHomeLoginSuccessPopView.m in Sources */,
 				92570DDC1FAB54AC00232AE0 /* UIDevice+DYGAdd.m in Sources */,
 				92570DDA1FAB54AC00232AE0 /* UINavigationController+NeedLogin.m in Sources */,
 				9267A0661FAB056A0058AA70 /* FXGameWaitCell.m in Sources */,
+				92ACF70D201DBBC20049F22A /* LSJUserInfoCell.m in Sources */,
 				9248B6FE1FB5A46700633CDA /* FXLoginPopView.m in Sources */,
 				9267A0601FAAB9D80058AA70 /* BulletView.m in Sources */,
 				928EC8211FB1818A0072C68B /* MOFSPickerView.m in Sources */,
+				92ACF71E201DCAC10049F22A /* LSJSpoilsController.m in Sources */,
 				9267A0631FAABC090058AA70 /* FXOnlineView.m in Sources */,
 				928A90811FC81528000B621E /* FXGameResultView.m in Sources */,
 				9260ABC61FA73AE200EA1881 /* AppDelegate.m in Sources */,
@@ -1627,7 +1662,6 @@
 				9248B7011FBA855A00633CDA /* FXTaskViewController.m in Sources */,
 				92EF427D1FAC630900889B20 /* FXRechargeHeader.m in Sources */,
 				92570DDF1FAB54AC00232AE0 /* DYGAlertHandleController.m in Sources */,
-				9287E6A91FCE986E00BB1529 /* FXOrdingListViewController.m in Sources */,
 				928349681FC6DC8C0012A2D1 /* FXHomePopView.m in Sources */,
 				928EC8301FB1B2180072C68B /* FXSwitchCell.m in Sources */,
 				9267A06C1FAB08160058AA70 /* NSDictionary+ZXAdd.m in Sources */,
