@@ -14,6 +14,7 @@
 #import "FXHomeHouseItem.h"
 #import "FXSelfViewController.h"
 #import "LSJGameViewController.h"
+#import "LSJSpoilsController.h"
 
 @interface LSJHomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -216,7 +217,8 @@
 }
 
 - (void)wawaAction:(UIButton *)sender{
-    
+    LSJSpoilsController *spoilVC = [[LSJSpoilsController alloc] init];
+    [self.navigationController pushViewController:spoilVC animated:YES];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

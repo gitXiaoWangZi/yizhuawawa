@@ -19,27 +19,20 @@
 
 @property (nonatomic,strong) UIButton *backBtn;
 
-@property (nonatomic,strong) UIImageView *bgImgV;
+@property (nonatomic,strong) UIView *iconBgView;
+@property (nonatomic,strong) UILabel *iconL;
 @property (nonatomic,strong) UIImageView *iconImgV;
 
 @property (nonatomic,strong) UICollectionView *audienceCollectV;
 @property (nonatomic,strong) UIImageView *personNumImgV;
 @property (nonatomic,strong) UILabel *personNumL;
 
-@property (nonatomic,strong) UIView *zuanshiView;
-@property (nonatomic,strong) UIImageView *zuanshiBgImgV;
-@property (nonatomic,strong) UIImageView *zuanshiImgV;
-@property (nonatomic,strong) UIImageView *rechargeImgV;
-
 @property (nonatomic,strong) UIImageView *musicImgV;
-@property (nonatomic,strong) UILabel *musicL;
 @property (nonatomic,strong) UIImageView *barrageImgV;
-@property (nonatomic,strong) UILabel *barrageL;
-@property (nonatomic,strong) UIImageView *musicNoImgV;
-@property (nonatomic,strong) UIImageView *barrageNoImgV;
 @property (nonatomic,strong) UIButton *musicBtn;
 @property (nonatomic,strong) UIButton *barrageBtn;
 
+@property (nonatomic,strong) UIButton *crameBtn;
 
 @end
 
@@ -54,132 +47,93 @@ static NSString * reuserId= @"roomCell";
 }
 
 - (void)setUpChildView{
+    CGFloat playHeight = self.height * 0.75;
+    //视频页面
+    [self addSubview:self.playView];
+    [self.playView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_top).offset(0);
+        make.left.equalTo(self.mas_left).offset(0);
+        make.right.equalTo(self.mas_right).offset(0);
+        make.height.equalTo(@(playHeight));
+    }];
+    //头像背景
+    [self addSubview:self.iconBgView];
+    [self.iconBgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.mas_left).offset(Px(15));
+        make.top.equalTo(self.mas_top).offset(Py(25));
+        make.width.equalTo(@(Px(81)));
+        make.height.equalTo(@(Py(100)));
+    }];
+    self.iconBgView.layer.cornerRadius = Px(5);
+    self.iconBgView.layer.masksToBounds = YES;
+    //名字
+    [self.iconBgView addSubview:self.iconL];
+    [self.iconL mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.iconBgView.mas_left);
+        make.right.equalTo(self.iconBgView.mas_right);
+        make.top.equalTo(self.iconBgView.mas_top).offset(Py(5));
+        make.height.equalTo(@(Py(20)));
+    }];
+    //头像
+    [self.iconBgView addSubview:self.iconImgV];
+    [self.iconImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.iconBgView.mas_left).offset(2);
+        make.right.equalTo(self.iconBgView.mas_right).offset(-2);
+        make.bottom.equalTo(self.iconBgView.mas_bottom).offset(-2);
+        make.top.equalTo(self.iconL.mas_bottom).offset(5);
+    }];
+    self.iconImgV.layer.cornerRadius = Px(5);
+    self.iconImgV.layer.masksToBounds = YES;
+    
+    //倒计时
+//    [self addSubview:self.countDownV];
+//    [self.countDownV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(self.bgImgV);
+//        make.centerX.equalTo(self.bgImgV);
+//        make.width.equalTo(self.bgImgV.mas_width).offset(-10);
+//        make.height.equalTo(self.bgImgV.mas_height).offset(-10);
+//    }];
+//    self.countDownV.layer.cornerRadius = Px(30);
+//    self.countDownV.layer.masksToBounds = YES;
+//    self.countDownV.hidden = YES;
     //返回按钮
     [self addSubview:self.backBtn];
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(@(10));
-        make.top.equalTo(@(20));
-        make.width.equalTo(@(20));
-        make.height.equalTo(@(Px(70)));
-    }];
-    //头像背景
-    [self addSubview:self.bgImgV];
-    [self.bgImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.backBtn.mas_right).offset(Px(5));
-        make.centerY.equalTo(self.backBtn);
-        make.width.equalTo(@(Px(70)));
-        make.height.equalTo(@(Px(70)));
-    }];
-    //头像
-    [self addSubview:self.iconImgV];
-    [self.iconImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.bgImgV);
-        make.centerX.equalTo(self.bgImgV);
-        make.width.equalTo(self.bgImgV.mas_width).offset(-10);
-        make.height.equalTo(self.bgImgV.mas_height).offset(-10);
-    }];
-    self.iconImgV.layer.cornerRadius = Px(30);
-    self.iconImgV.layer.masksToBounds = YES;
-    //倒计时
-    [self addSubview:self.countDownV];
-    [self.countDownV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.bgImgV);
-        make.centerX.equalTo(self.bgImgV);
-        make.width.equalTo(self.bgImgV.mas_width).offset(-10);
-        make.height.equalTo(self.bgImgV.mas_height).offset(-10);
-    }];
-    self.countDownV.layer.cornerRadius = Px(30);
-    self.countDownV.layer.masksToBounds = YES;
-    self.countDownV.hidden = YES;
-    //游戏状态
-    [self addSubview:self.statusImgV];
-    [self.statusImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.bgImgV);
-        make.bottom.equalTo(self.bgImgV.mas_bottom).offset(0);
+        make.right.equalTo(self.mas_right).offset(-14);
+        make.top.equalTo(@(Py(38)));
+        make.width.equalTo(@(Px(25)));
+        make.height.equalTo(@(Px(25)));
     }];
     //围观控件
     [self addSubview:self.audienceCollectV];
     [self.audienceCollectV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.bgImgV);
-        make.left.equalTo(self.bgImgV.mas_right).offset(3);
+        make.centerY.equalTo(self.backBtn);
+        make.right.equalTo(self.backBtn.mas_left).offset(-10);
         make.width.equalTo(@(Py(103)));
         make.height.equalTo(@(Py(40)));
     }];
     //围观人数背景
-    [self addSubview:self.personNumImgV];
-    [self.personNumImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.bgImgV);
-        make.left.equalTo(self.audienceCollectV.mas_right).offset(0);
-        make.width.equalTo(@(Px(35)));
-        make.height.equalTo(@(Px(35)));
-    }];
+//    [self addSubview:self.personNumImgV];
+//    [self.personNumImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(self.bgImgV);
+//        make.left.equalTo(self.audienceCollectV.mas_right).offset(0);
+//        make.width.equalTo(@(Px(35)));
+//        make.height.equalTo(@(Px(35)));
+//    }];
     //围观人数
-    [self addSubview:self.personNumL];
-    [self.personNumL mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.personNumImgV);
-        make.centerX.equalTo(self.personNumImgV);
-        make.width.equalTo(@(Px(30)));
-        make.height.equalTo(@(Px(30)));
-    }];
-    //充值背景
-    [self addSubview:self.zuanshiBgImgV];
-    [self.zuanshiBgImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.bgImgV);
-        make.right.equalTo(self.mas_right).offset(-10);
-    }];
-    self.zuanshiBgImgV.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(recharge:)];
-    [self.zuanshiBgImgV addGestureRecognizer:tap];
-    //充值钻石
-    [self addSubview:self.zuanshiImgV];
-    [self.zuanshiImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.zuanshiBgImgV);
-        make.left.equalTo(self.zuanshiBgImgV.mas_left).offset(10);
-        make.width.equalTo(@(Px(18)));
-        make.height.equalTo(@(Px(15.5)));
-    }];
-    //加号
-    [self addSubview:self.rechargeImgV];
-    [self.rechargeImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.zuanshiBgImgV);
-        make.right.equalTo(self.zuanshiBgImgV.mas_right).offset(2);
-        make.width.equalTo(@(Px(35.5)));
-        make.height.equalTo(@(Px(35)));
-    }];
-    //钻石数量
-    [self addSubview:self.zuanshiNumL];
-    [self.zuanshiNumL mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.zuanshiBgImgV);
-        make.left.equalTo(self.zuanshiImgV.mas_right).offset(0);
-        make.right.equalTo(self.rechargeImgV.mas_left).offset(0);
-    }];
-    [self.zuanshiNumL sizeToFit];
-    //视频页面
-    [self addSubview:self.playView];
-    [self.playView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.bgImgV.mas_bottom).offset(8);
-        make.left.equalTo(self.mas_left).offset(0);
-        make.right.equalTo(self.mas_right).offset(0);
-        make.bottom.equalTo(self.mas_bottom).offset(Py(-80));
-    }];
+//    [self addSubview:self.personNumL];
+//    [self.personNumL mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(self.personNumImgV);
+//        make.centerX.equalTo(self.personNumImgV);
+//        make.width.equalTo(@(Px(30)));
+//        make.height.equalTo(@(Px(30)));
+//    }];
+    
     //音乐图
     [self addSubview:self.musicImgV];
     [self.musicImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.playView.mas_top).offset(Py(10));
-        make.right.equalTo(self.playView.mas_right).offset(-5);
-    }];
-    //音乐禁止图
-    [self addSubview:self.musicNoImgV];
-    [self.musicNoImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.musicImgV.mas_bottom).offset(0);
-        make.right.equalTo(self.musicImgV.mas_right).offset(0);
-    }];
-    self.musicNoImgV.hidden = YES;
-    //音乐文字
-    [self addSubview:self.musicL];
-    [self.musicL mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.musicImgV);
-        make.top.equalTo(self.musicImgV.mas_bottom).offset(0);
+        make.bottom.equalTo(self.playView.mas_bottom).offset(-Py(10));
+        make.right.equalTo(self.playView.mas_right).offset(-20);
     }];
     //音乐按钮
     [self addSubview:self.musicBtn];
@@ -192,21 +146,8 @@ static NSString * reuserId= @"roomCell";
     //弹幕图
     [self addSubview:self.barrageImgV];
     [self.barrageImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.musicL.mas_bottom).offset(Py(10));
-        make.centerX.equalTo(self.musicImgV);
-    }];
-    //弹幕禁止图
-    [self addSubview:self.barrageNoImgV];
-    [self.barrageNoImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.barrageImgV.mas_bottom).offset(0);
-        make.right.equalTo(self.barrageImgV.mas_right).offset(0);
-    }];
-    self.barrageNoImgV.hidden = YES;
-    //弹幕文字
-    [self addSubview:self.barrageL];
-    [self.barrageL mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.barrageImgV);
-        make.top.equalTo(self.barrageImgV.mas_bottom).offset(0);
+        make.right.equalTo(self.musicImgV.mas_left).offset(-Py(10));
+        make.centerY.equalTo(self.musicImgV);
     }];
     //弹幕按钮
     [self addSubview:self.barrageBtn];
@@ -222,27 +163,21 @@ static NSString * reuserId= @"roomCell";
         make.left.equalTo(self.mas_left).offset(0);
         make.right.equalTo(self.mas_right).offset(0);
         make.bottom.equalTo(self.mas_bottom).offset(0);
-        make.height.equalTo(@(Py(108)));
+        make.top.equalTo(self.playView.mas_bottom);
     }];
     //弹幕
     [self addSubview:self.bulletBgView];
     [self.bulletBgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.barrageL.mas_bottom).offset(5);
+        make.top.equalTo(self.iconBgView.mas_bottom).offset(5);
         make.left.equalTo(self.mas_left).offset(0);
         make.right.equalTo(self.mas_right).offset(0);
-        make.height.equalTo(@(Py(190)));
+        make.bottom.equalTo(self.musicImgV.mas_top);
     }];
-    //每次多少金币
-    [self addSubview:self.perPayBtn];
-    [self.perPayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.normalView.mas_top).offset(-20);
-        make.centerX.equalTo(self.mas_centerX);
-        make.width.equalTo(@(Px(80)));
-        make.height.equalTo(@(Py(27)));
+    [self addSubview:self.crameBtn];
+    [self.crameBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.playView);
+        make.right.equalTo(self.mas_right);
     }];
-    self.perPayBtn.layer.cornerRadius = 13.5f;
-    self.perPayBtn.layer.masksToBounds = YES;
-    
     
     [self creaetBarrage];
     [self.bulletManager start];
@@ -270,13 +205,20 @@ static NSString * reuserId= @"roomCell";
     }
 }
 
+- (void)changeView:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if ([self.delegate respondsToSelector:@selector(dealWithTopViewBy:button:)]) {
+        [self.delegate dealWithTopViewBy:TopViewView button:sender];
+    }
+}
+
 //音乐
 - (void)musicSwitch:(UIButton *)sender{
     sender.selected = !sender.selected;
     if (sender.selected) {
-        self.musicNoImgV.hidden = NO;
+        self.musicImgV.image = [UIImage imageNamed:@"sound_open"];
     }else{
-        self.musicNoImgV.hidden = YES;
+        self.musicImgV.image = [UIImage imageNamed:@"sound_down"];
     }
     if ([self.delegate respondsToSelector:@selector(dealWithTopViewBy:button:)]) {
         [self.delegate dealWithTopViewBy:TopViewMusic button:sender];
@@ -287,9 +229,9 @@ static NSString * reuserId= @"roomCell";
 - (void)barrageSwitch:(UIButton *)sender{
     sender.selected = !sender.selected;
     if (sender.selected) {
-        self.barrageNoImgV.hidden = NO;
+        self.barrageImgV.image = [UIImage imageNamed:@"bar_open"];
     }else{
-        self.barrageNoImgV.hidden = YES;
+        self.barrageImgV.image = [UIImage imageNamed:@"bar_down"];
     }
     if ([self.delegate respondsToSelector:@selector(dealWithTopViewBy:button:)]) {
         [self.delegate dealWithTopViewBy:TopViewBarrage button:sender];
@@ -304,12 +246,6 @@ static NSString * reuserId= @"roomCell";
 -(void)stopScroll{
     [self.bulletManager stop];
     self.bulletBgView.hidden = YES;
-}
-
-- (void)recharge:(UITapGestureRecognizer *)tap{
-    if ([self.delegate respondsToSelector:@selector(dealWithTopViewBy:button:)]) {
-        [self.delegate dealWithTopViewBy:TopViewRecharge button:nil];
-    }
 }
 
 #pragma mark UICollectionViewDelegate,UICollectionViewDataSource
@@ -327,7 +263,7 @@ static NSString * reuserId= @"roomCell";
     cell.layer.masksToBounds = YES;
     cell.backgroundColor = DYGRandomColor;
     WwUser *model = self.dataArray[indexPath.row];
-    [cell.iconImgV sd_setImageWithURL:[NSURL URLWithString:model.portrait] placeholderImage:[UIImage imageNamed:@"default_icon"]];
+    [cell.iconImgV sd_setImageWithURL:[NSURL URLWithString:model.portrait] placeholderImage:[UIImage imageNamed:@"avatar_default_medium"]];
     return cell;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -354,32 +290,31 @@ static NSString * reuserId= @"roomCell";
 - (void)refreGameUserByUser:(WwUser *)user{
     if (user == nil) {
         self.iconImgV.image = [UIImage imageNamed:@"default_icon"];
-        self.statusImgV.hidden = NO;
+        self.iconL.text = @"等待入位";
         return;
     }
+    self.iconL.text = user.nickname;
     [self.iconImgV sd_setImageWithURL:[NSURL URLWithString:user.portrait]];
-    self.statusImgV.hidden = YES;
 }
 - (void)refrshWaWaDetailsWithModel:(WwRoom *)model{
     NSString *coin = [NSString stringWithFormat:@"%zd/次",model.wawa.coin];
-    [self.perPayBtn setTitle:coin forState:UIControlStateNormal];
-    [self.perPayBtn xm_setImagePosition:XMImagePositionLeft titleFont:[UIFont boldSystemFontOfSize:12] spacing:5];
 }
 
 #pragma mark lazyload
 - (UIButton *)backBtn{
     if (!_backBtn) {
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_backBtn setImage:[UIImage imageNamed:@"mine_header_back"] forState:UIControlStateNormal];
+        [_backBtn setImage:[UIImage imageNamed:@"live_close"] forState:UIControlStateNormal];
         [_backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     }
     return _backBtn;
 }
-- (UIImageView *)bgImgV{
-    if (!_bgImgV) {
-        _bgImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mine_header_icon"]];
+- (UIView *)iconBgView{
+    if (!_iconBgView) {
+        _iconBgView = [UIView new];
+        _iconBgView.backgroundColor = DYGColor(251, 88, 145);
     }
-    return _bgImgV;
+    return _iconBgView;
 }
 - (UIImageView *)iconImgV{
     if (!_iconImgV) {
@@ -397,12 +332,6 @@ static NSString * reuserId= @"roomCell";
         _countdownL.text = @"24s";
     }
     return _countdownL;
-}
-- (UIImageView *)statusImgV{
-    if (!_statusImgV) {
-        _statusImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"game_status"]];
-    }
-    return _statusImgV;
 }
 - (UICollectionView *)audienceCollectV{
     if (!_audienceCollectV) {
@@ -435,42 +364,6 @@ static NSString * reuserId= @"roomCell";
     }
     return _personNumL;
 }
-- (UIView *)zuanshiView{
-    if (!_zuanshiView) {
-        _zuanshiView = [UIView new];
-        _zuanshiView.backgroundColor = [UIColor clearColor];
-    }
-    return _zuanshiView;
-}
-- (UIImageView *)zuanshiImgV{
-    if (!_zuanshiImgV) {
-        _zuanshiImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"game_recharge_zs"]];
-    }
-    return _zuanshiImgV;
-}
-- (UIImageView *)zuanshiBgImgV{
-    if (!_zuanshiBgImgV) {
-        UIImage *image = [UIImage imageNamed:@"game_recharge_bgV"];
-        image = [image stretchableImageWithLeftCapWidth:20 topCapHeight:0];
-        _zuanshiBgImgV = [[UIImageView alloc] initWithImage:image];
-    }
-    return _zuanshiBgImgV;
-}
-- (UIImageView *)rechargeImgV{
-    if (!_rechargeImgV) {
-        _rechargeImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"game_recharge_add"]];
-    }
-    return _rechargeImgV;
-}
-- (UILabel *)zuanshiNumL{
-    if (!_zuanshiNumL) {
-        _zuanshiNumL = [[UILabel alloc] init];
-        _zuanshiNumL.textAlignment = NSTextAlignmentCenter;
-        _zuanshiNumL.font = [UIFont fontWithName:@"STYuanti-SC-Bold" size:20];
-        _zuanshiNumL.textColor = DYGColorFromHex(0xffffff);
-    }
-    return _zuanshiNumL;
-}
 
 - (UIView *)playView{
     if (!_playView) {
@@ -481,45 +374,25 @@ static NSString * reuserId= @"roomCell";
 }
 - (UIImageView *)musicImgV{
     if (!_musicImgV) {
-        _musicImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"game_music"]];
+        _musicImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sound_open"]];
     }
     return _musicImgV;
 }
-- (UILabel *)musicL{
-    if (!_musicL) {
-        _musicL = [[UILabel alloc] init];
-        _musicL.text = @"音乐";
-        _musicL.font = [UIFont systemFontOfSize:12];
-        _musicL.textColor = [UIColor whiteColor];
+- (UILabel *)iconL{
+    if (!_iconL) {
+        _iconL = [[UILabel alloc] init];
+        _iconL.text = @"等待入位";
+        _iconL.font = [UIFont systemFontOfSize:11];
+        _iconL.textColor = [UIColor whiteColor];
+        _iconL.textAlignment = NSTextAlignmentCenter;
     }
-    return _musicL;
+    return _iconL;
 }
 - (UIImageView *)barrageImgV{
     if (!_barrageImgV) {
-        _barrageImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"game_danmu"]];
+        _barrageImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bar_open"]];
     }
     return _barrageImgV;
-}
-- (UILabel *)barrageL{
-    if (!_barrageL) {
-        _barrageL = [[UILabel alloc] init];
-        _barrageL.text = @"弹幕";
-        _barrageL.font = [UIFont systemFontOfSize:12];
-        _barrageL.textColor = [UIColor whiteColor];
-    }
-    return _barrageL;
-}
-- (UIImageView *)musicNoImgV{
-    if (!_musicNoImgV) {
-        _musicNoImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"game_play_no"]];
-    }
-    return _musicNoImgV;
-}
-- (UIImageView *)barrageNoImgV{
-    if (!_barrageNoImgV) {
-        _barrageNoImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"game_play_no"]];
-    }
-    return _barrageNoImgV;
 }
 -(UIButton *)musicBtn{
     if (!_musicBtn) {
@@ -538,15 +411,13 @@ static NSString * reuserId= @"roomCell";
     return _barrageBtn;
 }
 
-- (UIButton *)perPayBtn{
-    if (!_perPayBtn) {
-        _perPayBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_perPayBtn setImage:[UIImage imageNamed:@"game_recharge_zs"] forState:UIControlStateNormal];
-        [_perPayBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-        _perPayBtn.backgroundColor = DYGAColor(0, 0, 0, 0.6);
-        _perPayBtn.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+- (UIButton *)crameBtn{
+    if (!_crameBtn) {
+        _crameBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_crameBtn setImage:[UIImage imageNamed:@"interactive_rtcExchange"] forState:UIControlStateNormal];
+        [_crameBtn addTarget:self action:@selector(changeView:) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _perPayBtn;
+    return _crameBtn;
 }
 
 - (LSJOperationNormalView *)normalView{

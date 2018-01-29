@@ -10,7 +10,7 @@
 
 @class LSJOperationNormalView,ZYPlayOperationView,BulletManager,BulletBackgroudView,ZYCountDownView;
 typedef NS_ENUM(NSInteger,TopView) {
-    TopViewRecharge = 0, //充值
+    TopViewView = 0, //调换视角
     TopViewMusic = 1, //音乐
     TopViewBarrage = 2, //弹幕
     TopViewBack = 3 //返回
@@ -33,8 +33,6 @@ typedef NS_ENUM(NSInteger,TopView) {
 @property (nonatomic, strong) BulletBackgroudView *bulletBgView;//弹幕背景
 @property (nonatomic,assign) TopView topView;
 @property (nonatomic,strong) UILabel *countdownL;
-@property (nonatomic,strong) UIImageView *statusImgV;
-@property (nonatomic,strong) UILabel *zuanshiNumL;
 
 @property (nonatomic,assign) id<LSJTopViewDelegate> delegate;
 

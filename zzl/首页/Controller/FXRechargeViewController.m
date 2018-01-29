@@ -307,7 +307,7 @@
     [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
         if ([dic[@"code"] intValue] == 200) {
-            _item = [AccountItem mj_objectWithKeyValues:dic[@"data"][0]];
+            _item = [AccountItem mj_objectWithKeyValues:dic[@"data"][@"userInfo"]];
             _firstpunch = dic[@"firstpunch"];
             
             [self setUpUI];

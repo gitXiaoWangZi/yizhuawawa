@@ -23,6 +23,7 @@
 #import "FXMineHeaderView.h"
 #import "FXHomeBannerItem.h"
 #import "LSJUserInfoCell.h"
+#import "LSJSpoilsController.h"
 
 static NSString *cellId = @"LSJUserInfoCell";
 @interface FXSelfViewController ()<UITableViewDelegate,UITableViewDataSource,SJUserInfoViewDelegate,UIGestureRecognizerDelegate>
@@ -130,6 +131,9 @@ static NSString *cellId = @"LSJUserInfoCell";
         [self.navigationController pushViewController:userVC animated:YES];
     }else if (btn.tag == 4){
         [self.navigationController popViewControllerAnimated:YES];
+    }else if (btn.tag == 3){
+        LSJSpoilsController *spoilVC = [[LSJSpoilsController alloc] init];
+        [self.navigationController pushViewController:spoilVC animated:YES];
     }else{
         
     }

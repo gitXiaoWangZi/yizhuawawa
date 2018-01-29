@@ -20,6 +20,7 @@
 #import "UIButton+Position.h"
 #import "ZYCountDownView.h"
 #import "FXGameResultView.h"
+#import "FXRechargeViewController.h"
 
 @interface LSJGameViewController ()<UIScrollViewDelegate,WwGameManagerDelegate,LSJTopViewDelegate,LSJOperationNormalViewDelegate,ZYPlayOperationViewDelegate,AVAudioPlayerDelegate,FXCommentViewDelegate,UITextFieldDelegate,ZYCountDownViewDelegate,FXGameResultViewDelegate>
 
@@ -27,7 +28,7 @@
 @property (nonatomic,strong) BottomViewController *BottomViewVC;
 @property (nonatomic,strong) LSJTopView *topView;
 @property (nonatomic,strong) FXCommentView *comment;//键盘
-
+@property (nonatomic,strong) LSJOperationNormalView *normalView;//键盘
 @property (nonatomic,assign) int commentBtnStatue;
 @property (nonatomic,assign) int musicBtnStatue;
 @property (nonatomic,strong) FXGameResultView * resultPopView;
@@ -97,7 +98,7 @@
 
 - (void)setUpUI{
     [self.view addSubview:self.myScroV];
-    self.myScroV.backgroundColor = DYGColorFromHex(0xffe353);
+    self.myScroV.backgroundColor = DYGColor(231, 100, 145);
     self.myScroV.contentSize = CGSizeMake(kScreenWidth, 2 * kScreenHeight - 30);
     self.myScroV.bounces = NO;
     self.myScroV.delegate = self;
@@ -107,7 +108,7 @@
     [self.myScroV addSubview:self.topView];
     self.topView.normalView.delegate = self;
     self.topView.countDownV.delegate = self;
-    
+    self.normalView = self.topView.normalView;
     self.BottomViewVC = [[BottomViewController alloc] init];
     self.BottomViewVC.ganeViewC = self;
     self.BottomViewVC.view.frame = CGRectMake(10, kScreenHeight - 10, kScreenWidth-20, kScreenHeight);
@@ -293,7 +294,7 @@
 - (LSJTopView *)topView{
     if (!_topView) {
         _topView = [[LSJTopView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 10)];
-        _topView.backgroundColor = DYGColorFromHex(0xFEE354);
+        _topView.backgroundColor = DYGColor(231, 100, 145);
         _topView.delegate = self;
     }
     return _topView;
@@ -326,16 +327,6 @@
                 [self.navigationController popViewControllerAnimated:YES];
             }
             break;
-        case TopViewRecharge:
-        {
-            self.isNoBack = YES;
-            [MobClick event:@"game_pay"];
-            NSString *firstPunch = [[NSUserDefaults standardUserDefaults] objectForKey:Kfirstpunch];
-//            LSJRechargeViewController *rechargeVC = [[LSJRechargeViewController alloc] init];
-//            rechargeVC.firstpunch = firstPunch;
-//            [self.navigationController pushViewController:rechargeVC animated:YES];
-        }
-            break;
         case TopViewMusic:
         {
             if (sender.selected) {
@@ -358,6 +349,12 @@
             }
         }
             break;
+        case TopViewView:
+        {
+            [[WwGameManager GameMgrInstance] cameraSwitchIsFront:!sender.selected];
+            self.playOperationBar.cameraDir = sender.selected ? CameraDirection_Right : CameraDirection_Front;
+        }
+            break;
         default:
             break;
     }
@@ -365,12 +362,6 @@
 
 - (void)dealWithbottomViewBy:(OperationNormalView)operation button:(UIButton *)sender{
     switch (operation) {
-        case OperationNormalViewView:
-        {
-            [[WwGameManager GameMgrInstance] cameraSwitchIsFront:!sender.selected];
-            self.playOperationBar.cameraDir = sender.selected ? CameraDirection_Right : CameraDirection_Front;
-        }
-            break;
         case OperationNormalViewGame:
         {
             sender.enabled = NO;
@@ -380,6 +371,15 @@
         case OperationNormalViewMsg:
         {
             [self commentViewPop];
+        }
+            break;
+        case OperationNormalViewrecharge:
+        {
+            self.isNoBack = YES;
+            NSString *firstPunch = [[NSUserDefaults standardUserDefaults] objectForKey:Kfirstpunch];
+            FXRechargeViewController *rechargeVC = [[FXRechargeViewController alloc] init];
+            rechargeVC.firstpunch = firstPunch;
+            [self.navigationController pushViewController:rechargeVC animated:YES];
         }
             break;
         default:
@@ -555,7 +555,7 @@
         NSDictionary *dic = (NSDictionary *)json;
         if ([dic[@"code"] intValue] == 200) {
             AccountItem *item = [AccountItem mj_objectWithKeyValues:dic[@"data"][@"userInfo"]];
-            self.topView.zuanshiNumL.text = item.rich.coin;
+            self.normalView.zuanshiNumL.text = item.rich.coin;
         }
     } failure:^(NSError *error) {
         
@@ -657,13 +657,10 @@
     if (liveData.state >= 3 && liveData.state <= 6) {
         WwUser *model = liveData.user;
         [self.topView refreGameUserByUser:model];
-        self.topView.statusImgV.hidden = YES;
     }else if (liveData.state == 2){//开始游戏
         [self.topView refreGameUserByUser:nil];
-        self.topView.statusImgV.hidden = NO;
     }else if (liveData.state <= 0){//机器维护中
         [self.topView refreGameUserByUser:nil];
-        self.topView.statusImgV.hidden = YES;
     }else{
 
     }

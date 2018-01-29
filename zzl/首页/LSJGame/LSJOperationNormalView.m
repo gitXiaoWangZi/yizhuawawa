@@ -10,8 +10,13 @@
 
 @interface LSJOperationNormalView()
 @property (nonatomic,strong) UIImageView *bgImgV;
-@property (nonatomic,strong) UIButton *perspectiveBtn;
 @property (nonatomic,strong) UIButton *msgBtn;
+
+
+@property (nonatomic,strong) UIView *zuanshiView;
+@property (nonatomic,strong) UIImageView *zuanshiBgImgV;
+@property (nonatomic,strong) UIImageView *zuanshiImgV;
+@property (nonatomic,strong) UIImageView *rechargeImgV;
 @end
 
 @implementation LSJOperationNormalView
@@ -31,46 +36,64 @@
         make.right.equalTo(self.mas_right).offset(0);
         make.bottom.equalTo(self.mas_bottom).offset(0);
     }];
-    [self addSubview:self.perspectiveBtn];
-    [self.perspectiveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.mas_left).offset(20);
-        make.bottom.equalTo(self.mas_bottom).offset(-40);
-    }];
     [self addSubview:self.gameBtn];
     [self.gameBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.mas_centerX);
-        make.bottom.equalTo(self.mas_bottom).offset(-30);
+        make.centerY.equalTo(self.mas_centerY);
     }];
     [self addSubview:self.msgBtn];
     [self.msgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.mas_right).offset(-20);
-        make.bottom.equalTo(self.mas_bottom).offset(-40);
+        make.centerY.equalTo(self.mas_centerY);
     }];
+    
+    //充值背景
+    [self addSubview:self.zuanshiBgImgV];
+    [self.zuanshiBgImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.mas_centerY);
+        make.left.equalTo(self.mas_left).offset(Px(15));
+    }];
+    self.zuanshiBgImgV.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(recharge:)];
+    [self.zuanshiBgImgV addGestureRecognizer:tap];
+    //充值钻石
+    [self addSubview:self.zuanshiImgV];
+    [self.zuanshiImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.zuanshiBgImgV);
+        make.left.equalTo(self.zuanshiBgImgV.mas_left).offset(10);
+        make.width.equalTo(@(Px(18)));
+        make.height.equalTo(@(Px(15.5)));
+    }];
+    //加号
+    [self addSubview:self.rechargeImgV];
+    [self.rechargeImgV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.zuanshiBgImgV);
+        make.right.equalTo(self.zuanshiBgImgV.mas_right).offset(-5);
+//        make.width.equalTo(@(Px(35.5)));
+//        make.height.equalTo(@(Px(35)));
+    }];
+    //钻石数量
+    [self addSubview:self.zuanshiNumL];
+    [self.zuanshiNumL mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.zuanshiBgImgV);
+        make.left.equalTo(self.zuanshiImgV.mas_right).offset(0);
+        make.right.equalTo(self.rechargeImgV.mas_left).offset(0);
+    }];
+    [self.zuanshiNumL sizeToFit];
 }
 
 #pragma mark lazyload
 - (UIImageView *)bgImgV{
     if (!_bgImgV) {
-        _bgImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"game_bottom_normal"]];
+        _bgImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_nav"]];
     }
     return _bgImgV;
-}
-- (UIButton *)perspectiveBtn{
-    if (!_perspectiveBtn) {
-        _perspectiveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_perspectiveBtn setBackgroundImage:[UIImage imageNamed:@"game_normal_view_normal"] forState:UIControlStateNormal];
-        [_perspectiveBtn setBackgroundImage:[UIImage imageNamed:@"game_normal_view_select"] forState:UIControlStateHighlighted];
-        [_perspectiveBtn setBackgroundImage:[UIImage imageNamed:@"game_normal_view_normal"] forState:UIControlStateSelected];
-        _perspectiveBtn.backgroundColor = [UIColor clearColor];
-        [_perspectiveBtn addTarget:self action:@selector(perspectiveAction:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _perspectiveBtn;
 }
 - (UIButton *)gameBtn{
     if (!_gameBtn) {
         _gameBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_gameBtn setBackgroundImage:[UIImage imageNamed:@"game_normal_game_normal"] forState:UIControlStateNormal];
-        [_gameBtn setBackgroundImage:[UIImage imageNamed:@"game_normal_game_select"] forState:UIControlStateHighlighted];
+        [_gameBtn setBackgroundImage:[UIImage imageNamed:@"start_game_normal"] forState:UIControlStateNormal];
+        [_gameBtn setBackgroundImage:[UIImage imageNamed:@"start_game_press"] forState:UIControlStateHighlighted];
         [_gameBtn addTarget:self action:@selector(gameAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _gameBtn;
@@ -78,17 +101,47 @@
 - (UIButton *)msgBtn{
     if (!_msgBtn) {
         _msgBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_msgBtn setBackgroundImage:[UIImage imageNamed:@"game_normal_msg_normal"] forState:UIControlStateNormal];
-        [_msgBtn setBackgroundImage:[UIImage imageNamed:@"game_normal_msg_select"] forState:UIControlStateHighlighted];
+        [_msgBtn setBackgroundImage:[UIImage imageNamed:@"start_chat"] forState:UIControlStateNormal];
+        [_msgBtn setBackgroundImage:[UIImage imageNamed:@"start_chat"] forState:UIControlStateHighlighted];
         [_msgBtn addTarget:self action:@selector(msgAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _msgBtn;
 }
-- (void)perspectiveAction:(UIButton *)sender{
-    sender.selected = !sender.selected;
-    if ([self.delegate respondsToSelector:@selector(dealWithbottomViewBy:button:)]) {
-        [self.delegate dealWithbottomViewBy:OperationNormalViewView button:sender];
+- (UIView *)zuanshiView{
+    if (!_zuanshiView) {
+        _zuanshiView = [UIView new];
+        _zuanshiView.backgroundColor = [UIColor clearColor];
     }
+    return _zuanshiView;
+}
+- (UIImageView *)zuanshiImgV{
+    if (!_zuanshiImgV) {
+        _zuanshiImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"recharge_small"]];
+    }
+    return _zuanshiImgV;
+}
+- (UIImageView *)zuanshiBgImgV{
+    if (!_zuanshiBgImgV) {
+        UIImage *image = [UIImage imageNamed:@"charge"];
+        image = [image stretchableImageWithLeftCapWidth:20 topCapHeight:0];
+        _zuanshiBgImgV = [[UIImageView alloc] initWithImage:image];
+    }
+    return _zuanshiBgImgV;
+}
+- (UIImageView *)rechargeImgV{
+    if (!_rechargeImgV) {
+        _rechargeImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_game_recharge"]];
+    }
+    return _rechargeImgV;
+}
+- (UILabel *)zuanshiNumL{
+    if (!_zuanshiNumL) {
+        _zuanshiNumL = [[UILabel alloc] init];
+        _zuanshiNumL.textAlignment = NSTextAlignmentCenter;
+        _zuanshiNumL.font = [UIFont fontWithName:@"STYuanti-SC-Bold" size:20];
+        _zuanshiNumL.textColor = DYGColorFromHex(0x000000);
+    }
+    return _zuanshiNumL;
 }
 - (void)gameAction:(UIButton *)sender{
     if ([self.delegate respondsToSelector:@selector(dealWithbottomViewBy:button:)]) {
@@ -98,6 +151,11 @@
 - (void)msgAction:(UIButton *)sender{
     if ([self.delegate respondsToSelector:@selector(dealWithbottomViewBy:button:)]) {
         [self.delegate dealWithbottomViewBy:OperationNormalViewMsg button:sender];
+    }
+}
+- (void)recharge:(UITapGestureRecognizer *)tap{
+    if ([self.delegate respondsToSelector:@selector(dealWithbottomViewBy:button:)]) {
+        [self.delegate dealWithbottomViewBy:OperationNormalViewrecharge button:nil];
     }
 }
 @end

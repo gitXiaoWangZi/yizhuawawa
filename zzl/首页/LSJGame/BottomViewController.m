@@ -55,7 +55,7 @@ static NSString *const leftCellID = @"WawaInfoTableViewCell";
     self.headerV = [WawaInfoHeaderView shareInstance];
     self.headerV.frame = CGRectMake(0, 0, kScreenWidth, 160);
     self.leftTableV.tableHeaderView = self.headerV;
-    self.view.backgroundColor = DYGColorFromHex(0xFEE354);
+    self.view.backgroundColor = DYGColor(231, 100, 145);
 }
 
 - (IBAction)leftAction:(UIButton *)sender {

@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger,OperationNormalView) {
-    OperationNormalViewView = 0, //视角
     OperationNormalViewGame = 1, //游戏
     OperationNormalViewMsg = 2, //消息
+    OperationNormalViewrecharge = 3, //充值
 };
 
 @protocol LSJOperationNormalViewDelegate <NSObject>
@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger,OperationNormalView) {
 
 @interface LSJOperationNormalView : UIView
 
+@property (nonatomic,strong) UILabel *zuanshiNumL;
 @property (nonatomic,strong) UIButton *gameBtn;
 @property (nonatomic,assign) OperationNormalView operationNormalView;
 @property (nonatomic,assign) id<LSJOperationNormalViewDelegate> delegate;
