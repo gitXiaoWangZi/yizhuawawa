@@ -84,7 +84,6 @@
 		9267A0391FA9976B0058AA70 /* FXZZLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9267A0381FA9976B0058AA70 /* FXZZLViewController.m */; };
 		9267A03C1FA9B5FC0058AA70 /* FXRoomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9267A03B1FA9B5FC0058AA70 /* FXRoomCell.m */; };
 		9267A0451FA9D5700058AA70 /* DYGPopViewMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9267A0441FA9D5700058AA70 /* DYGPopViewMenu.m */; };
-		9267A04F1FAAB53D0058AA70 /* FXGameWaitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9267A04E1FAAB53D0058AA70 /* FXGameWaitController.m */; };
 		9267A05E1FAAB9D80058AA70 /* BulletBackgroudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9267A0591FAAB9D80058AA70 /* BulletBackgroudView.m */; };
 		9267A05F1FAAB9D80058AA70 /* BulletManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9267A05B1FAAB9D80058AA70 /* BulletManager.m */; };
 		9267A0601FAAB9D80058AA70 /* BulletView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9267A05D1FAAB9D80058AA70 /* BulletView.m */; };
@@ -102,6 +101,19 @@
 		92744F451FC01EFB00F8D42C /* FXGameWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92744F441FC01EFB00F8D42C /* FXGameWebController.m */; };
 		92744F461FC039A200F8D42C /* OBShapedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 92744F341FBFFE6900F8D42C /* OBShapedButton.m */; };
 		92744F491FC03BC400F8D42C /* UIImage+ColorAtPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = 92744F361FBFFE6900F8D42C /* UIImage+ColorAtPixel.m */; };
+		92757E8F201EC4FD00F876E4 /* BottomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757E7C201EC4FD00F876E4 /* BottomViewController.m */; };
+		92757E90201EC4FD00F876E4 /* BottomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92757E7D201EC4FD00F876E4 /* BottomViewController.xib */; };
+		92757E91201EC4FD00F876E4 /* CaughtRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757E7F201EC4FD00F876E4 /* CaughtRecordTableViewCell.m */; };
+		92757E92201EC4FD00F876E4 /* CaughtRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92757E80201EC4FD00F876E4 /* CaughtRecordTableViewCell.xib */; };
+		92757E93201EC4FD00F876E4 /* LSJGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757E82201EC4FD00F876E4 /* LSJGameViewController.m */; };
+		92757E94201EC4FD00F876E4 /* LSJOperationNormalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757E84201EC4FD00F876E4 /* LSJOperationNormalView.m */; };
+		92757E95201EC4FD00F876E4 /* LSJTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757E86201EC4FD00F876E4 /* LSJTopView.m */; };
+		92757E96201EC4FD00F876E4 /* WawaInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757E88201EC4FD00F876E4 /* WawaInfoHeaderView.m */; };
+		92757E97201EC4FD00F876E4 /* WawaInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92757E89201EC4FD00F876E4 /* WawaInfoHeaderView.xib */; };
+		92757E98201EC4FD00F876E4 /* WawaInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757E8B201EC4FD00F876E4 /* WawaInfoTableViewCell.m */; };
+		92757E99201EC4FD00F876E4 /* WawaInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92757E8C201EC4FD00F876E4 /* WawaInfoTableViewCell.xib */; };
+		92757E9A201EC4FD00F876E4 /* ZYRoomVerticalScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757E8E201EC4FD00F876E4 /* ZYRoomVerticalScroll.m */; };
+		92757E9D201EC52300F876E4 /* ZYBaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92757E9B201EC52300F876E4 /* ZYBaseScrollView.m */; };
 		928282691FC2FEE8001B3092 /* DYGPersonInfoTbCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928282681FC2FEE8001B3092 /* DYGPersonInfoTbCell.xib */; };
 		928349611FC660C50012A2D1 /* FXOnlineIconCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9283495F1FC660C50012A2D1 /* FXOnlineIconCell.m */; };
 		928349621FC660C50012A2D1 /* FXOnlineIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 928349601FC660C50012A2D1 /* FXOnlineIconCell.xib */; };
@@ -375,8 +387,6 @@
 		9267A03B1FA9B5FC0058AA70 /* FXRoomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXRoomCell.m; sourceTree = "<group>"; };
 		9267A0431FA9D5700058AA70 /* DYGPopViewMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYGPopViewMenu.h; sourceTree = "<group>"; };
 		9267A0441FA9D5700058AA70 /* DYGPopViewMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYGPopViewMenu.m; sourceTree = "<group>"; };
-		9267A04D1FAAB53D0058AA70 /* FXGameWaitController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXGameWaitController.h; sourceTree = "<group>"; };
-		9267A04E1FAAB53D0058AA70 /* FXGameWaitController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXGameWaitController.m; sourceTree = "<group>"; };
 		9267A0581FAAB9D80058AA70 /* BulletBackgroudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletBackgroudView.h; sourceTree = "<group>"; };
 		9267A0591FAAB9D80058AA70 /* BulletBackgroudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletBackgroudView.m; sourceTree = "<group>"; };
 		9267A05A1FAAB9D80058AA70 /* BulletManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletManager.h; sourceTree = "<group>"; };
@@ -411,6 +421,28 @@
 		92744F431FC01EFA00F8D42C /* FXGameWebController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXGameWebController.h; sourceTree = "<group>"; };
 		92744F441FC01EFB00F8D42C /* FXGameWebController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXGameWebController.m; sourceTree = "<group>"; };
 		92744F471FC03A8600F8D42C /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
+		92757E7B201EC4FD00F876E4 /* BottomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomViewController.h; sourceTree = "<group>"; };
+		92757E7C201EC4FD00F876E4 /* BottomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomViewController.m; sourceTree = "<group>"; };
+		92757E7D201EC4FD00F876E4 /* BottomViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomViewController.xib; sourceTree = "<group>"; };
+		92757E7E201EC4FD00F876E4 /* CaughtRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaughtRecordTableViewCell.h; sourceTree = "<group>"; };
+		92757E7F201EC4FD00F876E4 /* CaughtRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaughtRecordTableViewCell.m; sourceTree = "<group>"; };
+		92757E80201EC4FD00F876E4 /* CaughtRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaughtRecordTableViewCell.xib; sourceTree = "<group>"; };
+		92757E81201EC4FD00F876E4 /* LSJGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSJGameViewController.h; sourceTree = "<group>"; };
+		92757E82201EC4FD00F876E4 /* LSJGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSJGameViewController.m; sourceTree = "<group>"; };
+		92757E83201EC4FD00F876E4 /* LSJOperationNormalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSJOperationNormalView.h; sourceTree = "<group>"; };
+		92757E84201EC4FD00F876E4 /* LSJOperationNormalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSJOperationNormalView.m; sourceTree = "<group>"; };
+		92757E85201EC4FD00F876E4 /* LSJTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSJTopView.h; sourceTree = "<group>"; };
+		92757E86201EC4FD00F876E4 /* LSJTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSJTopView.m; sourceTree = "<group>"; };
+		92757E87201EC4FD00F876E4 /* WawaInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WawaInfoHeaderView.h; sourceTree = "<group>"; };
+		92757E88201EC4FD00F876E4 /* WawaInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WawaInfoHeaderView.m; sourceTree = "<group>"; };
+		92757E89201EC4FD00F876E4 /* WawaInfoHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WawaInfoHeaderView.xib; sourceTree = "<group>"; };
+		92757E8A201EC4FD00F876E4 /* WawaInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WawaInfoTableViewCell.h; sourceTree = "<group>"; };
+		92757E8B201EC4FD00F876E4 /* WawaInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WawaInfoTableViewCell.m; sourceTree = "<group>"; };
+		92757E8C201EC4FD00F876E4 /* WawaInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WawaInfoTableViewCell.xib; sourceTree = "<group>"; };
+		92757E8D201EC4FD00F876E4 /* ZYRoomVerticalScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYRoomVerticalScroll.h; sourceTree = "<group>"; };
+		92757E8E201EC4FD00F876E4 /* ZYRoomVerticalScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYRoomVerticalScroll.m; sourceTree = "<group>"; };
+		92757E9B201EC52300F876E4 /* ZYBaseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYBaseScrollView.m; sourceTree = "<group>"; };
+		92757E9C201EC52300F876E4 /* ZYBaseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYBaseScrollView.h; sourceTree = "<group>"; };
 		928282681FC2FEE8001B3092 /* DYGPersonInfoTbCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DYGPersonInfoTbCell.xib; sourceTree = "<group>"; };
 		9283495E1FC660C50012A2D1 /* FXOnlineIconCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXOnlineIconCell.h; sourceTree = "<group>"; };
 		9283495F1FC660C50012A2D1 /* FXOnlineIconCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXOnlineIconCell.m; sourceTree = "<group>"; };
@@ -774,6 +806,7 @@
 		9260ABDA1FA73B2B00EA1881 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				92757E7A201EC4FD00F876E4 /* LSJGame */,
 				9260ABDB1FA73B2B00EA1881 /* Controller */,
 				9260ABDC1FA73B2B00EA1881 /* Model */,
 				9260ABDD1FA73B2B00EA1881 /* View */,
@@ -788,8 +821,6 @@
 				92ACF6F7201D6B290049F22A /* LSJHomeViewController.m */,
 				9267A0371FA9976B0058AA70 /* FXZZLViewController.h */,
 				9267A0381FA9976B0058AA70 /* FXZZLViewController.m */,
-				9267A04D1FAAB53D0058AA70 /* FXGameWaitController.h */,
-				9267A04E1FAAB53D0058AA70 /* FXGameWaitController.m */,
 				92744F431FC01EFA00F8D42C /* FXGameWebController.h */,
 				92744F441FC01EFB00F8D42C /* FXGameWebController.m */,
 				92EF426A1FAC588F00889B20 /* FXRechargeViewController.h */,
@@ -1194,6 +1225,35 @@
 			path = countDown;
 			sourceTree = "<group>";
 		};
+		92757E7A201EC4FD00F876E4 /* LSJGame */ = {
+			isa = PBXGroup;
+			children = (
+				92757E9C201EC52300F876E4 /* ZYBaseScrollView.h */,
+				92757E9B201EC52300F876E4 /* ZYBaseScrollView.m */,
+				92757E7B201EC4FD00F876E4 /* BottomViewController.h */,
+				92757E7C201EC4FD00F876E4 /* BottomViewController.m */,
+				92757E7D201EC4FD00F876E4 /* BottomViewController.xib */,
+				92757E7E201EC4FD00F876E4 /* CaughtRecordTableViewCell.h */,
+				92757E7F201EC4FD00F876E4 /* CaughtRecordTableViewCell.m */,
+				92757E80201EC4FD00F876E4 /* CaughtRecordTableViewCell.xib */,
+				92757E81201EC4FD00F876E4 /* LSJGameViewController.h */,
+				92757E82201EC4FD00F876E4 /* LSJGameViewController.m */,
+				92757E83201EC4FD00F876E4 /* LSJOperationNormalView.h */,
+				92757E84201EC4FD00F876E4 /* LSJOperationNormalView.m */,
+				92757E85201EC4FD00F876E4 /* LSJTopView.h */,
+				92757E86201EC4FD00F876E4 /* LSJTopView.m */,
+				92757E87201EC4FD00F876E4 /* WawaInfoHeaderView.h */,
+				92757E88201EC4FD00F876E4 /* WawaInfoHeaderView.m */,
+				92757E89201EC4FD00F876E4 /* WawaInfoHeaderView.xib */,
+				92757E8A201EC4FD00F876E4 /* WawaInfoTableViewCell.h */,
+				92757E8B201EC4FD00F876E4 /* WawaInfoTableViewCell.m */,
+				92757E8C201EC4FD00F876E4 /* WawaInfoTableViewCell.xib */,
+				92757E8D201EC4FD00F876E4 /* ZYRoomVerticalScroll.h */,
+				92757E8E201EC4FD00F876E4 /* ZYRoomVerticalScroll.m */,
+			);
+			path = LSJGame;
+			sourceTree = "<group>";
+		};
 		928349691FC6F65E0012A2D1 /* homePopView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1464,9 +1524,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				92744F3F1FC0062000F8D42C /* ZYPlayOperationView.xib in Resources */,
+				92757E99201EC4FD00F876E4 /* WawaInfoTableViewCell.xib in Resources */,
 				9248B6EF1FB42E0100633CDA /* 失败1.wav in Resources */,
+				92757E92201EC4FD00F876E4 /* CaughtRecordTableViewCell.xib in Resources */,
 				9248B6F11FB42E0100633CDA /* 投币.wav in Resources */,
 				9260ABCE1FA73AE200EA1881 /* Assets.xcassets in Resources */,
+				92757E90201EC4FD00F876E4 /* BottomViewController.xib in Resources */,
+				92757E97201EC4FD00F876E4 /* WawaInfoHeaderView.xib in Resources */,
 				92D99AC31FD92D6D00CDEDC4 /* WeiboSDK.bundle in Resources */,
 				9260ABCC1FA73AE200EA1881 /* Main.storyboard in Resources */,
 				9248B6F31FB42E0100633CDA /* 胜利1.mp3 in Resources */,
@@ -1559,13 +1623,14 @@
 				9267A0391FA9976B0058AA70 /* FXZZLViewController.m in Sources */,
 				9267A01F1FA804160058AA70 /* NSArray+Log.m in Sources */,
 				9267A0361FA963B90058AA70 /* DYGStarRateView.m in Sources */,
-				9267A04F1FAAB53D0058AA70 /* FXGameWaitController.m in Sources */,
 				9287E6A61FCE485200BB1529 /* FXHomeHouseItem.m in Sources */,
 				9248B6BF1FB2DA6C00633CDA /* FXCollecTBCell.m in Sources */,
 				9248B7041FBA8B0C00633CDA /* FXTaskCell.m in Sources */,
+				92757E9A201EC4FD00F876E4 /* ZYRoomVerticalScroll.m in Sources */,
 				92ACF71A201DCAC10049F22A /* LSJWaWaExchangeController.m in Sources */,
 				92570DD91FAB54AC00232AE0 /* UIButton+DYGAdd.m in Sources */,
 				92ACF71C201DCAC10049F22A /* FXOrdingListViewController.m in Sources */,
+				92757E94201EC4FD00F876E4 /* LSJOperationNormalView.m in Sources */,
 				9267A05E1FAAB9D80058AA70 /* BulletBackgroudView.m in Sources */,
 				9260ABD41FA73AE200EA1881 /* main.m in Sources */,
 				9287C16A1FA76CA00042E4CF /* PGIndexBannerSubiew.m in Sources */,
@@ -1586,9 +1651,11 @@
 				928EC8271FB18DF20072C68B /* FXAddressCell.m in Sources */,
 				9217B5511FC42AB900B506EB /* DYGEnCode.m in Sources */,
 				9267A0691FAB07D50058AA70 /* DYGPersonInfoTbCell.m in Sources */,
+				92757E95201EC4FD00F876E4 /* LSJTopView.m in Sources */,
 				9248B7071FBABEBB00633CDA /* FXLogisticsController.m in Sources */,
 				92A3138F1FC51B0700296171 /* FXHomeBannerItem.m in Sources */,
 				928EC81D1FB1818A0072C68B /* AddressModel.m in Sources */,
+				92757E91201EC4FD00F876E4 /* CaughtRecordTableViewCell.m in Sources */,
 				92EF42801FAC688400889B20 /* FXRechargeCell.m in Sources */,
 				9217B53B1FC40D3300B506EB /* NSData+Encryption.m in Sources */,
 				929EC8321FD27E2B0008FE14 /* FXMineHeaderView.m in Sources */,
@@ -1605,7 +1672,9 @@
 				9248B6A71FB2A43200633CDA /* FXRecordViewController.m in Sources */,
 				9267A0451FA9D5700058AA70 /* DYGPopViewMenu.m in Sources */,
 				9287C16D1FA76CAA0042E4CF /* NewPagedFlowView.m in Sources */,
+				92757E96201EC4FD00F876E4 /* WawaInfoHeaderView.m in Sources */,
 				92679FC91FA744570058AA70 /* FXNavigationController.m in Sources */,
+				92757E8F201EC4FD00F876E4 /* BottomViewController.m in Sources */,
 				928EC8391FB1BF570072C68B /* ZXContactInfo.m in Sources */,
 				9269330E1FD90FF500AE2EF6 /* MyTextView.m in Sources */,
 				9217B5351FC3D68E00B506EB /* MBProgressHUD+RY.m in Sources */,
@@ -1624,9 +1693,11 @@
 				92ACF6F4201D6AA10049F22A /* ZXLatestLiveCell.m in Sources */,
 				9267A0331FA8054E0058AA70 /* HRAdView.m in Sources */,
 				92EF42831FAC79B900889B20 /* FXPriceCell.m in Sources */,
+				92757E93201EC4FD00F876E4 /* LSJGameViewController.m in Sources */,
 				924AEBE51FB063BA00E0DD8C /* FXAddressManageController.m in Sources */,
 				9217B53C1FC40D3300B506EB /* NSString+Hash.m in Sources */,
 				92679FDD1FA7530D0058AA70 /* UIView+DYGAdd.m in Sources */,
+				92757E9D201EC52300F876E4 /* ZYBaseScrollView.m in Sources */,
 				92EF42861FADB61900889B20 /* FXUserInfoController.m in Sources */,
 				9267A05F1FAAB9D80058AA70 /* BulletManager.m in Sources */,
 				9248B6CE1FB30C8100633CDA /* FXNotificationCell.m in Sources */,
@@ -1656,6 +1727,7 @@
 				92679FD21FA748360058AA70 /* DYGCustomTabbar.m in Sources */,
 				92570DE51FAB54AC00232AE0 /* UIColor+DYGAdd.m in Sources */,
 				92570DD81FAB54AC00232AE0 /* NSBundle+DYGAdd.m in Sources */,
+				92757E98201EC4FD00F876E4 /* WawaInfoTableViewCell.m in Sources */,
 				92C0479F1FCC0B3100636F15 /* FXRechargeRecordModel.m in Sources */,
 				92ACF701201D98AA0049F22A /* LSJPhoneLoginViewController.m in Sources */,
 				928349651FC6C07C0012A2D1 /* FXTaskModel.m in Sources */,

@@ -11,7 +11,7 @@
 #import "LSJHomeViewController.h"
 #import "FXSelfViewController.h"
 #import "DYGCustomTabbar.h"
-#import "FXGameWaitController.h"
+#import "LSJGameViewController.h"
 
 @interface FXTabBarController ()<DYGCustomTabbarDelegate,UITabBarControllerDelegate>
 @property(nonatomic,strong)NSArray * childControllers;
@@ -54,7 +54,7 @@
                 [MBProgressHUD showError:@"没有房间可以进入" toView:[UIApplication sharedApplication].keyWindow];
             }else{
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"kQuitEnter"];
-                FXGameWaitController * vc = [[FXGameWaitController alloc]init];
+                LSJGameViewController * vc = [[LSJGameViewController alloc]init];
                 FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:vc];
                 vc.model = room;
                 [self presentViewController:nav animated:YES completion:nil];

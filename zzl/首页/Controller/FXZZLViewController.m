@@ -9,7 +9,7 @@
 #import "FXZZLViewController.h"
 #import "FXRoomCell.h"
 #import "DYGPopViewMenu.h"
-#import "FXGameWaitController.h"
+#import "LSJGameViewController.h"
 @interface FXZZLViewController ()<UIGestureRecognizerDelegate,UICollectionViewDelegate,UICollectionViewDataSource,DYGPopViewMenuDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic,strong) UIButton *priceBtn;
@@ -93,7 +93,7 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    FXGameWaitController * vc= [[FXGameWaitController alloc]init];
+    LSJGameViewController * vc= [[LSJGameViewController alloc]init];
     vc.model = self.roomsArray[indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }

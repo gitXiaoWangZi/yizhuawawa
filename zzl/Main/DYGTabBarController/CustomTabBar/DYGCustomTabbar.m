@@ -9,7 +9,7 @@
 #import "DYGCustomTabbar.h"
 #import "UIView+DYGAdd.h"
 #import "UIImage+DYGAdd.h"
-#import "FXGameWaitController.h"
+#import "LSJGameViewController.h"
 @interface DYGCustomTabbar()
 
 @property(nonatomic,weak)UIButton * rechangeBtn;

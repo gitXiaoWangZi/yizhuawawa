@@ -10,7 +10,7 @@
 #import "UIImage+DYGAdd.h"
 #import "LSJHomeViewController.h"
 #import "FXSelfViewController.h"
-#import "FXGameWaitController.h"
+#import "LSJGameViewController.h"
 #import "LSJLoginController.h"
 #import "LSJPhoneLoginViewController.h"
 @interface FXNavigationController ()<UIGestureRecognizerDelegate,UINavigationControllerDelegate>
@@ -60,7 +60,7 @@
 }
 
 -(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    if ([viewController isKindOfClass:[LSJHomeViewController class]] || [viewController isKindOfClass:[FXSelfViewController class]] || [viewController isKindOfClass:[FXGameWaitController class]] || [viewController isKindOfClass:[LSJLoginController class]] || [viewController isKindOfClass:[LSJPhoneLoginViewController class]]) {
+    if ([viewController isKindOfClass:[LSJHomeViewController class]] || [viewController isKindOfClass:[FXSelfViewController class]] || [viewController isKindOfClass:[LSJGameViewController class]] || [viewController isKindOfClass:[LSJLoginController class]] || [viewController isKindOfClass:[LSJPhoneLoginViewController class]]) {
         [self setNavigationBarHidden:YES animated:YES];
     }else{
         [self setNavigationBarHidden:NO animated:YES];

@@ -13,6 +13,7 @@
 #import "FXGameWebController.h"
 #import "FXHomeHouseItem.h"
 #import "FXSelfViewController.h"
+#import "LSJGameViewController.h"
 
 @interface LSJHomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -306,12 +307,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    if (clickOnce == 1) {
-    //        return;
-    //    }
-    //    clickOnce = 1;
-    //    ZYRecommendData *data = [self.dataManager.dataSouce safeObjectAtIndex:indexPath.row];
-    //    [ZXRouter pushPage:ZXPageLive withDate:data];
+    LSJGameViewController *gameVC = [[LSJGameViewController alloc] init];
+    gameVC.model = self.roomsArray[indexPath.row];
+    [self.navigationController pushViewController:gameVC animated:YES];
 }
 
 #pragma mark lazyload

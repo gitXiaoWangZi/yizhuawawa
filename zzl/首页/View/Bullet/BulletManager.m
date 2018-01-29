@@ -88,7 +88,7 @@
                 }
                 if (myself.bulletQueue.count == 0) {
                     //说明屏幕上已经没有弹幕评论了，循环开始
-//                    [myself start];
+                    //                    [myself start];
                 }
                 break;
             }
@@ -166,3 +166,4 @@
     [self start];
 }
 @end
+
