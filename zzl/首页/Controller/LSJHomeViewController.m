@@ -16,7 +16,7 @@
 #import "LSJGameViewController.h"
 #import "LSJSpoilsController.h"
 
-@interface LSJHomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface LSJHomeViewController ()<QMXingXiuHeaderReusableViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic,strong) UIView *topView;
 @property (nonatomic,strong) UIButton *personalBtn;
@@ -292,6 +292,7 @@
         }
         header= [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"QMXingXiuHeaderReusableView" forIndexPath:indexPath];
         self.headerView = header;
+        header.delegate = self;
     }
     return header;
 }
