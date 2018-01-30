@@ -85,11 +85,11 @@
         [self shareActionData];
         return NO;
     }
-    if ([urlString containsString:@"recharge"]) {
-        FXRechargeViewController *rechargeVC= [[FXRechargeViewController alloc] init];
-        [self.navigationController pushViewController:rechargeVC animated:YES];
-        return NO;
-    }
+//    if ([urlString containsString:@"recharge"]) {
+////        FXRechargeViewController *rechargeVC= [[FXRechargeViewController alloc] init];
+////        [self.navigationController pushViewController:rechargeVC animated:YES];
+//        return NO;
+//    }
     return YES;
 }
 

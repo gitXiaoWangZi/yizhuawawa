@@ -19,7 +19,8 @@
 #import "UIButton+Position.h"
 #import "ZYCountDownView.h"
 #import "FXGameResultView.h"
-#import "FXRechargeViewController.h"
+#import "FXHomeBannerItem.h"
+#import "FXGameWebController.h"
 
 @interface LSJGameViewController ()<UIScrollViewDelegate,WwGameManagerDelegate,LSJTopViewDelegate,LSJOperationNormalViewDelegate,ZYPlayOperationViewDelegate,AVAudioPlayerDelegate,FXCommentViewDelegate,UITextFieldDelegate,ZYCountDownViewDelegate,FXGameResultViewDelegate>
 
@@ -393,10 +394,12 @@
         case OperationNormalViewrecharge:
         {
             self.isNoBack = YES;
-            NSString *firstPunch = [[NSUserDefaults standardUserDefaults] objectForKey:Kfirstpunch];
-            FXRechargeViewController *rechargeVC = [[FXRechargeViewController alloc] init];
-            rechargeVC.firstpunch = firstPunch;
-            [self.navigationController pushViewController:rechargeVC animated:YES];
+            FXHomeBannerItem *item = [FXHomeBannerItem new];
+            item.openUrl = [NSString stringWithFormat:@"%@%@",@"http://api.wawa.lkmai.com/recharges?uid=",KUID];
+            item.title = @"充值";
+            FXGameWebController *vc = [[FXGameWebController alloc] init];
+            vc.item = item;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         default:

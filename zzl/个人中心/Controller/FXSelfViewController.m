@@ -11,7 +11,6 @@
 #import "SJUserInfoView.h"
 #import "FXRechargeViewController.h"
 #import "FXRecordViewController.h"
-#import "FXRechargeRecordContoller.h"
 #import "LSJSpoilsController.h"
 #import "FXSettingViewController.h"
 #import "FXAddressManageController.h"
@@ -24,6 +23,7 @@
 #import "FXHomeBannerItem.h"
 #import "LSJUserInfoCell.h"
 #import "LSJSpoilsController.h"
+#import "FXGameWebController.h"
 
 static NSString *cellId = @"LSJUserInfoCell";
 @interface FXSelfViewController ()<UITableViewDelegate,UITableViewDataSource,SJUserInfoViewDelegate,UIGestureRecognizerDelegate>
@@ -84,10 +84,12 @@ static NSString *cellId = @"LSJUserInfoCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            FXRechargeViewController *rechargeVC = [[FXRechargeViewController alloc] init];
-            rechargeVC.firstpunch = self.firstpunch;
-            rechargeVC.item = self.item;
-            [self.navigationController pushViewController:rechargeVC animated:YES];
+            FXHomeBannerItem *item = [FXHomeBannerItem new];
+            item.openUrl = [NSString stringWithFormat:@"%@%@",@"http://api.wawa.lkmai.com/recharges?uid=",KUID];
+            item.title = @"充值";
+            FXGameWebController *vc = [[FXGameWebController alloc] init];
+            vc.item = item;
+            [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 1){
             LSJSpoilsController *spoilsVC = [[LSJSpoilsController alloc] init];
             [self.navigationController pushViewController:spoilsVC animated:YES];
