@@ -13,7 +13,6 @@
 #import "LSJOperationNormalView.h"
 #import "ZYPlayOperationView.h"
 #import "AccountItem.h"
-//#import "LSJRechargeViewController.h"
 #import "FXCommentView.h"
 #import <AVFoundation/AVFoundation.h>
 #import "BulletManager.h"
@@ -36,6 +35,7 @@
 @property (nonatomic,strong) MBProgressHUD *hud;
 @property (nonatomic,strong) UIView *playView;//视频view
 @property (nonatomic, strong) ZYPlayOperationView *playOperationBar;/**< 游戏操作视图*/
+@property (nonatomic, strong) ZYCountDownView *countDownV;          /**< 倒计时视图*/
 
 @property (nonatomic,strong) NSTimer *timer;
 @property (nonatomic,assign) dispatch_source_t timer0;
@@ -107,7 +107,6 @@
     
     [self.myScroV addSubview:self.topView];
     self.topView.normalView.delegate = self;
-    self.topView.countDownV.delegate = self;
     self.normalView = self.topView.normalView;
     self.BottomViewVC = [[BottomViewController alloc] init];
     self.BottomViewVC.ganeViewC = self;
@@ -115,6 +114,14 @@
     self.BottomViewVC.view.layer.cornerRadius = 5;
     self.BottomViewVC.view.layer.masksToBounds = YES;
 
+    // 添加倒计时视图
+    [self.topView addSubview:self.countDownV];
+    [self.countDownV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@(20));
+        make.top.equalTo(self.topView.mas_top).offset((kScreenHeight-10)*0.75- 50);
+        make.width.height.equalTo(@(40));
+    }];
+    
     __weak typeof(self) weakSelf = self;
     self.BottomViewVC.diselectBlock = ^{
         weakSelf.musicBtnStatue = 1;
@@ -274,6 +281,16 @@
 }
 
 #pragma mark lazyload
+// 倒计时
+- (UIView *)countDownV {
+    if (!_countDownV) {
+        _countDownV = [[ZYCountDownView alloc] init];
+        _countDownV.hidden = YES;
+        _countDownV.delegate = self;
+    }
+    return _countDownV;
+}
+
 -(FXGameResultView *)resultPopView{
     if (!_resultPopView) {
         _resultPopView = [[FXGameResultView alloc] initWithFrame:self.view.bounds];
@@ -302,10 +319,10 @@
 
 - (ZYPlayOperationView *)playOperationBar {
     if (!_playOperationBar) {
-        _playOperationBar = [[ZYPlayOperationView alloc] initWithFrame:CGRectZero];
+        _playOperationBar = [ZYPlayOperationView operationView];
         _playOperationBar.hidden = NO;
-        CGFloat height = Py(118);
-        CGRect rect = CGRectMake(0, kScreenHeight - height, kScreenWidth, height);
+        CGFloat height = (kScreenHeight - 10)*0.25;
+        CGRect rect = CGRectMake(0, kScreenHeight - height - 10, kScreenWidth, height + 10);
         _playOperationBar.frame = rect;
         _playOperationBar.delegate = self;
         _playOperationBar.backgroundColor = [UIColor clearColor];
@@ -395,7 +412,7 @@
         NSDictionary *dic = (NSDictionary *)json;
         if ([dic[@"code"] integerValue] == 200) {
             sender.enabled = YES;
-            if ([dic[@"data"] intValue] >= self.model.wawa.coin) {
+            if ([dic[@"data"][@"coin"] intValue] >= self.model.wawa.coin) {
                 [self playGame];
             }else{
                 [MBProgressHUD showError:@"余额不足" toView:self.view];
@@ -421,8 +438,8 @@
                 self.topView.normalView.gameBtn.userInteractionEnabled = NO;
                 self.playOperationBar.hidden = NO;
                 self.topView.normalView.hidden = YES;
-                self.topView.countDownV.hidden = NO;
-                [self.topView.countDownV updateProgressTimer:30];
+                self.countDownV.hidden = NO;
+                [self.countDownV updateProgressTimer:30];
                 
                 //游戏开始 页面不可以滑动并置顶
                 self.myScroV.scrollEnabled = NO;
@@ -447,13 +464,6 @@
 - (void)zyTimerFinish {
     [self clawAction];
 }
-
-//改变视角
-- (void)changePerspective:(BOOL)isSelect{
-    [[WwGameManager GameMgrInstance] cameraSwitchIsFront:!isSelect];
-    self.playOperationBar.cameraDir = isSelect ? CameraDirection_Right : CameraDirection_Front;
-}
-
 
 - (void)onPlayDirection:(PlayDirection)direction operationType:(PlayOperationType)type {
     NSMutableString *string = [NSMutableString stringWithFormat:@"单击事件，"];
@@ -511,7 +521,7 @@
 
 
 - (void)clawAction {
-    self.topView.countDownV.status = ZYCountDownStatusRequestResultIng;
+    self.countDownV.status = ZYCountDownStatusRequestResultIng;
     [[WwGameManager GameMgrInstance] requestClawWithForceRelease:NO withComplete:^(NSInteger code, NSString *msg, WwGameResult *resultM) {
         //游戏结束 页面可以滑动
         self.myScroV.scrollEnabled = YES;
@@ -522,8 +532,8 @@
             [self showResultPopViewWithResult:NO];
         }
         safe_async_main((^{
-            self.topView.countDownV.status = ZYCountDownStatusCountDown;
-            self.topView.countDownV.hidden = YES;
+            self.countDownV.status = ZYCountDownStatusCountDown;
+            self.countDownV.hidden = YES;
             self.playOperationBar.hidden = YES;
             self.topView.normalView.hidden = NO;
         }));
@@ -588,7 +598,7 @@
             num--;
         });
         
-        if (num == 0) {
+        if (num <= 0) {
             // 关闭定时器
             dispatch_source_cancel(timer0);
             dispatch_async(dispatch_get_main_queue(), ^{

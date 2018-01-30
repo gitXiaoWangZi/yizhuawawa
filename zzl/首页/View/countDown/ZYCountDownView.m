@@ -122,7 +122,7 @@
             [self stopTimer];
             self.hidden = YES;
         }
-    
+        
     });
 }
 
@@ -189,7 +189,7 @@
         [self updateProgress:progress];
         NSTimeInterval animateCount = _countNum/10.0;
         NSInteger tmpCount = ceil(animateCount);
-
+        
         [self updateNumCount:tmpCount];
         
         if (tmpCount == 10) {
@@ -319,7 +319,7 @@
     
     self.colorLayer.mask = colorMask;
     self.colorLayerMask = colorMask;
-
+    
 }
 
 - (void)updateProgress:(CGFloat)progress
@@ -382,7 +382,7 @@
     
     // 创建一个圆心为父视图中点的圆，半径为父视图宽的2/5，起始角度是从-240°到60°
     UIBezierPath *path = nil;
-
+    
     layer.lineWidth = [self lineWidth];
     
     path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(frame.size.width / 2, frame.size.width / 2)
@@ -390,7 +390,7 @@
                                       startAngle:DEGREES_TO_RADOANS(-90)
                                         endAngle:DEGREES_TO_RADOANS(-(360+90))
                                        clockwise:NO];
-  
+    
     
     layer.path = path.CGPath;
     layer.fillColor = [UIColor clearColor].CGColor; // 填充色为透明（不设置为黑色）

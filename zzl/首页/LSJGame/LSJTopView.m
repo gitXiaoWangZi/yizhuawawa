@@ -24,8 +24,8 @@
 @property (nonatomic,strong) UIImageView *iconImgV;
 
 @property (nonatomic,strong) UICollectionView *audienceCollectV;
-@property (nonatomic,strong) UIImageView *personNumImgV;
-@property (nonatomic,strong) UILabel *personNumL;
+
+@property (nonatomic,strong) UIButton *personNumBtn;
 
 @property (nonatomic,strong) UIImageView *musicImgV;
 @property (nonatomic,strong) UIImageView *barrageImgV;
@@ -51,9 +51,7 @@ static NSString * reuserId= @"roomCell";
     //视频页面
     [self addSubview:self.playView];
     [self.playView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.mas_top).offset(0);
-        make.left.equalTo(self.mas_left).offset(0);
-        make.right.equalTo(self.mas_right).offset(0);
+        make.top.left.right.equalTo(self);
         make.height.equalTo(@(playHeight));
     }];
     //头像背景
@@ -84,18 +82,6 @@ static NSString * reuserId= @"roomCell";
     }];
     self.iconImgV.layer.cornerRadius = Px(5);
     self.iconImgV.layer.masksToBounds = YES;
-    
-    //倒计时
-//    [self addSubview:self.countDownV];
-//    [self.countDownV mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.equalTo(self.bgImgV);
-//        make.centerX.equalTo(self.bgImgV);
-//        make.width.equalTo(self.bgImgV.mas_width).offset(-10);
-//        make.height.equalTo(self.bgImgV.mas_height).offset(-10);
-//    }];
-//    self.countDownV.layer.cornerRadius = Px(30);
-//    self.countDownV.layer.masksToBounds = YES;
-//    self.countDownV.hidden = YES;
     //返回按钮
     [self addSubview:self.backBtn];
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -113,27 +99,21 @@ static NSString * reuserId= @"roomCell";
         make.height.equalTo(@(Py(40)));
     }];
     //围观人数背景
-//    [self addSubview:self.personNumImgV];
-//    [self.personNumImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.equalTo(self.bgImgV);
-//        make.left.equalTo(self.audienceCollectV.mas_right).offset(0);
-//        make.width.equalTo(@(Px(35)));
-//        make.height.equalTo(@(Px(35)));
-//    }];
-    //围观人数
-//    [self addSubview:self.personNumL];
-//    [self.personNumL mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.equalTo(self.personNumImgV);
-//        make.centerX.equalTo(self.personNumImgV);
-//        make.width.equalTo(@(Px(30)));
-//        make.height.equalTo(@(Px(30)));
-//    }];
+    [self addSubview:self.personNumBtn];
+    [self.personNumBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.backBtn.mas_bottom).offset(10);
+        make.right.equalTo(self.backBtn.mas_right);
+        make.width.equalTo(@(Px(100)));
+        make.height.equalTo(@(Py(20)));
+    }];
+    self.personNumBtn.layer.cornerRadius = Py(10);
     
     //音乐图
     [self addSubview:self.musicImgV];
     [self.musicImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.playView.mas_bottom).offset(-Py(10));
         make.right.equalTo(self.playView.mas_right).offset(-20);
+        make.width.height.equalTo(@(Px(25)));
     }];
     //音乐按钮
     [self addSubview:self.musicBtn];
@@ -148,6 +128,7 @@ static NSString * reuserId= @"roomCell";
     [self.barrageImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.musicImgV.mas_left).offset(-Py(10));
         make.centerY.equalTo(self.musicImgV);
+        make.width.height.equalTo(@(Px(25)));
     }];
     //弹幕按钮
     [self addSubview:self.barrageBtn];
@@ -216,9 +197,9 @@ static NSString * reuserId= @"roomCell";
 - (void)musicSwitch:(UIButton *)sender{
     sender.selected = !sender.selected;
     if (sender.selected) {
-        self.musicImgV.image = [UIImage imageNamed:@"sound_open"];
-    }else{
         self.musicImgV.image = [UIImage imageNamed:@"sound_down"];
+    }else{
+        self.musicImgV.image = [UIImage imageNamed:@"sound_open"];
     }
     if ([self.delegate respondsToSelector:@selector(dealWithTopViewBy:button:)]) {
         [self.delegate dealWithTopViewBy:TopViewMusic button:sender];
@@ -229,9 +210,9 @@ static NSString * reuserId= @"roomCell";
 - (void)barrageSwitch:(UIButton *)sender{
     sender.selected = !sender.selected;
     if (sender.selected) {
-        self.barrageImgV.image = [UIImage imageNamed:@"bar_open"];
-    }else{
         self.barrageImgV.image = [UIImage imageNamed:@"bar_down"];
+    }else{
+        self.barrageImgV.image = [UIImage imageNamed:@"bar_open"];
     }
     if ([self.delegate respondsToSelector:@selector(dealWithTopViewBy:button:)]) {
         [self.delegate dealWithTopViewBy:TopViewBarrage button:sender];
@@ -281,7 +262,7 @@ static NSString * reuserId= @"roomCell";
             self.dataArray = [NSMutableArray array];
             if ([kvArr isKindOfClass:[NSArray class]]) {
                 self.dataArray = [WwUser mj_objectArrayWithKeyValuesArray:kvArr];
-                self.personNumL.text = userList.count < 10 ? [NSString stringWithFormat:@"%zd",userList.count] : [NSString stringWithFormat:@"%zd0+",userList.count/10];
+                [self.personNumBtn setTitle:[NSString stringWithFormat:@"%zd人围观",userList.count] forState:UIControlStateNormal];
                 [self.audienceCollectV reloadData];
             }
         }
@@ -322,17 +303,6 @@ static NSString * reuserId= @"roomCell";
     }
     return _iconImgV;
 }
-- (UILabel *)countdownL{
-    if (!_countdownL) {
-        _countdownL = [[UILabel alloc] init];
-        _countdownL.backgroundColor = DYGAColor(255, 255, 255, 0.6);
-        _countdownL.textAlignment = NSTextAlignmentCenter;
-        _countdownL.font = [UIFont fontWithName:@"STYuanti-SC-Bold" size:24];
-        _countdownL.textColor = [UIColor whiteColor];
-        _countdownL.text = @"24s";
-    }
-    return _countdownL;
-}
 - (UICollectionView *)audienceCollectV{
     if (!_audienceCollectV) {
         UICollectionViewFlowLayout * flowLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -348,21 +318,14 @@ static NSString * reuserId= @"roomCell";
     }
     return _audienceCollectV;
 }
-- (UIImageView *)personNumImgV{
-    if (!_personNumImgV) {
-        _personNumImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"game_audience_num"]];
+- (UIButton *)personNumBtn{
+    if (!_personNumBtn) {
+        _personNumBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _personNumBtn.titleLabel.font = [UIFont systemFontOfSize:11];
+        [_personNumBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _personNumBtn.backgroundColor = DYGAColor(0, 0, 0, 0.6);
     }
-    return _personNumImgV;
-}
-- (UILabel *)personNumL{
-    if (!_personNumL) {
-        _personNumL = [[UILabel alloc] init];
-        _personNumL.textAlignment = NSTextAlignmentCenter;
-        _personNumL.font = [UIFont fontWithName:@"STYuanti-SC-Bold" size:12];
-        _personNumL.textColor = DYGColorFromHex(0x5e4000);
-        _personNumL.text = @"0";
-    }
-    return _personNumL;
+    return _personNumBtn;
 }
 
 - (UIView *)playView{
@@ -435,15 +398,5 @@ static NSString * reuserId= @"roomCell";
         [self addSubview:_bulletBgView];
     }
     return _bulletBgView;
-}
-
-// 倒计时
-- (UIView *)countDownV {
-    if (!_countDownV) {
-        _countDownV = [[ZYCountDownView alloc] init];
-        _countDownV.backgroundColor = DYGAColor(0, 0, 0, 0.6);
-        _countDownV.hidden = YES;
-    }
-    return _countDownV;
 }
 @end

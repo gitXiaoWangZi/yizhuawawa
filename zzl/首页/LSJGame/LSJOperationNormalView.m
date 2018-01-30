@@ -69,8 +69,8 @@
     [self.rechargeImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.zuanshiBgImgV);
         make.right.equalTo(self.zuanshiBgImgV.mas_right).offset(-5);
-//        make.width.equalTo(@(Px(35.5)));
-//        make.height.equalTo(@(Px(35)));
+        make.width.equalTo(@(Px(25)));
+        make.height.equalTo(@(Px(25)));
     }];
     //钻石数量
     [self addSubview:self.zuanshiNumL];

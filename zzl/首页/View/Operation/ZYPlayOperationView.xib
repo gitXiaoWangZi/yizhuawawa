@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="game_bg" translatesAutoresizingMaskIntoConstraints="NO" id="n3Q-yV-mi3">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_nav" translatesAutoresizingMaskIntoConstraints="NO" id="n3Q-yV-mi3">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="185"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Id-YA-spP" userLabel="downBtn" customClass="OBShapedButton">
@@ -24,7 +24,7 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="2Id-YA-spP" secondAttribute="height" multiplier="1:1" id="lMQ-CR-csx"/>
                     </constraints>
-                    <state key="normal" title="↓" image="op_normal_down">
+                    <state key="normal" backgroundImage="op_normal_down">
                         <color key="titleColor" red="1" green="0.90688729290000003" blue="0.50686848159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="disabled" image="op_disable_down"/>
@@ -37,7 +37,7 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ZSK-QU-9d1" secondAttribute="height" multiplier="1:1" id="Kmd-zR-DQh"/>
                     </constraints>
-                    <state key="normal" title="←" image="op_normal_left">
+                    <state key="normal" backgroundImage="op_normal_left">
                         <color key="titleColor" red="0.99905937909999998" green="0.89526432749999996" blue="0.47324430940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="disabled" image="op_disable_left"/>
@@ -50,7 +50,7 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="e8D-EB-UuR" secondAttribute="height" multiplier="1:1" id="lm2-28-Hea"/>
                     </constraints>
-                    <state key="normal" title="→" image="op_normal_right">
+                    <state key="normal" backgroundImage="op_normal_right">
                         <color key="titleColor" red="0.99905937909999998" green="0.89526432749999996" blue="0.47324430940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="disabled" image="op_disable_right"/>
@@ -74,7 +74,7 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ejv-BE-HE6" secondAttribute="height" id="zal-0A-xCX"/>
                     </constraints>
-                    <state key="normal" title="↑" image="op_normal_up">
+                    <state key="normal" backgroundImage="op_normal_up">
                         <color key="titleColor" red="0.99905937909999998" green="0.89526432749999996" blue="0.47324430940000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <state key="disabled" image="op_disable_up"/>
@@ -118,7 +118,7 @@
         </view>
     </objects>
     <resources>
-        <image name="game_bg" width="375" height="149"/>
+        <image name="home_nav" width="375" height="64"/>
         <image name="op_disable_confirm" width="103" height="103"/>
         <image name="op_disable_down" width="87" height="87"/>
         <image name="op_disable_left" width="87" height="87"/>

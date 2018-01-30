@@ -27,12 +27,10 @@ typedef NS_ENUM(NSInteger,TopView) {
 @property (nonatomic,strong) NSArray *dataArray;
 
 @property (nonatomic,strong) UIButton *perPayBtn;
-@property (nonatomic, strong) ZYCountDownView *countDownV;          /**< 倒计时视图*/
 @property (nonatomic,strong) LSJOperationNormalView *normalView;
 @property (nonatomic, strong) BulletManager *bulletManager;//弹幕
 @property (nonatomic, strong) BulletBackgroudView *bulletBgView;//弹幕背景
 @property (nonatomic,assign) TopView topView;
-@property (nonatomic,strong) UILabel *countdownL;
 
 @property (nonatomic,assign) id<LSJTopViewDelegate> delegate;
 
