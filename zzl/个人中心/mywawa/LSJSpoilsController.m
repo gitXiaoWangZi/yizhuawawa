@@ -120,7 +120,7 @@
     for (int i = 0; i<arr.count; i++) {
         UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(btnW*i,0, btnW,self.topView.height)];
         [btn setTitle:arr[i] forState:UIControlStateNormal];
-        [btn setTitleColor:DYGColorFromHex(0xd9b600) forState:UIControlStateSelected];
+        [btn setTitleColor:systemColor forState:UIControlStateSelected];
         [btn setTitleColor:DYGColorFromHex(0x4d4d4d) forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:16];
         btn.tag = 10+i;
@@ -271,9 +271,9 @@
     if (!_applySendBtn) {
         _applySendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_applySendBtn setTitle:@"申请发货" forState:UIControlStateNormal];
-        [_applySendBtn setTitleColor:DYGColorFromHex(0xd9b600) forState:UIControlStateNormal];
+        [_applySendBtn setTitleColor:systemColor forState:UIControlStateNormal];
         _applySendBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-        _applySendBtn.layer.borderColor = DYGColorFromHex(0xd9b600).CGColor;
+        _applySendBtn.layer.borderColor = systemColor.CGColor;
         _applySendBtn.layer.borderWidth = 0.5f;
         [_applySendBtn addTarget:self action:@selector(applaySendAction:) forControlEvents:UIControlEventTouchUpInside];
     }

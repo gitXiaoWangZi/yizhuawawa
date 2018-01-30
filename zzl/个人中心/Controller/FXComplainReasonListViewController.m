@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.content = @"";
-    self.title = @"申述";
+    self.title = @"申诉";
     self.view.backgroundColor = [UIColor whiteColor];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellid"];
     [self loadData];
@@ -53,7 +53,7 @@
         self.content = model.reason;
     }
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.contentView.backgroundColor = DYGColorFromHex(0xFFD700);
+    cell.contentView.backgroundColor = systemColor;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -67,12 +67,12 @@
     textV.delegate = self;
     textV.placeholderColor = DYGColorFromHex(0x999999);
     textV.layer.cornerRadius = 4;
-    textV.layer.borderColor = DYGColorFromHex(0xFFD700).CGColor;
+    textV.layer.borderColor = systemColor.CGColor;
     textV.layer.borderWidth = 1.f;
     [BgView addSubview:textV];
     
     UIButton *sendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    sendBtn.backgroundColor = DYGColorFromHex(0xFFD700);
+    sendBtn.backgroundColor = systemColor;
     [sendBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
     sendBtn.frame = CGRectMake(20, 100, kScreenWidth - 40, 40);
