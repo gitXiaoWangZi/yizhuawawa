@@ -99,11 +99,13 @@ static NSString *cellId = @"LSJUserInfoCell";
         }
     }else if (indexPath.section == 1){
         if (indexPath.row == 0) {
-            
+            FXTaskViewController *taskVC = [[FXTaskViewController alloc] init];
+            [self.navigationController pushViewController:taskVC animated:YES];
         }else{
             FXHomeBannerItem *item = [FXHomeBannerItem new];
-            item.openUrl = @"http://api.wawa.lkmai.com/share";
+            item.openUrl = [NSString stringWithFormat:@"%@%@",kBaseUrl,@"share"];
             item.title = @"邀请好友";
+            item.banner_type = @"2";
             FXGameWebController *vc = [[FXGameWebController alloc] init];
             vc.item = item;
             [self.navigationController pushViewController:vc animated:YES];

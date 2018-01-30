@@ -55,8 +55,9 @@
         make.centerX.equalTo(self.view);
         make.bottom.equalTo(self.Tk.mas_top).offset(-Py(20));
     }];
+    NSString *currentVersion = [[NSBundle mainBundle] infoDictionary][kBundleVersionKey];
+    self.version.text = [NSString stringWithFormat:@"V%@",currentVersion];
 }
-
 
 #pragma mark lazy load
 
@@ -70,7 +71,7 @@
 -(UILabel *)name{
     if (!_name) {
         _name = [UILabel labelWithMediumFont:16 WithTextColor:systemColor];
-        _name.text = @"抓抓乐";
+        _name.text = @"易抓娃娃";
         _name.textAlignment = NSTextAlignmentCenter;
     }
     return _name;

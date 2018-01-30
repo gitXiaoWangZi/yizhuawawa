@@ -68,13 +68,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     FXTaskModel *model = self.cellConfigArr[indexPath.row];
     if ([model.status isEqualToString:@"1"]) {
-        [self loadRawAwardDataWithType:model.sign_type];
+        [self loadRawAwardDataWithType:model.sign_type money:model.award_num];
     }
 }
 
 #pragma mark 获取用户任务列表
 - (void)loadTastListData{
-    NSString *path = @"load_sign";
+    NSString *path = @"http://openapi.wawa.zhuazhuale.xin/yztask";
     NSDictionary *params = @{@"uid":KUID};
     [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
@@ -88,44 +88,14 @@
 }
 
 #pragma mark 领取任务奖励
-- (void)loadRawAwardDataWithType:(NSString *)type{
-    NSString *path = @"raw_award1";
-    NSDictionary *params = @{@"uid":KUID,@"type":type};
+- (void)loadRawAwardDataWithType:(NSString *)type money:(NSString *)money{
+    NSString *path = @"http://openapi.wawa.zhuazhuale.xin/yztaskClaim";
+    NSDictionary *params = @{@"uid":KUID,@"type":type,@"money":money};
     [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
         NSDictionary *dic = (NSDictionary *)json;
         if ([dic[@"code"] integerValue] == 200) {
             [MBProgressHUD showSuccess:@"领取成功" toView:self.tableView];
             [self loadTastListData];
-            
-            NSInteger mark = [dic[@"data"][@"ward_id"] integerValue];
-            switch (mark) {
-                case 1:
-                    [MobClick event:@"pay_one_game"];
-                    break;
-                case 2:
-                    [MobClick event:@"task_center_shared"];
-                    break;
-                case 3:
-                    [MobClick event:@"get_one_baby"];
-                    break;
-                case 4:
-                    [MobClick event:@"get_three_baby"];
-                    break;
-                case 5:
-                    [MobClick event:@"get_10baby"];
-                    break;
-                case 9:
-                    [MobClick event:@"shared_friends_10"];
-                    break;
-                case 7:
-                    [MobClick event:@"everyday_pay"];
-                    break;
-                case 8:
-                    [MobClick event:@"signin_seven_days"];
-                    break;
-                default:
-                    break;
-            }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"refreshUserData" object:nil];
         }
     } failure:^(NSError *error) {

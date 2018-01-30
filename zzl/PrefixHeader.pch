@@ -128,6 +128,8 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #endif
 #define DYGAColor(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
 
+#define kBaseUrl @"http://api.wawa.lkmai.com/"
+
 //微信信息
 #define WXAppID @"wxb7954ccebd1c90ac"
 #define WXAppSecret @"b12b07a95c5a5014e7896bab9269fd92"

@@ -16,8 +16,9 @@ static AFHTTPSessionManager * mgr;
 
 +(void)getWithURL:(NSString *)url params:(NSDictionary *)params sucess:(void (^)(id))sucess failure:(void (^)(NSError *))failure{
     
-    NSString * baseUrl =@"http://api.wawa.lkmai.com/";
-    url = [baseUrl stringByAppendingString:url];
+    if (![url containsString:@"http"]) {
+        url = [kBaseUrl stringByAppendingString:url];
+    }
 //    NSString * endUrl = [DYGGetUrl connectUrl:[self encryptSign:params].mutableCopy url:url];
     
     mgr = [AFHTTPSessionManager manager];
@@ -38,9 +39,10 @@ static AFHTTPSessionManager * mgr;
 }
 
 +(void)postWithURL:(NSString *)url params:(NSDictionary *)params sucess:(void (^)(id))sucess failure:(void (^)(NSError *))failure{
+    if (![url containsString:@"http"]) {
+        url = [kBaseUrl stringByAppendingString:url];
+    }
     
-    NSString * baseUrl =@"http://api.wawa.lkmai.com/";
-    url = [baseUrl stringByAppendingString:url];
     mgr = [AFHTTPSessionManager manager];
 //    [mgr.requestSerializer
 //     setValue:@"application/x-www-form-urlencoded"
