@@ -28,7 +28,6 @@
 @property (nonatomic,strong) MBProgressHUD *hud;
 
 @property (nonatomic,assign) NSInteger currentPage;
-
 /**
  * 房间模型数组
  */
@@ -171,7 +170,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.headerView starTimer];
+    if (self.headerView) {
+        [self.headerView starTimer];
+    }
     
 }
 -(void)viewDidDisappear:(BOOL)animated{
@@ -293,6 +294,9 @@
         header= [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"QMXingXiuHeaderReusableView" forIndexPath:indexPath];
         self.headerView = header;
         header.delegate = self;
+        if (!self.headerView.timer) {
+            [self.headerView starTimer];
+        }
     }
     return header;
 }
@@ -347,8 +351,12 @@
         [_collectV registerClass:[QMXingXiuHeaderReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"QMXingXiuHeaderReusableView"];
         
         _collectV.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-        _collectV.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
-        _collectV.showsHorizontalScrollIndicator = NO;
+        MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+        footer.stateLabel.font = [UIFont systemFontOfSize:14];
+        footer.stateLabel.textColor = DYGColorFromHex(0xB4B4B4);
+        [footer setTitle:@"(/≧▽≦)/伦家可是有底线的娃娃机~" forState:MJRefreshStateNoMoreData];
+        _collectV.mj_footer = footer;
+        _collectV.showsVerticalScrollIndicator = NO;
     }
     return _collectV;
 }

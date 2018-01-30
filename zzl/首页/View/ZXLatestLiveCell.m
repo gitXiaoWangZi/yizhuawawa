@@ -50,17 +50,30 @@
 
 - (void)loadWithData:(WwRoom *)data itemIndex:(NSInteger)rowIndex{
     self.nameLabel.text = data.wawa.name;
-    [self.portraitImageView sd_setImageWithURL:[NSURL URLWithString:data.wawa.icon]];
+    [self.portraitImageView sd_setImageWithURL:[NSURL URLWithString:data.wawa.pic]];
     self.countLabel.text = [NSString stringWithFormat:@"%zd/次",data.wawa.coin];
-    if (data.state < 1) {
-        self.statusLabel.text = @"故障";
-    }else if (data.state == 1){
-        self.statusLabel.text = @"补货";
-    }else if (data.state == 2){
-        self.statusLabel.text = @"空闲";
-    }else{
-        self.statusLabel.text = @"游戏中";
+    
+    NSString * des = nil;
+    NSString *imageName = @"room_idle";
+    UIColor *color = DYGColorFromHex(0x000000);
+    if (data.state == 2) {
+        //空闲
+        imageName = @"room_idle";
+        color = DYGColorFromHex(0x1dd8e4);
+        des = @"空闲中";
     }
+    else if (data.state > 2) {
+        imageName = @"room_use";
+        color = DYGColorFromHex(0xff688f);
+        des = @"游戏中";
+    }
+    else if (data.state == 1) {
+        color = DYGColorFromHex(0xffbf24);
+        imageName = @"room_buhuo";
+        des = @"补货中";
+    }
+    self.statusLabel.textColor = color;
+    self.statusLabel.text = des;
 }
 
 #pragma mark - Helper

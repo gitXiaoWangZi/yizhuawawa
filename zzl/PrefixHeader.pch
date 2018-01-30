@@ -66,7 +66,6 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #import <AFNetworking/AFNetworking.h>
 #import <Masonry/Masonry.h>
 #import <MBProgressHUD.h>
-#import <YYModel.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh/MJRefresh.h>
 #import <TZImagePickerController.h>
@@ -75,6 +74,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
 #import <UMMobClick/MobClick.h>
+#import <YYModel/YYModel.h>
 //腾讯开放平台（对应QQ和QQ空间）SDK头文件
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
@@ -142,5 +142,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #define kPingFangSC_Regular(fontSize)   [UIFont fontWithName:@"PingFangSC-Regular" size:(fontSize)]
 #define kPingFangSC_Medium(fontSize)    [UIFont fontWithName:@"PingFangSC-Medium" size:(fontSize)]
 #define kPingFangSC_Semibold(fontSize)  [UIFont fontWithName:@"PingFangSC-Semibold" size:(fontSize)]
+#define font(size) [UIFont systemFontOfSize:(size)]
+#define boldFont(size)  [UIFont boldSystemFontOfSize:(size)]
 
 #endif /* PrefixHeader_pch */
