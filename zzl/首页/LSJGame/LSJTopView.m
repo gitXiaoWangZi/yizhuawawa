@@ -60,28 +60,28 @@ static NSString * reuserId= @"roomCell";
         make.left.equalTo(self.mas_left).offset(Px(15));
         make.top.equalTo(self.mas_top).offset(Py(25));
         make.width.equalTo(@(Px(81)));
-        make.height.equalTo(@(Py(100)));
+        make.height.equalTo(@(Py(105)));
     }];
     self.iconBgView.layer.cornerRadius = Px(5);
     self.iconBgView.layer.masksToBounds = YES;
-    //名字
-    [self.iconBgView addSubview:self.iconL];
-    [self.iconL mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.iconBgView.mas_left);
-        make.right.equalTo(self.iconBgView.mas_right);
-        make.top.equalTo(self.iconBgView.mas_top).offset(Py(5));
-        make.height.equalTo(@(Py(20)));
-    }];
     //头像
     [self.iconBgView addSubview:self.iconImgV];
     [self.iconImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.iconBgView.mas_left).offset(2);
         make.right.equalTo(self.iconBgView.mas_right).offset(-2);
         make.bottom.equalTo(self.iconBgView.mas_bottom).offset(-2);
-        make.top.equalTo(self.iconL.mas_bottom).offset(5);
+        make.height.equalTo(self.iconImgV.mas_width);
     }];
     self.iconImgV.layer.cornerRadius = Px(5);
     self.iconImgV.layer.masksToBounds = YES;
+    //名字
+    [self.iconBgView addSubview:self.iconL];
+    [self.iconL mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.iconBgView.mas_left);
+        make.right.equalTo(self.iconBgView.mas_right);
+        make.top.equalTo(self.iconBgView.mas_top);
+        make.bottom.equalTo(self.iconImgV.mas_top);
+    }];
     //返回按钮
     [self addSubview:self.backBtn];
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -113,7 +113,7 @@ static NSString * reuserId= @"roomCell";
     [self.musicImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.playView.mas_bottom).offset(-Py(10));
         make.right.equalTo(self.playView.mas_right).offset(-20);
-        make.width.height.equalTo(@(Px(25)));
+        make.width.height.equalTo(@(Px(30)));
     }];
     //音乐按钮
     [self addSubview:self.musicBtn];
@@ -128,7 +128,7 @@ static NSString * reuserId= @"roomCell";
     [self.barrageImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.musicImgV.mas_left).offset(-Py(10));
         make.centerY.equalTo(self.musicImgV);
-        make.width.height.equalTo(@(Px(25)));
+        make.width.height.equalTo(@(Px(30)));
     }];
     //弹幕按钮
     [self addSubview:self.barrageBtn];
@@ -270,15 +270,12 @@ static NSString * reuserId= @"roomCell";
 }
 - (void)refreGameUserByUser:(WwUser *)user{
     if (user == nil) {
-        self.iconImgV.image = [UIImage imageNamed:@"default_icon"];
+        self.iconImgV.image = [UIImage imageNamed:@"avatar_default_medium"];
         self.iconL.text = @"等待入位";
         return;
     }
     self.iconL.text = user.nickname;
     [self.iconImgV sd_setImageWithURL:[NSURL URLWithString:user.portrait]];
-}
-- (void)refrshWaWaDetailsWithModel:(WwRoom *)model{
-    NSString *coin = [NSString stringWithFormat:@"%zd/次",model.wawa.coin];
 }
 
 #pragma mark lazyload
@@ -299,7 +296,7 @@ static NSString * reuserId= @"roomCell";
 }
 - (UIImageView *)iconImgV{
     if (!_iconImgV) {
-        _iconImgV = [[UIImageView alloc] init];
+        _iconImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"avatar_default_medium"]];
     }
     return _iconImgV;
 }
@@ -345,7 +342,7 @@ static NSString * reuserId= @"roomCell";
     if (!_iconL) {
         _iconL = [[UILabel alloc] init];
         _iconL.text = @"等待入位";
-        _iconL.font = [UIFont systemFontOfSize:11];
+        _iconL.font = [UIFont systemFontOfSize:14];
         _iconL.textColor = [UIColor whiteColor];
         _iconL.textAlignment = NSTextAlignmentCenter;
     }

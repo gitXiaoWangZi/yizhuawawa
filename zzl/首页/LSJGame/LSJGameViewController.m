@@ -92,7 +92,7 @@
     [self loadLatesRecordData];
     //刷新娃娃详情的数据
     [self.BottomViewVC refrshWaWaDetailsWithModel:self.model];
-    [self.topView refrshWaWaDetailsWithModel:self.model];
+//    [self.topView refrshWaWaDetailsWithModel:self.model];
     //更新钻石数量
     [self loadUserInfoData];
 }
@@ -668,11 +668,14 @@
 - (void)reciveRoomUpdateData:(WwRoomDataMessage *)liveData{
     NSLog(@"收到 房间状态更新--%@",liveData);
     if (liveData.state >= 3 && liveData.state <= 6) {
+        self.normalView.gameBtn.enabled = NO;
         WwUser *model = liveData.user;
         [self.topView refreGameUserByUser:model];
     }else if (liveData.state == 2){//开始游戏
+        self.normalView.gameBtn.enabled = YES;
         [self.topView refreGameUserByUser:nil];
     }else if (liveData.state <= 0){//机器维护中
+        self.normalView.gameBtn.enabled = NO;
         [self.topView refreGameUserByUser:nil];
     }else{
 

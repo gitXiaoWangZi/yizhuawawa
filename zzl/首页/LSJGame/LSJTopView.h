@@ -36,7 +36,7 @@ typedef NS_ENUM(NSInteger,TopView) {
 
 - (void)refreshAudienceWithWwUserNum:(NSInteger)num withModel:(WwRoom*)model;
 - (void)refreGameUserByUser:(WwUser *)user;
-- (void)refrshWaWaDetailsWithModel:(WwRoom *)model;
+//- (void)refrshWaWaDetailsWithModel:(WwRoom *)model;
 
 - (void)start;
 - (void)stopScroll;

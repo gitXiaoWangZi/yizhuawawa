@@ -99,27 +99,24 @@
         [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
             NSDictionary *dic = (NSDictionary *)json;
             if ([dic[@"code"] integerValue] == 200) {
-                [self shareActionWithHref:dic[@"data"][@"linkurl"]];
+                [self shareActionWithHref:dic[@"data"][@"linkurl"] content:dic[@"data"][@"conten"] title:dic[@"data"][@"title"] icon:dic[@"data"][@"path"]];
             }
         } failure:^(NSError *error) {
             NSLog(@"%@",error);
         }];
 }
 
-- (void)shareActionWithHref:(NSString *)href{
-    
-    NSString *content = @"超萌娃娃免费抓，全国免邮送到家";
-    NSString *title = @"我又抓到了一只娃娃，送你600钻石一起抓";
-    NSArray* images0 = @[@"http://openapi.wawa.zhuazhuale.xin/img/imgdata/wawalogo.png"];
+- (void)shareActionWithHref:(NSString *)href content:(NSString *)content title:(NSString *)title icon:(NSString *)icon{
+
     NSMutableDictionary *shareParams0 = [NSMutableDictionary dictionary];
     NSURL *url = [NSURL URLWithString:href];
-    [shareParams0 SSDKSetupShareParamsByText:content images:images0 url:url title:title type:SSDKContentTypeAuto];
+    [shareParams0 SSDKSetupShareParamsByText:content images:@[icon] url:url title:title type:SSDKContentTypeAuto];
     
-    [shareParams0 SSDKSetupSinaWeiboShareParamsByText:[NSString stringWithFormat:@"%@ %@",content,href] title:title images:images0 video:nil url:nil latitude:0.0 longitude:0.0 objectID:nil isShareToStory:NO type:SSDKContentTypeAuto];
+    [shareParams0 SSDKSetupSinaWeiboShareParamsByText:[NSString stringWithFormat:@"%@ %@",content,href] title:title images:@[icon] video:nil url:nil latitude:0.0 longitude:0.0 objectID:nil isShareToStory:NO type:SSDKContentTypeAuto];
     
-    [shareParams0 SSDKSetupWeChatParamsByText:content title:title url:url thumbImage:nil image:images0 musicFileURL:nil extInfo:nil fileData:nil emoticonData:nil sourceFileExtension:nil sourceFileData:nil type:SSDKContentTypeAuto forPlatformSubType:SSDKPlatformSubTypeWechatSession];
+    [shareParams0 SSDKSetupWeChatParamsByText:content title:title url:url thumbImage:nil image:@[icon] musicFileURL:nil extInfo:nil fileData:nil emoticonData:nil sourceFileExtension:nil sourceFileData:nil type:SSDKContentTypeAuto forPlatformSubType:SSDKPlatformSubTypeWechatSession];
     
-    [shareParams0 SSDKSetupWeChatParamsByText:content title:title url:url thumbImage:nil image:images0 musicFileURL:nil extInfo:nil fileData:nil emoticonData:nil sourceFileExtension:nil sourceFileData:nil type:SSDKContentTypeAuto forPlatformSubType:SSDKPlatformSubTypeWechatTimeline];
+    [shareParams0 SSDKSetupWeChatParamsByText:content title:title url:url thumbImage:nil image:@[icon] musicFileURL:nil extInfo:nil fileData:nil emoticonData:nil sourceFileExtension:nil sourceFileData:nil type:SSDKContentTypeAuto forPlatformSubType:SSDKPlatformSubTypeWechatTimeline];
     
 //    [shareParams0 SSDKSetupQQParamsByText:content title:title url:url audioFlashURL:nil videoFlashURL:nil thumbImage:nil images:images0 type:SSDKContentTypeAuto forPlatformSubType:SSDKPlatformTypeQQ];
     

@@ -43,7 +43,7 @@
     }];
     [self addSubview:self.msgBtn];
     [self.msgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.mas_right).offset(-20);
+        make.left.equalTo(self.gameBtn.mas_right).offset(30);
         make.centerY.equalTo(self.mas_centerY);
     }];
     
@@ -52,6 +52,7 @@
     [self.zuanshiBgImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.mas_centerY);
         make.left.equalTo(self.mas_left).offset(Px(15));
+        make.height.equalTo(@(Py(40)));
     }];
     self.zuanshiBgImgV.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(recharge:)];
@@ -69,8 +70,8 @@
     [self.rechargeImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.zuanshiBgImgV);
         make.right.equalTo(self.zuanshiBgImgV.mas_right).offset(-5);
-        make.width.equalTo(@(Px(25)));
-        make.height.equalTo(@(Px(25)));
+        make.width.equalTo(@(Px(15)));
+        make.height.equalTo(@(Px(15)));
     }];
     //钻石数量
     [self addSubview:self.zuanshiNumL];
@@ -94,6 +95,7 @@
         _gameBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_gameBtn setBackgroundImage:[UIImage imageNamed:@"start_game_normal"] forState:UIControlStateNormal];
         [_gameBtn setBackgroundImage:[UIImage imageNamed:@"start_game_press"] forState:UIControlStateHighlighted];
+        [_gameBtn setBackgroundImage:[UIImage imageNamed:@"start_game_disable"] forState:UIControlStateDisabled];
         [_gameBtn addTarget:self action:@selector(gameAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _gameBtn;
@@ -138,7 +140,7 @@
     if (!_zuanshiNumL) {
         _zuanshiNumL = [[UILabel alloc] init];
         _zuanshiNumL.textAlignment = NSTextAlignmentCenter;
-        _zuanshiNumL.font = [UIFont fontWithName:@"STYuanti-SC-Bold" size:20];
+        _zuanshiNumL.font = [UIFont systemFontOfSize:14];
         _zuanshiNumL.textColor = DYGColorFromHex(0x000000);
     }
     return _zuanshiNumL;
