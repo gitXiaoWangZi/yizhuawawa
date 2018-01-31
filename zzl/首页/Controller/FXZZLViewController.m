@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"抓抓乐";
+    self.title = @"易抓";
     self.view.backgroundColor = randomColor;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     self.navigationController.delegate = self;

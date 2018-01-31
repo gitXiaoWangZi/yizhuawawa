@@ -123,19 +123,19 @@
     [centerV addSubview:zhifubaoBtn];
     [zhifubaoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(centerV);
-        make.left.equalTo(centerV);
+        make.right.equalTo(centerV);
         make.width.equalTo(@((Px(280)-0.5)/2.0));
         make.height.equalTo(@(Py(52)));
     }];
     UIButton *wechatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [wechatBtn setTitle:@"微信" forState:UIControlStateNormal];
+    [wechatBtn setTitle:@"取消" forState:UIControlStateNormal];
     wechatBtn.titleLabel.font = kPingFangSC_Semibold(15);
-    [wechatBtn setTitleColor:DYGColor(35, 186, 0) forState:UIControlStateNormal];
+    [wechatBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [wechatBtn addTarget:self action:@selector(wechatPay:) forControlEvents:UIControlEventTouchUpInside];
     [centerV addSubview:wechatBtn];
     [wechatBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(centerV);
-        make.right.equalTo(centerV);
+        make.left.equalTo(centerV);
         make.width.equalTo(@((Px(280)-0.5)/2.0));
         make.height.equalTo(@(Py(52)));
     }];
@@ -182,26 +182,26 @@
 
 - (void)wechatPay:(UIButton *)sender{
     self.popBgView.hidden = YES;
-    WwDepositItem *item = self.dataArray[0];
-    NSString *path = @"Depay";
-    NSDictionary *params = @{@"uid":KUID,@"money":money,@"itemCode":@(item.wid)};
-    [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
-        NSDictionary *dic = (NSDictionary *)json;
-        if ([dic[@"code"] integerValue] == 200) {
-            PayReq *req = [[PayReq alloc] init];
-            req.partnerId = dic[@"data"][@"partnerid"];
-            req.prepayId = dic[@"data"][@"prepayid"];
-            req.package = dic[@"data"][@"package"];
-            req.nonceStr = dic[@"data"][@"noncestr"];
-            req.timeStamp = [dic[@"data"][@"timestamp"] intValue];
-            req.sign = dic[@"data"][@"sign"];
-            if ([WXApi sendReq:req]) {
-                NSLog(@"调起成功");
-            }
-        }
-    } failure:^(NSError *error) {
-        NSLog(@"%@",error);
-    }];
+//    WwDepositItem *item = self.dataArray[0];
+//    NSString *path = @"Depay";
+//    NSDictionary *params = @{@"uid":KUID,@"money":money,@"itemCode":@(item.wid)};
+//    [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
+//        NSDictionary *dic = (NSDictionary *)json;
+//        if ([dic[@"code"] integerValue] == 200) {
+//            PayReq *req = [[PayReq alloc] init];
+//            req.partnerId = dic[@"data"][@"partnerid"];
+//            req.prepayId = dic[@"data"][@"prepayid"];
+//            req.package = dic[@"data"][@"package"];
+//            req.nonceStr = dic[@"data"][@"noncestr"];
+//            req.timeStamp = [dic[@"data"][@"timestamp"] intValue];
+//            req.sign = dic[@"data"][@"sign"];
+//            if ([WXApi sendReq:req]) {
+//                NSLog(@"调起成功");
+//            }
+//        }
+//    } failure:^(NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
 }
 
 #pragma mark - 收到支付成功的消息后作相应的处理

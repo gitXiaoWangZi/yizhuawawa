@@ -89,8 +89,8 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="敢不敢来" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k55-jw-vtB">
-                                    <rect key="frame" x="150" y="86" width="69.5" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称加载中" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k55-jw-vtB">
+                                    <rect key="frame" x="141.5" y="86" width="87" height="17"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="17" id="P1h-7d-rwZ"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="XgS-Io-U0c"/>
@@ -105,8 +105,8 @@
                                         <action selector="userCenterButtonClick:" destination="Jtj-su-8ql" eventType="touchUpInside" id="gXm-N3-sOL"/>
                                     </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:56788376" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nst-kT-tAQ">
-                                    <rect key="frame" x="134" y="111" width="101.5" height="17"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nst-kT-tAQ">
+                                    <rect key="frame" x="169" y="111" width="31.5" height="17"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="17" id="37F-3I-HDA"/>
                                         <constraint firstAttribute="height" constant="17" id="EsD-M5-P54"/>
