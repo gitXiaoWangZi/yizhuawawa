@@ -14,6 +14,7 @@
 #import "FXGameWebController.h"
 #import "LSJGameViewController.h"
 
+
 @interface BottomViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scroV;
