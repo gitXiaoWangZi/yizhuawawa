@@ -21,6 +21,7 @@
 #import "FXGameResultView.h"
 #import "FXHomeBannerItem.h"
 #import "FXGameWebController.h"
+#import "LSJSpoilsController.h"
 
 @interface LSJGameViewController ()<UIScrollViewDelegate,WwGameManagerDelegate,LSJTopViewDelegate,LSJOperationNormalViewDelegate,ZYPlayOperationViewDelegate,AVAudioPlayerDelegate,FXCommentViewDelegate,UITextFieldDelegate,ZYCountDownViewDelegate,FXGameResultViewDelegate>
 
@@ -577,7 +578,7 @@
 }
 
 - (void)countDownAction{
-    __block int num = 10;
+    __block int num = 5;
     // 获取全局队列
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     // 创建定时器
@@ -598,7 +599,7 @@
         NSLog(@"%ld", (long)num);
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.resultPopView.desL.text = [NSString stringWithFormat:@"%zds内投币继续",num];
+            self.resultPopView.desL.text = [NSString stringWithFormat:@"%zd",num];
             num--;
         });
         
@@ -638,14 +639,25 @@
     [self playGame];
 }
 
-- (void)cancelAction{
+- (void)cancelAction:(FXGameResultViewType)type{
     if (self.timer) {
         [self.timer invalidate];
     }
-    
     dispatch_source_cancel(_timer0);
     _timer0 = nil;
     self.topView.normalView.gameBtn.userInteractionEnabled = YES;
+    
+    switch (type) {
+        case FXGameResultViewTypeBring:
+        {
+            LSJSpoilsController *spoilsVC = [[LSJSpoilsController alloc] init];
+            [self.navigationController pushViewController:spoilsVC animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark---WwGameManagerDelegate实现一些回调方法

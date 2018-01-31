@@ -238,7 +238,7 @@
         [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
             NSDictionary *dic = (NSDictionary *)json;
             if ([dic[@"code"] integerValue] == 200) {
-                [[AlipaySDK defaultService] payOrder:dic[@"data"] fromScheme:@"zzlwwzfb" callback:^(NSDictionary *resultDic) {
+                [[AlipaySDK defaultService] payOrder:dic[@"data"] fromScheme:@"yzwwzfb" callback:^(NSDictionary *resultDic) {
                         
                 }];
                 

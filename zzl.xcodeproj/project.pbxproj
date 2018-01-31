@@ -2016,7 +2016,7 @@
 					"\"UIKit\"",
 					"-lxml2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2170,7 +2170,7 @@
 					"\"UIKit\"",
 					"-lxml2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

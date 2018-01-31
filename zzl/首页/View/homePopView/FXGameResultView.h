@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger,FXGameResultViewType) {
+    FXGameResultViewTypeCancel,
+    FXGameResultViewTypeBring,
+};
+
 @protocol FXGameResultViewDelegate<NSObject>
 
 - (void)gameAgainAction;
-- (void)cancelAction;
+- (void)cancelAction:(FXGameResultViewType)type;
 
 
 @end
@@ -20,7 +25,7 @@
 
 @property (nonatomic,weak) id<FXGameResultViewDelegate> delegate;
 @property (nonatomic,strong) UILabel *desL;
-@property (nonatomic,strong) NSTimer *timer;
+@property (nonatomic,assign) FXGameResultViewType type;
 
 - (void)showStatusView:(BOOL)isSuccess;
 @end

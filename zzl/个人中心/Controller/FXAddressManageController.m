@@ -42,7 +42,7 @@
     
     self.addBtn = [UIButton buttonWithTitle:@"添加新地址" titleColor:DYGColorFromHex(0xfefefe) font:18];
     self.addBtn.titleLabel.font = [UIFont fontWithName:@"PingFangSC-Medium" size:16];
-    [self.addBtn setBackgroundColor:DYGColorFromHex(0xfed811)];
+    [self.addBtn setBackgroundColor:systemColor];
     [self.addBtn setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
     self.addBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -Px(8), 0, 0 );
     self.addBtn.cornerRadius = Py(22);

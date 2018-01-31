@@ -118,7 +118,7 @@
 -(UIButton *)defaultBtn{
     if (!_defaultBtn) {
         _defaultBtn = [UIButton buttonWithTitle:@"默认地址" titleColor:DYGColorFromHex(0x797979) font:12];
-        [_defaultBtn setTitleColor:DYGColorFromHex(0xfed811) forState:UIControlStateSelected];
+        [_defaultBtn setTitleColor:systemColor forState:UIControlStateSelected];
         [_defaultBtn setImage:[UIImage imageNamed:@"address_selected"] forState:UIControlStateSelected];
         [_defaultBtn setImage:[UIImage imageNamed:@"address_normal"] forState:UIControlStateNormal];
         _defaultBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -Px(6), 0, 0);

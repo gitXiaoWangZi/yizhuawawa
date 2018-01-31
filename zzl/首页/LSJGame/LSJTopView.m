@@ -297,6 +297,7 @@ static NSString * reuserId= @"roomCell";
 - (UIImageView *)iconImgV{
     if (!_iconImgV) {
         _iconImgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"avatar_default_medium"]];
+        _iconImgV.backgroundColor = [UIColor whiteColor];
     }
     return _iconImgV;
 }
