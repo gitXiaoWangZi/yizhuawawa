@@ -526,6 +526,7 @@
 - (void)clawAction {
     self.countDownV.status = ZYCountDownStatusRequestResultIng;
     [[WwGameManager GameMgrInstance] requestClawWithForceRelease:NO withComplete:^(NSInteger code, NSString *msg, WwGameResult *resultM) {
+        self.topView.normalView.gameBtn.userInteractionEnabled = YES;
         //游戏结束 页面可以滑动
         self.myScroV.scrollEnabled = YES;
         
