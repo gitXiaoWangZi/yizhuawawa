@@ -108,7 +108,7 @@
     titleL.font = kPingFangSC_Medium(24);
     titleL.numberOfLines = 2;
     titleL.textAlignment = NSTextAlignmentCenter;
-    titleL.text = [NSString stringWithFormat:@"单个商品发货需要支付%@元哦~",money];
+    titleL.text = [NSString stringWithFormat:@"两件才包邮哦~单件商品发货需支付%@元",money];
     [centerV addSubview:titleL];
     [titleL mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(centerV).offset(Py(50));

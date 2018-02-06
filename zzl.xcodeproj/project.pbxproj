@@ -177,7 +177,6 @@
 		92B574011FD937CD00B32C02 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B574001FD937CD00B32C02 /* UMMobClick.framework */; };
 		92B918E31FCFB67E009B0CE9 /* UIButton+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B918E21FCFB67E009B0CE9 /* UIButton+Position.m */; };
 		92C0479F1FCC0B3100636F15 /* FXRechargeRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C0479E1FCC0B3100636F15 /* FXRechargeRecordModel.m */; };
-		92C047A21FCC1AF500636F15 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C047A11FCC187E00636F15 /* WelcomeViewController.m */; };
 		92D7231B1FED0E130031F7EB /* FXGameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D723191FED0E130031F7EB /* FXGameDetailViewController.m */; };
 		92D7231C1FED0E130031F7EB /* FXGameDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D7231A1FED0E130031F7EB /* FXGameDetailViewController.xib */; };
 		92D7231F1FED0E910031F7EB /* FXGameDetailContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D7231E1FED0E910031F7EB /* FXGameDetailContentView.m */; };
@@ -545,8 +544,6 @@
 		92B918E21FCFB67E009B0CE9 /* UIButton+Position.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Position.m"; sourceTree = "<group>"; };
 		92C0479D1FCC0B3100636F15 /* FXRechargeRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXRechargeRecordModel.h; sourceTree = "<group>"; };
 		92C0479E1FCC0B3100636F15 /* FXRechargeRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXRechargeRecordModel.m; sourceTree = "<group>"; };
-		92C047A01FCC187E00636F15 /* WelcomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
-		92C047A11FCC187E00636F15 /* WelcomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		92D723181FED0E130031F7EB /* FXGameDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FXGameDetailViewController.h; sourceTree = "<group>"; };
 		92D723191FED0E130031F7EB /* FXGameDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FXGameDetailViewController.m; sourceTree = "<group>"; };
 		92D7231A1FED0E130031F7EB /* FXGameDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FXGameDetailViewController.xib; sourceTree = "<group>"; };
@@ -737,15 +734,6 @@
 			path = "登录";
 			sourceTree = "<group>";
 		};
-		9248B6F51FB5754500633CDA /* 新特性界面 */ = {
-			isa = PBXGroup;
-			children = (
-				92C047A01FCC187E00636F15 /* WelcomeViewController.h */,
-				92C047A11FCC187E00636F15 /* WelcomeViewController.m */,
-			);
-			path = "新特性界面";
-			sourceTree = "<group>";
-		};
 		9248B6F91FB5A3E000633CDA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -790,7 +778,6 @@
 			isa = PBXGroup;
 			children = (
 				92B574021FD955F400B32C02 /* zzl.entitlements */,
-				9248B6F51FB5754500633CDA /* 新特性界面 */,
 				9248B6F41FB5753B00633CDA /* 登录 */,
 				9260AC3B1FA73EAF00EA1881 /* DYGKit */,
 				9260ABE21FA73B2B00EA1881 /* 个人中心 */,
@@ -1491,7 +1478,7 @@
 				TargetAttributes = {
 					9260ABC01FA73AE200EA1881 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -1742,7 +1729,6 @@
 				9267A02D1FA804DE0058AA70 /* DYGHomeHeaderView.m in Sources */,
 				92D7231B1FED0E130031F7EB /* FXGameDetailViewController.m in Sources */,
 				92570DDE1FAB54AC00232AE0 /* UILabel+DYGAdd.m in Sources */,
-				92C047A21FCC1AF500636F15 /* WelcomeViewController.m in Sources */,
 				9248B6C21FB2DC3A00633CDA /* FXSpoilsCell.m in Sources */,
 				9217B5541FC4542E00B506EB /* AccountItem.m in Sources */,
 				924AEBDF1FB03D4500E0DD8C /* FXTouchView.m in Sources */,
@@ -1881,8 +1867,8 @@
 				CODE_SIGN_ENTITLEMENTS = zzl/zzl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T2F9U3C8Y;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2018,8 +2004,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "df1da233-2990-4c7a-b83d-ac1c85b30446";
-				PROVISIONING_PROFILE_SPECIFIER = yzww_appstore_pp;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -2035,8 +2021,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = zzl/zzl.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5T2F9U3C8Y;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2172,8 +2158,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vanstars.yizhuawawa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "df1da233-2990-4c7a-b83d-ac1c85b30446";
-				PROVISIONING_PROFILE_SPECIFIER = yzww_appstore_pp;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";

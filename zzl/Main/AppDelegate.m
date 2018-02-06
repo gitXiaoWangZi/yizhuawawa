@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "LSJHomeViewController.h"
 #import "LSJLoginController.h"
-#import "WelcomeViewController.h"
 #import "FXNavigationController.h"
 #import <JPUSHService.h>
 // iOS10注册APNs所需头文件
@@ -100,24 +99,13 @@
     /*******向微信注册*********/
     [WXApi registerApp:WXAppID];
     
-//    NSString *saveVersion = [[NSUserDefaults standardUserDefaults] objectForKey:kBundleVersionKey];
-//    NSString *currentVersion = [[NSBundle mainBundle] infoDictionary][kBundleVersionKey];
-//    if ([currentVersion isEqualToString:saveVersion]) {
-        if (KisLogin) {
-            FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:[LSJHomeViewController new]];
-            self.window.rootViewController = nav;
-        }else{
-            FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:[LSJLoginController new]];
-            self.window.rootViewController = nav;
-        }
-//    }else{
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-//        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:KLoginStatus];
-//        WelcomeViewController *welcome = [[WelcomeViewController alloc]init];
-//        self.window.rootViewController = welcome;
-//        //保存Version
-//        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:kBundleVersionKey];
-//    }
+    if (KisLogin) {
+        FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:[LSJHomeViewController new]];
+        self.window.rootViewController = nav;
+    }else{
+        FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:[LSJLoginController new]];
+        self.window.rootViewController = nav;
+    }
     
     
     [self.window makeKeyAndVisible];

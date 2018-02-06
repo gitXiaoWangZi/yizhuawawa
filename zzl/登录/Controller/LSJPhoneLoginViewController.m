@@ -34,6 +34,10 @@
     [self.view endEditing:YES];
 }
 
+- (IBAction)popself:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (IBAction)textFieldDidChanged:(UITextField *)sender {
     
 }

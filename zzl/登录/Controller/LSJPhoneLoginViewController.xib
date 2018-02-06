@@ -175,15 +175,24 @@
                         <constraint firstItem="lg9-Ay-81U" firstAttribute="leading" secondItem="DLe-hD-mpt" secondAttribute="leading" id="jfX-2d-VIO"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ss8-Um-lE7">
+                    <rect key="frame" x="20" y="30" width="22" height="22"/>
+                    <state key="normal" backgroundImage="popBack"/>
+                    <connections>
+                        <action selector="popself:" destination="-1" eventType="touchUpInside" id="2HV-jH-mMv"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Ss8-Um-lE7" firstAttribute="top" secondItem="kKx-Tm-nYC" secondAttribute="top" constant="30" id="2Yo-M8-EkU"/>
                 <constraint firstItem="eSG-7F-0qk" firstAttribute="top" secondItem="kKx-Tm-nYC" secondAttribute="top" id="I4w-J5-65W"/>
                 <constraint firstItem="DLe-hD-mpt" firstAttribute="top" secondItem="eSG-7F-0qk" secondAttribute="bottom" id="P0U-tH-iDG"/>
                 <constraint firstItem="DLe-hD-mpt" firstAttribute="leading" secondItem="kKx-Tm-nYC" secondAttribute="leading" id="SJn-9b-5Gi"/>
                 <constraint firstItem="eSG-7F-0qk" firstAttribute="leading" secondItem="kKx-Tm-nYC" secondAttribute="leading" id="XWd-fJ-ovD"/>
                 <constraint firstAttribute="trailing" secondItem="DLe-hD-mpt" secondAttribute="trailing" id="YC5-Rw-OHZ"/>
                 <constraint firstAttribute="trailing" secondItem="eSG-7F-0qk" secondAttribute="trailing" id="fRG-pW-5tF"/>
+                <constraint firstItem="Ss8-Um-lE7" firstAttribute="leading" secondItem="kKx-Tm-nYC" secondAttribute="leading" constant="20" id="nTU-s5-AzV"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
@@ -191,5 +200,6 @@
     <resources>
         <image name="login_background" width="375" height="195"/>
         <image name="login_weixin_bgImg" width="300" height="46"/>
+        <image name="popBack" width="22" height="22"/>
     </resources>
 </document>

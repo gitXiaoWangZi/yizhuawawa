@@ -12,7 +12,6 @@
 @property (nonatomic,strong) UIImageView *bgImgV;
 @property (nonatomic,strong) UIButton *msgBtn;
 
-
 @property (nonatomic,strong) UIView *zuanshiView;
 @property (nonatomic,strong) UIImageView *zuanshiBgImgV;
 @property (nonatomic,strong) UIImageView *zuanshiImgV;
@@ -31,15 +30,11 @@
 - (void)addChildView{
     [self addSubview:self.bgImgV];
     [self.bgImgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.mas_left).offset(0);
-        make.top.equalTo(self.mas_top).offset(0);
-        make.right.equalTo(self.mas_right).offset(0);
-        make.bottom.equalTo(self.mas_bottom).offset(0);
+        make.left.top.right.bottom.equalTo(self);
     }];
     [self addSubview:self.gameBtn];
     [self.gameBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.mas_centerX);
-        make.centerY.equalTo(self.mas_centerY);
+        make.center.equalTo(self);
     }];
     [self addSubview:self.msgBtn];
     [self.msgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
