@@ -125,6 +125,11 @@
                 [self.roomsArray removeAllObjects];
             }
             self.roomsArray = [list mutableCopy];
+            for (WwRoom *room in self.roomsArray) {
+                if (room.ID == 492) {
+                    [self.roomsArray removeObject:room];
+                }
+            }
             if (list.count < 100) {
                 [self.collectV.mj_footer endRefreshingWithNoMoreData];
             }
