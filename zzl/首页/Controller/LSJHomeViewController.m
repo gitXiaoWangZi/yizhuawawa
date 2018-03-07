@@ -15,8 +15,10 @@
 #import "FXSelfViewController.h"
 #import "LSJGameViewController.h"
 #import "LSJSpoilsController.h"
+#import "FXHomeSignPopView.h"//连续登录签到页面
+#import "FXHomeLoginSuccessPopView.h" //登录成功页面
 
-@interface LSJHomeViewController ()<QMXingXiuHeaderReusableViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+@interface LSJHomeViewController ()<QMXingXiuHeaderReusableViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,FXHomeLoginSuccessPopViewDelegate>
 
 @property (nonatomic,strong) UIView *topView;
 @property (nonatomic,strong) UIButton *personalBtn;
@@ -28,6 +30,9 @@
 @property (nonatomic,strong) MBProgressHUD *hud;
 
 @property (nonatomic,assign) NSInteger currentPage;
+
+@property (nonatomic,strong) FXHomeSignPopView *signPopView;//7天连续登录页面
+@property (nonatomic,strong) FXHomeLoginSuccessPopView *loginPopView;//登录成功页面
 /**
  * 房间模型数组
  */
@@ -50,7 +55,7 @@
     [LSJHasNetwork lsj_hasNetwork:^(bool has) {
         if (has) {//有网
             //请求签到天数数据
-//            [self loadSignDayNumData];
+            [self loadSignDayNumData];
         }else{//没网
             [MBProgressHUD showMessage:@"请检查网络" toView:self.view];
             return ;
@@ -318,6 +323,64 @@
     gameVC.model = self.roomsArray[indexPath.row];
     [self.navigationController pushViewController:gameVC animated:YES];
 }
+
+#pragma mark 签到天数
+- (void)loadSignDayNumData{
+    NSString *path = @"getSignDays";
+    NSDictionary *params = @{@"uid":KUID};
+    [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([dic[@"code"] integerValue] == 200) {
+            if ([dic[@"today"] integerValue] == 0) {//未签到
+                
+                if (![[VisiteTools shareInstance] isVisite]) {
+                    [self showLoginSignViewWithDic:dic];
+                }
+            }else{//已签到
+                NSLog(@"已签到");
+            }
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+#pragma mark 点击签到
+- (void)loadGetSignDataWithDay:(NSString *)day{
+    NSString *path = @"getSign";
+    NSDictionary *params = @{@"uid":KUID};
+    [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([dic[@"code"] integerValue] == 200) {
+            [self.signPopView removeFromSuperview];
+            self.loginPopView = [[[NSBundle mainBundle] loadNibNamed:@"FXHomeLoginSuccessPopView" owner:nil options:nil] firstObject];
+            self.loginPopView.frame = self.view.bounds;
+            self.loginPopView.money = [dic[@"data"][@"money"] stringValue];
+            self.loginPopView.delegate = self;
+            [[UIApplication sharedApplication].keyWindow addSubview:self.loginPopView];
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+}
+
+//每天连续登录签到的页面
+- (void)showLoginSignViewWithDic:(NSDictionary *)dic{
+    self.signPopView = [[[NSBundle mainBundle] loadNibNamed:@"FXHomeSignPopView" owner:self options:nil] firstObject];
+    self.signPopView.frame = self.view.bounds;
+    self.signPopView.dataDic = dic;
+    __weak typeof(self) weakSelf = self;
+    self.signPopView.signActionBlock = ^(NSString *day){
+        [weakSelf loadGetSignDataWithDay:day];
+    };
+    [[UIApplication sharedApplication].keyWindow addSubview:self.signPopView];
+}
+
+#pragma mark FXHomeLoginSuccessPopViewDelegate
+- (void)dealThingAfterSuccess{
+    
+}
+
 
 #pragma mark lazyload
 - (UIView *)topView{

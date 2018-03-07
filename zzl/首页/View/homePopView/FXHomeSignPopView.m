@@ -10,10 +10,12 @@
 #import "UIButton+Position.h"
 
 @interface FXHomeSignPopView()
-@property (weak, nonatomic) IBOutlet UILabel *diamoNumL;
+@property (weak, nonatomic) IBOutlet UILabel *dayNumL;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *imgBgArray;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *diamoLArray;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *signediconArr;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *dayNumArr;
 
 
 @end
@@ -37,29 +39,29 @@
 - (void)setDataDic:(NSDictionary *)dataDic{
     _dataDic = dataDic;
     NSArray *dataArr = dataDic[@"data"];
+    self.dayNumL.text = [NSString stringWithFormat:@"连续签到%@天",dataDic[@"continuity"]];
     for (NSInteger i = 0; i < dataArr.count; i ++) {
         NSDictionary *dic = dataArr[i];
         UILabel *label = self.diamoLArray[i];
-        label.text = [NSString stringWithFormat:@"%@",dic[@"money"]];
-        if ([dataDic[@"continuity"] integerValue] == i) {
-            self.diamoNumL.text = [NSString stringWithFormat:@"%@",dic[@"money"]];
-            [self.loginBtn setTitle:[NSString stringWithFormat:@"今日登录获得%@",dic[@"money"]] forState:UIControlStateNormal];
-            [self.loginBtn xm_setImagePosition:XMImagePositionRight titleFont:[UIFont systemFontOfSize:16] spacing:10];
-        }
+        label.text = [NSString stringWithFormat:@"%@娃娃币",dic[@"money"]];
     }
     
     NSInteger continuity = [dataDic[@"continuity"] integerValue];
     for (NSInteger i = 0; i < continuity; i ++) {
-        UIImageView *bgImgV = self.imgBgArray[i];
-        bgImgV.image = [UIImage imageNamed:@"home_signed"];
         UILabel *label = self.diamoLArray[i];
-        label.textColor = [UIColor whiteColor];
+        label.hidden = YES;
+        UILabel *labels = self.dayNumArr[i];
+        labels.hidden = YES;
+        UIImageView *signedImgV = self.signediconArr[i];
+        signedImgV.hidden = NO;
     }
     for (NSInteger i = continuity; i < dataArr.count; i ++) {
-        UIImageView *bgImgV = self.imgBgArray[i];
-        bgImgV.image = [UIImage imageNamed:@"home_circle"];
         UILabel *label = self.diamoLArray[i];
-        label.textColor = DYGColorFromHex(0xEABE29);
+        label.hidden = NO;
+        UILabel *labels = self.dayNumArr[i];
+        labels.hidden = NO;
+        UIImageView *signedImgV = self.signediconArr[i];
+        signedImgV.hidden = YES;
     }
     
     

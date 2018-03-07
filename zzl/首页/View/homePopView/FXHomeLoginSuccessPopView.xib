@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,48 +17,35 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3oi-1R-ukm">
-                    <rect key="frame" x="45" y="238.5" width="285" height="190"/>
+                    <rect key="frame" x="40" y="238" width="295" height="191"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGU-Xi-uQo">
-                            <rect key="frame" x="103.5" y="30" width="77.5" height="23"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                            <color key="textColor" red="0.91764705879999997" green="0.74509803919999995" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_sign_cion" translatesAutoresizingMaskIntoConstraints="NO" id="Kfk-Ev-RO9">
+                            <rect key="frame" x="106.5" y="7" width="82" height="82"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="娃娃币+250" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9p-LP-gpJ">
+                            <rect key="frame" x="0.0" y="106" width="295" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="textColor" red="0.79607843137254897" green="0.066666666666666666" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已连续成功登录3天" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frb-3y-rwc">
-                            <rect key="frame" x="89" y="79" width="106.5" height="14.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                            <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明天签到可领取320娃娃币哦！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRU-TN-cgp">
+                            <rect key="frame" x="0.0" y="146" width="295" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.9137254901960784" green="0.60784313725490191" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6D9-iy-MTu">
-                            <rect key="frame" x="37" y="105.5" width="210" height="16"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <state key="normal" title="恭喜您，获得400" image="price">
-                                <color key="titleColor" red="0.91764705879999997" green="0.74509803919999995" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFZ-uH-8Th">
-                            <rect key="frame" x="61.5" y="130" width="161" height="30"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <state key="normal" title="确定" backgroundImage="home_sign_sure"/>
-                            <connections>
-                                <action selector="sureClick:" destination="Ta0-tU-xyv" eventType="touchUpInside" id="iTx-jL-iPY"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="frb-3y-rwc" firstAttribute="top" secondItem="QGU-Xi-uQo" secondAttribute="bottom" constant="26" id="BxS-a2-HiG"/>
-                        <constraint firstItem="QGU-Xi-uQo" firstAttribute="top" secondItem="3oi-1R-ukm" secondAttribute="top" constant="30" id="a6r-sj-4fm"/>
-                        <constraint firstAttribute="bottom" secondItem="hFZ-uH-8Th" secondAttribute="bottom" constant="30" id="bye-IB-28e"/>
-                        <constraint firstAttribute="width" secondItem="3oi-1R-ukm" secondAttribute="height" multiplier="1.5" id="cD8-QV-bqc"/>
-                        <constraint firstItem="frb-3y-rwc" firstAttribute="centerX" secondItem="QGU-Xi-uQo" secondAttribute="centerX" id="lDI-Gy-kiL"/>
-                        <constraint firstItem="QGU-Xi-uQo" firstAttribute="centerX" secondItem="3oi-1R-ukm" secondAttribute="centerX" id="nTJ-6K-36F"/>
-                        <constraint firstItem="6D9-iy-MTu" firstAttribute="centerX" secondItem="frb-3y-rwc" secondAttribute="centerX" id="oyt-TL-nlc"/>
-                        <constraint firstItem="hFZ-uH-8Th" firstAttribute="centerX" secondItem="6D9-iy-MTu" secondAttribute="centerX" id="s5N-br-KYp"/>
-                        <constraint firstItem="6D9-iy-MTu" firstAttribute="top" secondItem="frb-3y-rwc" secondAttribute="bottom" constant="12" id="uHU-O7-k9H"/>
-                        <constraint firstItem="6D9-iy-MTu" firstAttribute="leading" secondItem="3oi-1R-ukm" secondAttribute="leading" constant="37" id="yIE-L0-6NK"/>
+                        <constraint firstItem="Kfk-Ev-RO9" firstAttribute="centerX" secondItem="3oi-1R-ukm" secondAttribute="centerX" id="4Hj-Ws-UpJ"/>
+                        <constraint firstItem="LRU-TN-cgp" firstAttribute="top" secondItem="o9p-LP-gpJ" secondAttribute="bottom" constant="16" id="MmM-DL-EsE"/>
+                        <constraint firstAttribute="trailing" secondItem="LRU-TN-cgp" secondAttribute="trailing" id="Sk4-Dg-q9X"/>
+                        <constraint firstAttribute="width" secondItem="3oi-1R-ukm" secondAttribute="height" multiplier="1.54" id="cD8-QV-bqc"/>
+                        <constraint firstItem="Kfk-Ev-RO9" firstAttribute="top" secondItem="3oi-1R-ukm" secondAttribute="top" constant="7" id="esC-ZS-u4V"/>
+                        <constraint firstAttribute="trailing" secondItem="o9p-LP-gpJ" secondAttribute="trailing" id="f4K-7t-Bve"/>
+                        <constraint firstItem="o9p-LP-gpJ" firstAttribute="top" secondItem="Kfk-Ev-RO9" secondAttribute="bottom" constant="17" id="jeK-pZ-TV3"/>
+                        <constraint firstItem="o9p-LP-gpJ" firstAttribute="leading" secondItem="3oi-1R-ukm" secondAttribute="leading" id="tIk-0P-nnx"/>
+                        <constraint firstItem="LRU-TN-cgp" firstAttribute="leading" secondItem="3oi-1R-ukm" secondAttribute="leading" id="w6H-88-rN4"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -67,23 +54,33 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFZ-uH-8Th">
+                    <rect key="frame" x="168" y="528" width="39" height="39"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" backgroundImage="home_sign_error"/>
+                    <connections>
+                        <action selector="sureClick:" destination="Ta0-tU-xyv" eventType="touchUpInside" id="iTx-jL-iPY"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.4006932218" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="3oi-1R-ukm" firstAttribute="leading" secondItem="Ta0-tU-xyv" secondAttribute="leading" constant="45" id="5Vf-Ng-UJY"/>
+                <constraint firstItem="3oi-1R-ukm" firstAttribute="leading" secondItem="Ta0-tU-xyv" secondAttribute="leading" constant="40" id="5Vf-Ng-UJY"/>
                 <constraint firstItem="3oi-1R-ukm" firstAttribute="centerY" secondItem="Ta0-tU-xyv" secondAttribute="centerY" id="67N-5u-v2S"/>
+                <constraint firstItem="hFZ-uH-8Th" firstAttribute="centerX" secondItem="3oi-1R-ukm" secondAttribute="centerX" id="dOl-sZ-wSr"/>
+                <constraint firstItem="hFZ-uH-8Th" firstAttribute="top" secondItem="3oi-1R-ukm" secondAttribute="bottom" constant="99" id="jY6-zB-QvR"/>
                 <constraint firstItem="3oi-1R-ukm" firstAttribute="centerX" secondItem="Ta0-tU-xyv" secondAttribute="centerX" id="s9n-Gm-4Hl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="detailL" destination="frb-3y-rwc" id="ek1-vb-pM1"/>
-                <outlet property="diamoBtn" destination="6D9-iy-MTu" id="152-HQ-fqp"/>
+                <outlet property="detailL" destination="o9p-LP-gpJ" id="0Qn-mK-Af9"/>
+                <outlet property="tomorrowDetailL" destination="LRU-TN-cgp" id="gA0-SG-Gq4"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
     <resources>
-        <image name="home_sign_sure" width="161" height="30"/>
-        <image name="price" width="14" height="12"/>
+        <image name="home_sign_cion" width="82" height="82"/>
+        <image name="home_sign_error" width="39" height="39"/>
     </resources>
 </document>
