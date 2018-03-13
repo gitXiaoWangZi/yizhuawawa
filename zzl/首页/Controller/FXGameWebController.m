@@ -40,14 +40,10 @@
     self.title = self.item.title;
     if (self.item) {
         if ([self.item.banner_type isEqualToString:@"2"]) {//分享
-            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://api.wawa.lkmai.com/share",KUID];
+            
         }
         if ([self.item.banner_type isEqualToString:@"5"]) {//大转盘
             _isChristmasList = YES;
-            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://api.wawa.lkmai.com/turntable",KUID];
-        }
-        if ([self.item.banner_type isEqualToString:@"6"]) {//冲榜
-            self.item.openUrl = [NSString stringWithFormat:@"%@?uid=%@",@"http://api.wawa.lkmai.com/christmasList",KUID];
         }
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.item.openUrl]];
         [self.webView loadRequest:request];

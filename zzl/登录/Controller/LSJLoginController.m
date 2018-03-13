@@ -90,7 +90,7 @@
     [DYGHttpTool getWXWithPath:@"https://api.weixin.qq.com/sns/userinfo" params:params success:^(id responseObj) {
         NSDictionary *dic = responseObj;
         NSLog(@"%@",dic);
-        [self wxLoginDataWithOpenid:dic[@"unionid"] name:dic[@"nickname"] img:dic[@"headimgurl"]];
+        [self wxLoginDataWithOpenid:dic[@"unionid"] name:dic[@"nickname"] img:dic[@"headimgurl"] sex:dic[@"sex"]];
         
     } failure:^(NSError *error) {
         [_hud hideAnimated:YES];
@@ -98,9 +98,10 @@
     }];
 }
 
-- (void)wxLoginDataWithOpenid:(NSString *)openID name:(NSString *)name img:(NSString *)img{
+- (void)wxLoginDataWithOpenid:(NSString *)openID name:(NSString *)name img:(NSString *)img sex:(NSString *)sex{
     NSString *path = @"wxLoginUser";
-    NSDictionary *params = @{@"openid":openID,@"username":name,@"img":img,@"distinguish":@"1"};
+    NSString *sexStr = [sex integerValue] == 0 ? @"女" : @"男";
+    NSDictionary *params = @{@"openid":openID,@"username":name,@"img":img,@"distinguish":@"1",@"sex":sexStr};
     [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
         [_hud hideAnimated:YES];
         NSDictionary *dic = (NSDictionary *)json;

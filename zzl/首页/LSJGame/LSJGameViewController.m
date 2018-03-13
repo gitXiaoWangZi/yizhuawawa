@@ -26,12 +26,15 @@
 @interface LSJGameViewController ()<UIScrollViewDelegate,WwGameManagerDelegate,LSJTopViewDelegate,LSJOperationNormalViewDelegate,ZYPlayOperationViewDelegate,AVAudioPlayerDelegate,FXCommentViewDelegate,UITextFieldDelegate,ZYCountDownViewDelegate,FXGameResultViewDelegate>
 {
     BOOL isPlayGameing;
+    
+    BOOL isAction;
+    NSString *activePrice;
 }
 @property (nonatomic,strong) ZYRoomVerticalScroll *myScroV;
 @property (nonatomic,strong) BottomViewController *BottomViewVC;
 @property (nonatomic,strong) LSJTopView *topView;
 @property (nonatomic,strong) FXCommentView *comment;//键盘
-@property (nonatomic,strong) LSJOperationNormalView *normalView;//键盘
+@property (nonatomic,strong) LSJOperationNormalView *normalView;
 @property (nonatomic,assign) int commentBtnStatue;
 @property (nonatomic,assign) int musicBtnStatue;
 @property (nonatomic,strong) FXGameResultView * resultPopView;
@@ -82,6 +85,7 @@
     isPlayGameing = NO;
     self.commentBtnStatue = 1;
     self.musicBtnStatue = 1;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refeshCountDownAction) name:KrefreshActiveCountDown object:nil];
     //搭建页面
     [self setUpUI];
     //请求接口
@@ -139,6 +143,37 @@
     
     //添加视频View
     [self configRtcPlayer];
+    
+    //请求是否活动房间倒计时
+    [self refeshCountDownAction];
+}
+
+//请求是否活动房间倒计时
+- (void)refeshCountDownAction{
+    
+    [self activeWithWawaID:self.model.wawa.ID];
+}
+
+#pragma mark 请求是否活动房间倒计时
+- (void)activeWithWawaID:(NSInteger)ID{
+    NSString *path = @"gameCoupon";
+    NSDictionary *params = @{@"uid":KUID,@"itemCode":@(ID),@"credits":@(self.model.wawa.coin)};
+    [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([dic[@"code"] integerValue] == 200) {
+            if ([dic[@"data"][@"discount"] integerValue] == 0) {//无折扣
+                self.normalView.countBgView.hidden = YES;
+                [self.normalView stopCountDownAction];
+                isAction = NO;
+            }else{//有折扣
+                [self.normalView refreshViewWithOrigin:self.model.wawa.coin Credits:dic[@"data"][@"credits"] time:dic[@"data"][@"time"]];
+                isAction = YES;
+                activePrice = dic[@"data"][@"credits"];
+            }
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
 }
 
 -(void)setMusicPayer{
@@ -432,11 +467,20 @@
         NSDictionary *dic = (NSDictionary *)json;
         if ([dic[@"code"] integerValue] == 200) {
             sender.enabled = YES;
-            if ([dic[@"data"][@"coin"] intValue] >= self.model.wawa.coin) {
-                [self playGame];
+            if (isAction) {//活动房间对比折后价
+                if ([dic[@"data"][@"coin"] intValue] >= [activePrice intValue]) {
+                    [self playGame];
+                }else{
+                    [MBProgressHUD showError:@"余额不足" toView:self.view];
+                }
             }else{
-                [MBProgressHUD showError:@"余额不足" toView:self.view];
+                if ([dic[@"data"][@"coin"] intValue] >= self.model.wawa.coin) {
+                    [self playGame];
+                }else{
+                    [MBProgressHUD showError:@"余额不足" toView:self.view];
+                }
             }
+            
         }
     } failure:^(NSError *error) {
         NSLog(@"%@",error);
@@ -548,6 +592,9 @@
         //游戏结束 页面可以滑动
         isPlayGameing = NO;
         self.myScroV.scrollEnabled = YES;
+        
+        //请求是否活动房间倒计时
+        [self refeshCountDownAction];
         
         if (resultM.state == 2) {
             [self showResultPopViewWithResult:YES];

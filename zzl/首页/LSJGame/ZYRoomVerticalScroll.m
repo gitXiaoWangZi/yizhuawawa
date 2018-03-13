@@ -8,7 +8,6 @@
 
 #import "ZYRoomVerticalScroll.h"
 
-
 @implementation ZYRoomVerticalScroll
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer

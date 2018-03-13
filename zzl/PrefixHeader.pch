@@ -139,6 +139,7 @@ dispatch_async(dispatch_get_main_queue(), block);\
 #define KisLogin [[NSUserDefaults standardUserDefaults] boolForKey:KLoginStatus]
 #define KUID [[NSUserDefaults standardUserDefaults] objectForKey:KUser_ID]
 #define Kfirstpunch @"firstpunch"
+#define KrefreshActiveCountDown @"refreshActiveCountDown"
 
 //字体相关
 #define kPingFangSC_Regular(fontSize)   [UIFont fontWithName:@"PingFangSC-Regular" size:(fontSize)]

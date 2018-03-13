@@ -25,4 +25,7 @@ typedef NS_ENUM(NSInteger,OperationNormalView) {
 @property (nonatomic,strong) UIButton *gameBtn;
 @property (nonatomic,assign) OperationNormalView operationNormalView;
 @property (nonatomic,assign) id<LSJOperationNormalViewDelegate> delegate;
+@property (nonatomic,strong) UIView *countBgView;
+- (void)refreshViewWithOrigin:(NSInteger )price Credits:(NSString *)credits time:(NSString *)time;
+- (void)stopCountDownAction;
 @end
