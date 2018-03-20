@@ -13,6 +13,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LSJLoginController">
             <connections>
                 <outlet property="view" destination="mlU-xY-2E6" id="6wP-9O-nfB"/>
+                <outlet property="visitBtn" destination="Ubp-I3-ENk" id="hdf-Zy-b2s"/>
+                <outlet property="wechatBtn" destination="GBj-DE-XQf" id="chx-dO-uFi"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -109,20 +111,32 @@
                         <action selector="phoneAction:" destination="-1" eventType="touchUpInside" id="4zd-kM-x5z"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubp-I3-ENk">
+                    <rect key="frame" x="158.5" y="532" width="58" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="游客进入">
+                        <color key="titleColor" red="0.78788238763809204" green="0.28443732857704163" blue="0.44713243842124939" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </state>
+                    <connections>
+                        <action selector="visiterAction:" destination="-1" eventType="touchUpInside" id="PjE-Bk-9GE"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="6Cd-eg-khV" firstAttribute="leading" secondItem="mlU-xY-2E6" secondAttribute="leading" id="3Ih-zZ-Eal"/>
                 <constraint firstItem="6Cd-eg-khV" firstAttribute="top" secondItem="mlU-xY-2E6" secondAttribute="top" id="COo-99-CnV"/>
                 <constraint firstItem="WyA-Y7-Bon" firstAttribute="centerX" secondItem="6Cd-eg-khV" secondAttribute="centerX" id="EJk-LE-45i"/>
+                <constraint firstItem="Ubp-I3-ENk" firstAttribute="top" secondItem="GBj-DE-XQf" secondAttribute="bottom" constant="10" id="Vfx-L0-Ibj"/>
                 <constraint firstItem="Zxe-Uo-Wj3" firstAttribute="centerX" secondItem="mlU-xY-2E6" secondAttribute="centerX" id="WpV-kh-Oyj"/>
+                <constraint firstItem="Ubp-I3-ENk" firstAttribute="centerX" secondItem="GBj-DE-XQf" secondAttribute="centerX" id="fBY-JY-QQH"/>
                 <constraint firstAttribute="bottom" secondItem="GBj-DE-XQf" secondAttribute="bottom" constant="145" id="g7K-Fn-xI8"/>
                 <constraint firstItem="GBj-DE-XQf" firstAttribute="centerX" secondItem="mlU-xY-2E6" secondAttribute="centerX" id="jVr-ae-bou"/>
                 <constraint firstItem="GBj-DE-XQf" firstAttribute="top" secondItem="WyA-Y7-Bon" secondAttribute="bottom" constant="22" id="lJn-US-G63"/>
                 <constraint firstAttribute="bottom" secondItem="Zxe-Uo-Wj3" secondAttribute="bottom" constant="46" id="xdF-A9-g0x"/>
                 <constraint firstAttribute="trailing" secondItem="6Cd-eg-khV" secondAttribute="trailing" id="z3D-JP-ehf"/>
             </constraints>
-            <point key="canvasLocation" x="-393" y="13"/>
+            <point key="canvasLocation" x="-393.5" y="12.5"/>
         </view>
     </objects>
     <resources>

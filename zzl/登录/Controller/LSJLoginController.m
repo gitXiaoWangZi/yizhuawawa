@@ -20,6 +20,8 @@
 
 @property(nonatomic,weak)AppDelegate * appdelegate;
 @property (nonatomic,strong) MBProgressHUD *hud;
+@property (weak, nonatomic) IBOutlet UIButton *visitBtn;
+@property (weak, nonatomic) IBOutlet UIButton *wechatBtn;
 @end
 
 @implementation LSJLoginController
@@ -29,6 +31,29 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor =[UIColor whiteColor];
     
+    [DYGHttpTool postWithURL:@"appeal" params:nil sucess:^(id json) {
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([dic[@"code"] integerValue] == 200) {
+            if ([dic[@"data"] integerValue] == 0) {
+                self.visitBtn.hidden = YES;
+            }else{
+                self.visitBtn.hidden = NO;
+            }
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    if ([WXApi isWXAppInstalled]) {//用户已经安装微信客户端
+        //构造SendAuthReq结构体
+        self.wechatBtn.hidden = NO;
+    }else{//用户未安装微信客户端
+        //
+        self.wechatBtn.hidden = YES;
+    }
 }
 
 - (IBAction)phoneAction:(id)sender {
@@ -59,6 +84,29 @@
     FXGameWebController *web = [[FXGameWebController alloc] init];
     web.item = item;
     [self.navigationController pushViewController:web animated:YES];
+}
+
+- (IBAction)visiterAction:(UIButton *)sender {
+    NSString *path = @"vLoginUser";
+    NSDictionary *params = @{@"phone":[DYGEnCode EncodeWithString:@"15223439862"],@"vercode":@"123456",@"appsour":@"appStore",@"distinguish":@"1"};
+    [DYGHttpTool postWithURL:path params:params sucess:^(id json) {
+        [_hud hideAnimated:YES];
+        NSDictionary *dic = (NSDictionary *)json;
+        if ([dic[@"code"] integerValue] == 200) {
+            NSDictionary *userDic = dic[@"data"][@"userInfo"];
+            NSMutableDictionary *userIngoDic = [@{@"ID":userDic[@"uid"],@"name":userDic[@"nickname"],@"img":userDic[@"portrait"]} mutableCopy];
+            [[NSUserDefaults standardUserDefaults] setObject:userIngoDic forKey:@"KWAWAUSER"];
+            [[NSUserDefaults standardUserDefaults] setObject:userDic[@"uid"] forKey:KUser_ID];
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:KLoginStatus];
+            UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+            FXNavigationController *nav = [[FXNavigationController alloc] initWithRootViewController:[[LSJHomeViewController alloc] init]];
+            window.rootViewController = nav;
+        }else{
+            [MBProgressHUD showError:dic[@"msg"] toView:self.view];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)loginSuccessByCode:(NSString *)code{

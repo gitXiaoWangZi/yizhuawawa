@@ -125,7 +125,7 @@
                 [self.roomsArray removeAllObjects];
             }
             self.roomsArray = [list mutableCopy];
-            for (WwRoom *room in self.roomsArray) {
+            for (WwRoom *room in list) {
                 if (room.ID == 492) {
                     [self.roomsArray removeObject:room];
                 }
@@ -223,13 +223,21 @@
 }
 
 - (void)personalAction:(UIButton *)sender{
-    FXSelfViewController *mine = [[FXSelfViewController alloc] init];
-    [self.navigationController pushViewController:mine animated:YES];
+    if (![[VisiteTools shareInstance] isVisite]) {
+        FXSelfViewController *mine = [[FXSelfViewController alloc] init];
+        [self.navigationController pushViewController:mine animated:YES];
+    }else{
+        [[VisiteTools shareInstance] outLogin];
+    }
 }
 
 - (void)wawaAction:(UIButton *)sender{
-    LSJSpoilsController *spoilVC = [[LSJSpoilsController alloc] init];
-    [self.navigationController pushViewController:spoilVC animated:YES];
+    if (![[VisiteTools shareInstance] isVisite]) {
+        LSJSpoilsController *spoilVC = [[LSJSpoilsController alloc] init];
+        [self.navigationController pushViewController:spoilVC animated:YES];
+    }else{
+        [[VisiteTools shareInstance] outLogin];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -324,9 +332,13 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    LSJGameViewController *gameVC = [[LSJGameViewController alloc] init];
-    gameVC.model = self.roomsArray[indexPath.row];
-    [self.navigationController pushViewController:gameVC animated:YES];
+    if (![[VisiteTools shareInstance] isVisite]) {
+        LSJGameViewController *gameVC = [[LSJGameViewController alloc] init];
+        gameVC.model = self.roomsArray[indexPath.row];
+        [self.navigationController pushViewController:gameVC animated:YES];
+    }else{
+        [[VisiteTools shareInstance] outLogin];
+    }
 }
 
 #pragma mark 签到天数
